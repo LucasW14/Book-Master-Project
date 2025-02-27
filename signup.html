@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Create an Account</h2>
+    <form action="#" method="POST">
+        <!-- Full Name -->
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+        <!-- Account Type -->
+        <label for="account-type">Account Type</label>
+        <select id="account-type" name="account-type" required>
+            <option value="customer">Customer</option>
+            <option value="seller">Seller</option>
+        </select>
+
+        <!-- Submit Button -->
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+</body>
+</html>
