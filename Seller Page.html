@@ -18,17 +18,17 @@
 
         /* Style the buttons */
         .button1 {
-            margin-top: 15px; /* Space between buttons */
-            padding: 12px;
-            width: 500%;
-            max-width: 400px;
+            padding: 20px; /* Increase padding to make the button larger */
+            width: 100%;
+            max-width: 500px; /* Set a maximum width for the button */
             background-color: orange;
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 20px; /* Increase font size */
             border-radius: 5px; /* Optional: adds rounded corners */
             text-align: center;
+            margin-top: 10px; /* Adjust spacing between buttons */
         }
 
         /* Hover effect */
@@ -36,13 +36,17 @@
             background-color: yellow;
         }
 
+        /* Optional: remove the link underline */
+        a {
+            text-decoration: none;
+        }
+
         img {
-    margin-left: 40px; /* Moves image 20px to the right */
-}
-
-
+            margin-left: 40px; /* Moves image 20px to the right */
+        }
 
     </style>
+
 </head>
 <body>
 
@@ -81,7 +85,9 @@
     <!-- Button Section (Centered) -->
     <div class="button-container">
         <button class="button1">My Book Drafts</button>
-        <button class="button1">Sales Statistics</button>
+        <a href="Sales%20Statistics.html">
+            <button class="button1">Sales Statistics</button>
+        </a>
         <button class="button1">Books Sold</button>
         <button class="button1">Sell a new book</button>
         <button class="button1">My Book Store</button>
