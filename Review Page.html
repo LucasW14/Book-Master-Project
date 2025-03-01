@@ -2,9 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Customer Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+        }
+
+        .review-section {
+    width: 40%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 50px auto;
+    background: yellow;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 600px; /* Limit the height */
+    overflow-y: auto; /* Enable scrolling if content is too long */
+}
+
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .review .stars {
+            color: gold;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .review p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .customer-name {
+            font-weight: bold;
+            color: #0073e6;
+            font-size: 14px;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
+
+<div class="header">
+    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
+    <nav class="nav-links">
+        <a href="Home.html" style="color: yellow; text-align: center">Home</a>
+        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>
+        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
+        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
+    </nav>
+</div>
+
+<h2 class="header2" style="color: yellow; text-align: center">Seller Profile</h2>
+
+<div class="review-section">
+    <h2 style="text-align: center; color: #333;">Customer Reviews</h2>
+
+    <table>
+
+        <tr>
+            <th bgcolor="red"><img
+                    src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585585629l/52822210.jpg"
+                    alt="Concrete rose image" width="134" height="142"></th>
+        </tr>
+        <tr>
+            <td bgcolor="red">Book Name: Concrete Rose</td>
+        </tr>
+        <tr>
+            <td bgcolor="red">Genre: Urban Fiction</td>
+        </tr>
+        <tr>
+            <td bgcolor="red">Price: $15.00</td>
+        </tr>
+
+        <tr>
+            <td bgcolor="red">Sales: 2,500</td>
+        </tr>
+
+        <tr>
+            <td bgcolor="red"><a href="Book%20Profile.html">
+                <button>View Details</button>
+            </a></td>
+        </tr>
+
+
+
+
+    </table>
+
+
+    <div class="review">
+        <h3>Great Book!</h3>
+        <div class="stars">★★★★★</div>
+        <p>"This book was an amazing read! I couldn't put it down."</p>
+        <span class="customer-name">- Alice Johnson</span>
+        <span class="review-date"> | Feb 20, 2025</span>
+    </div>
+
+    <div class="review">
+        <h3>Interesting Story</h3>
+        <div class="stars">★★★★☆</div>
+        <p>"Loved the storyline, but I wish it was a bit longer."</p>
+        <span class="customer-name">- Mark Stevens</span>
+        <span class="review-date"> | Jan 18, 2025</span>
+    </div>
+
+    <div class="review">
+        <h3>Not What I Expected</h3>
+        <div class="stars">★★★☆☆</div>
+        <p>"It was okay, but I felt like the ending was rushed."</p>
+        <span class="customer-name">- Sarah Lee</span>
+        <span class="review-date"> | Dec 5, 2024</span>
+    </div>
+</div>
 
 </body>
 </html>
