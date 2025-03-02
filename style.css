@@ -140,3 +140,179 @@ img {
  img {
                 margin-left: 225px; /* Moves image 20px to the right */
             }
+ img {
+            margin-left: 40px; /* Moves image 20px to the right */
+        }
+
+
+        .img2 {
+                        margin-left: 0px; /* Moves image 20px to the right */
+                    }
+
+        input {
+                margin: 15px 0; /* Adjust margin to make spacing bigger */
+                padding: 12px;
+                width: 100%;
+                max-width: 400px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            .button2 {
+                margin-top: 15px; /* Adds space above the button */
+                padding: 12px;
+                width: 100%;
+                max-width: 400px;
+                background-color: orange;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: yellow;
+            }
+
+
+
+              .body2 {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        margin: 0;
+                        padding: 0;
+                        padding-top: 80px;
+                    }
+
+                    .review-section {
+                width: 40%;
+                max-width: 400px;
+                padding: 15px;
+                margin: 50px auto;
+                background: yellow;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                max-height: 600px; /* Limit the height */
+                overflow-y: auto; /* Enable scrolling if content is too long */
+            }
+
+                    .review {
+                        border-bottom: 1px solid #ddd;
+                        padding: 15px 0;
+                    }
+
+                    .review:last-child {
+                        border-bottom: none;
+                    }
+
+                    .review h3 {
+                        margin: 0;
+                        font-size: 18px;
+                        color: #333;
+                    }
+
+                    .review .stars {
+                        color: gold;
+                        font-size: 18px;
+                        margin: 5px 0;
+                    }
+
+                    .review p {
+                        font-size: 16px;
+                        color: #555;
+                        line-height: 1.5;
+                    }
+
+                    .customer-name {
+                        font-weight: bold;
+                        color: #0073e6;
+                        font-size: 14px;
+                    }
+
+                    .review-date {
+                        font-size: 12px;
+                        color: #999;
+                    }
+ /* This will center the body content */
+        .body3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            background-color: #f0f0f0; /* Optional: a background color */
+        }
+
+        .container2 {
+            text-align: center;
+        }
+
+        .stat-digital{
+            font-size: 30px;
+            font-family: "Courier New", monospace;
+            color: yellow;
+            background-color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 20px; /* Space between the table and stats */
+        }
+
+        /* Ensures the table is on top and centered */
+        .table-container2 {
+            margin-bottom: 20px; /* Space between the table and stats */
+            display: inline-block;
+            text-align: center; /* Center the table content */
+        }
+
+        /* Center the buttons inside their section */
+                .button-container {
+                    display: flex;
+                    flex-direction: column; /* Stack buttons vertically */
+                    justify-content: center; /* Center buttons inside container */
+                    align-items: center; /* Center horizontally */
+                    margin-top: 20px; /* Add space from the previous section */
+                }
+
+                /* Style the buttons */
+                .button1 {
+                    padding: 20px; /* Increase padding to make the button larger */
+                    width: 100%;
+                    max-width: 500px; /* Set a maximum width for the button */
+                    background-color: orange;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 20px; /* Increase font size */
+                    border-radius: 5px; /* Optional: adds rounded corners */
+                    text-align: center;
+                    margin-top: 10px; /* Adjust spacing between buttons */
+                }
+
+                /* Hover effect */
+                .button1:hover {
+                    background-color: yellow;
+                }
+
+                /* Optional: remove the link underline */
+                a {
+                    text-decoration: none;
+                }
+
+                img {
+                    margin-left: 40px; /* Moves image 20px to the right */
+                }
+
+
+ .img3 {
+  display: block;
+  margin: 0 auto; /* Centers the image */
+  width: 300px; /* Adjust the image size */
+  height: auto;
+  }
+
+  .hortonimage{
+
+  margin-right: 30px;
+
+  }
