@@ -1,0 +1,127 @@
+  .table-container {
+      display: flex; /* Use flexbox to place tables side by side */
+      justify-content: space-between; /* Ensures space between tables */
+      align-items: flex-start; /* Align tables at the top */
+      width: 100%; /* Takes full width of the container */
+      padding: 10px;
+      gap: 20px; /* Adds space between the tables */
+  }
+
+
+        table {
+            display: inline-block;
+            margin-right: 20px; /* Adds space between tables */
+            border-collapse: collapse;
+            text-align: left;
+            border: 2px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        /* Add Gradient Background */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to bottom right, red, blue); /* Gradient from top-left to bottom-right */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Style for the menu */
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: none;
+            background: #258a1d;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Style for text */
+        h1 {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h2 {
+            color: white;  /* White color for contrast */
+            text-align: center;
+            font-size: 1.5em;  /* Make the subheading smaller than the title */
+            margin-top: 10px; /* Space between title and subheading */
+        }
+
+        /* Optional: Styling for the image */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Additional padding for paragraphs */
+        p {
+            text-align: center;
+            padding: 0 20px;
+            font-size: 1.2em;
+        }
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center; /* Align title and links vertically */
+    gap: 20px; /* Space between title and links */
+    padding: 10px;
+}
+
+.header2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center; /* Align title and links vertically */
+    gap: 20px; /* Space between title and links */
+    padding: 10px;
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Adjust color as needed */
+    font-size: 18px;
+    margin-left: 15px; /* Space between links */
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2); /* Light background */
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background on hover */
+}
+
+img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            right:0;
+        }
+
+
+.hw-title {
+     font-size: 42px;
+     font-family: 'Pacifico', cursive;
+     color: #ff6600;
+     text-align: center;
+
+     }
+
+    }
+
