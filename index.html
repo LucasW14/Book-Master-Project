@@ -5,16 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookstore</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Ensure header takes full width and aligns items properly */
+    header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #f8f8f8;
+    }
+
+    .search-container {
+      position: absolute;
+      left: 20px; /* Moves search bar to the left */
+    }
+
+    .logo {
+      margin: auto; /* Centers logo */
+    }
+  </style>
 </head>
 <body>
 
 <!-- Top Bar with Search -->
 <header>
-  <div class="logo">📚 Book Master</div>
   <div class="search-container">
-    <input type="text" id="searchBar" placeholder="Search for books...">
+    <input type="text" id="searchBar" placeholder="Search for books..." onkeyup="searchBooks()">
     <button onclick="searchBooks()">🔍</button>
   </div>
+  <div class="logo">📚 Book Master</div>
 </header>
 
 <main>
@@ -32,28 +52,43 @@
   </div>
 
   <!-- Book Grid -->
-  <div class="book-grid">
+  <div class="book-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-content: center; max-width: 600px; margin: auto;">
     <div class="book" data-genre="fiction">
-      <img src="book1.jpg" alt="Book 1">
-      <h3>The Great Story</h3>
+      <img src="https://images.booksense.com/images/403/353/9780590353403.jpg" alt="Book 1" style="width: 150px; height: auto;">
+      <h3>Harry Potter and the Sorcerer's Stone</h3>
       <p>Fiction</p>
     </div>
     <div class="book" data-genre="mystery">
-      <img src="book2.jpg" alt="Book 2">
-      <h3>Mystery of the Lost</h3>
+      <img src="https://images1.penguinrandomhouse.com/cover/9780440414803?height=284&alt=cover_coming_soon.jpg" alt="Book 2" style="width: 150px; height: auto;">
+      <h3>Holes</h3>
       <p>Mystery</p>
     </div>
     <div class="book" data-genre="fantasy">
-      <img src="book3.jpg" alt="Book 3">
+      <img src="https://m.media-amazon.com/images/I/61zO0s4Q5AL._AC_UF1000,1000_QL80_.jpg" alt="Book 3" style="width: 150px; height: auto;">
       <h3>Legends of Avalon</h3>
       <p>Fantasy</p>
+    </div>
+    <div class="book" data-genre="sci-fi">
+      <img src="https://i.ebayimg.com/images/g/HocAAOSwaN9iwAdz/s-l1200.jpg" alt="Book 4" style="width: 150px; height: auto;">
+      <h3>The Martian</h3>
+      <p>Science Fiction</p>
     </div>
   </div>
 </main>
 
 <script>
   function searchBooks() {
-      alert("Searching for: " + document.getElementById("searchBar").value);
+      let query = document.getElementById("searchBar").value.toLowerCase();
+      let books = document.querySelectorAll('.book');
+
+      books.forEach(book => {
+          let title = book.querySelector('h3').textContent.toLowerCase();
+          if (title.includes(query)) {
+              book.style.display = "block";
+          } else {
+              book.style.display = "none";
+          }
+      });
   }
 
   function filterGenre(genre) {
