@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Bar with Search -->
+<header>
+  <div class="logo">📚 Book Master</div>
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Search for books...">
+    <button onclick="searchBooks()">🔍</button>
+  </div>
+</header>
+
+<main>
+  <h1>Welcome to BookMaster</h1>
+  <p>Find your favorite books by selecting a genre or using the search bar.</p>
+
+  <!-- Genre Buttons -->
+  <div class="genres">
+    <button onclick="filterGenre('all')">All</button>
+    <button onclick="filterGenre('fiction')">Fiction</button>
+    <button onclick="filterGenre('mystery')">Mystery</button>
+    <button onclick="filterGenre('fantasy')">Fantasy</button>
+    <button onclick="filterGenre('sci-fi')">Science Fiction</button>
+    <button onclick="filterGenre('romance')">Romance</button>
+  </div>
+
+  <!-- Book Grid -->
+  <div class="book-grid">
+    <div class="book" data-genre="fiction">
+      <img src="book1.jpg" alt="Book 1">
+      <h3>The Great Story</h3>
+      <p>Fiction</p>
+    </div>
+    <div class="book" data-genre="mystery">
+      <img src="book2.jpg" alt="Book 2">
+      <h3>Mystery of the Lost</h3>
+      <p>Mystery</p>
+    </div>
+    <div class="book" data-genre="fantasy">
+      <img src="book3.jpg" alt="Book 3">
+      <h3>Legends of Avalon</h3>
+      <p>Fantasy</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  function searchBooks() {
+      alert("Searching for: " + document.getElementById("searchBar").value);
+  }
+
+  function filterGenre(genre) {
+      let books = document.querySelectorAll('.book');
+      books.forEach(book => {
+          if (genre === 'all' || book.dataset.genre === genre) {
+              book.style.display = "block";
+          } else {
+              book.style.display = "none";
+          }
+      });
+  }
+</script>
+
+</body>
+</html>
