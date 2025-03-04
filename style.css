@@ -477,3 +477,52 @@ button:hover {
             color: yellow;
 
           }
+
+          /* Notification styling */
+.notification {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notification a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.notification button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.notification button:hover {
+    color: #ff4500;
+}
+
+/* Add responsiveness */
+@media screen and (max-width: 600px) {
+    .notification {
+        width: 90%;
+    }
+}
