@@ -23,16 +23,21 @@
 
         /* Add Gradient Background */
         body {
+
             margin: 0;
             padding: 0;
-            height: 100vh;
-            background: linear-gradient(to bottom right, red, blue); /* Gradient from top-left to bottom-right */
+            height: 105vh;
+        
+                background-image: url('/images/book.gif'); 
+                background-repeat: repeat; 
+                background-attachment: fixed; 
+            
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            color: white;
+            color: yellow;
         }
 
         /* Style for the menu */
