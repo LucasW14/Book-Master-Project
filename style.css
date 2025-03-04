@@ -192,16 +192,20 @@ img {
                     }
 
                     .review-section {
-                width: 40%;
-                max-width: 400px;
-                padding: 15px;
-                margin: 50px auto;
-                background: yellow;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                max-height: 600px; /* Limit the height */
-                overflow-y: auto; /* Enable scrolling if content is too long */
-            }
+                        width: 40%; /* Increase the width to allow it to stretch more */
+                        max-width: 800px; /* Set a maximum width to prevent it from becoming too large */
+                        padding: 15px;
+                        margin: 50px auto;
+                        background: yellow;
+                        border-radius: 10px;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        max-height: 600px; /* Limit the height */
+                         height: 800px;
+                        overflow-y: auto; /* Enable scrolling if content is too long */
+                    }
+
+
+
 
 
                     .review {
