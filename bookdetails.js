@@ -28,3 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Function to close the notification
+function closeNotification() {
+    document.getElementById("notification").style.opacity = "0"; // Fade out the notification
+    setTimeout(function() {
+        document.getElementById("notification").style.display = "none"; // Hide the notification after fade-out
+    }, 300);
+}
+
+// Set a timeout to automatically close the notification after 10 seconds
+setTimeout(closeNotification, 10000); // The notification will disappear after 10 seconds if not closed manually
