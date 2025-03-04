@@ -5,6 +5,7 @@
     <title>My Book Store</title>
 
   <link rel="stylesheet" href="style.css">
+  <script src="bookstore.js" defer></script>
 
 
 </head>
@@ -18,9 +19,121 @@
         <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
         <a href="signup.html" style="color: yellow; text-align: center">Signup</a>
         <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
+        <input type="text" id="search" placeholder="Search for books...">
+        <button onclick="searchBooks()">Search</button>
+        <select id="filter">
+            <option value="all">All Genres</option>
+            <option value="fiction">Fiction</option>
+            <option value="nonfiction">Non-Fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="fantasy">Fantasy</option>
+        </select>
+ 
     </nav>
 </div>
 <h2 class="header2" style="color: yellow; text-align: center">Book Store</h2>
+
+
+
+    </header>
+    
+    <main>
+        <div id="book-list">
+           
+            <div class="book">
+                <h3><a href=bookdetails.html>1984</a></h3>
+                <p>Author: George Orwell</p>
+                <p>Year: 1949</p>
+                <p>Genre: Dystopian</p>
+                <p>Price: $12.99</p>
+                <p>Seller: Barnes & Noble</p>
+                
+            </div>
+            <div class="book">
+                <h3><a href=bookdetails.html>To Kill a Mockingbird</a></h3>
+                <p>Author: Harper Lee</p>
+                <p>Year: 1960</p>
+                <p>Genre: Fiction</p>
+                <p>Price: $9.99</p>
+                <p>Seller: eBay</p>
+                
+            </div>
+
+            <div class="book">
+                <h3><a href="bookdetails.html">Moby Dick</a></h3>
+                <p>Author: Herman Melville</p>
+                <p>Year: 1851</p>
+                <p>Genre: Adventure</p>
+                <p>Price: $13.00</p>
+                <p>Seller: Amazon</p>
+            </div>
+            
+            <div class="book">
+                <h3><a href="bookdetails.html">Pride and Prejudice</a></h3>
+                <p>Author: Jane Austen</p>
+                <p>Year: 1813</p>
+                <p>Genre: Romance</p>
+                <p>Price: $7.99</p>
+                <p>Seller: eBay</p>
+            </div>
+
+            <div class="book">
+                <h3><a href=bookdetails.html>The Great Gatsby</a></h3>
+                <p>Author: F. Scott Fitzgerald</p>
+                <p>Year: 1925</p>
+                <p>Genre: Fiction</p>
+                <p>Price: $10.99</p>
+                <p>Seller: Barnes & Noble</p>
+                
+            </div>
+            
+            <div class="book">
+                <h3><a href="bookdetails.html">The Picture of Dorian Gray</a></h3>
+                <p>Author: Oscar Wilde</p>
+                <p>Year: 1890</p>
+                <p>Genre: Gothic Fiction</p>
+                <p>Price: $10.00</p>
+                <p>Seller: Book Depository</p>
+            </div>
+            
+            <div class="book">
+                <h3><a href="bookdetails.html">Brave New World</a></h3>
+                <p>Author: Aldous Huxley</p>
+                <p>Year: 1932</p>
+                <p>Genre: Science Fiction</p>
+                <p>Price: $12.50</p>
+                <p>Seller: Barnes & Noble</p>
+            </div>
+            
+            <div class="book">
+                <h3><a href="bookdetails.html">War and Peace</a></h3>
+                <p>Author: Leo Tolstoy</p>
+                <p>Year: 1869</p>
+                <p>Genre: Historical Fiction</p>
+                <p>Price: $18.00</p>
+                <p>Seller: Amazon</p>
+            </div>
+            <div class="book">
+                <h3><a href="bookdetails.html">The Catcher in the Rye</a></h3>
+                <p>Author: J.D. Salinger</p>
+                <p>Year: 1951</p>
+                <p>Genre: Fiction</p>
+                <p>Price: $11.50</p>
+                <p>Seller: Book Depository</p>
+            </div>
+            
+            <div class="book">
+                <h3><a href="bookdetails.html">The Hobbit</a></h3>
+                <p>Author: J.R.R. Tolkien</p>
+                <p>Year: 1937</p>
+                <p>Genre: Fantasy</p>
+                <p>Price: $14.99</p>
+                <p>Seller: Barnes & Noble</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
 
 
 

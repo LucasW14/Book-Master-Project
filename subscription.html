@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Page</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Choose Your Subscription Plan</h1>
+    
+    <!-- Subscription Plans -->
+    <div class="subscription-plan">
+
+        <div class="plan">
+            <h2>Standard Plan</h2>
+            <p>$19.99/month</p>
+       
+        </div>
+        <div class="plan">
+            <h2>Premium Plan</h2>
+            <p>$59.99/yearly</p>
+ 
+        </div>
+    </div>
+
+
+
+    <!-- Frequency Option -->
+    <div class="options">
+        <h2>Choose Subscription Frequency</h2>
+        
+        <label>
+            <input type="radio" name="frequency" value="monthly" checked> Monthly
+        </label>
+        <label>
+            <input type="radio" name="frequency" value="yearly"> Yearly
+        </label>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="options">
+        <h2>Payment Options</h2>
+        <select>
+            <option value="Credit">Credit/Debit</option>
+            <option value="standard">Paypal</option>
+            <option value="premium">Bitcoin</option>
+        </select>
+        <p>Choose your desired payment option.</p>
+    </div>
+
+    <!-- Refund Policy -->
+    <div class="refund-policy">
+        <h2>Refund Policy</h2>
+        <p>We offer a 30-day refund policy. If you're not satisfied with your subscription, you can request a full refund within the first 30 days of your purchase. After the 30-day period, no refunds will be issued. Please contact our support team for any queries regarding the refund process.</p>
+    </div>
+</div>
+
+</body>
+</html>
