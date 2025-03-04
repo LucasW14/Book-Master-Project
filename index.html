@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -29,28 +29,22 @@
 </head>
 <body>
 
-<!-- Top Bar with Search -->
-<header>
-  <div class="search-container">
-    <input type="text" id="searchBar" placeholder="Search for books..." onkeyup="searchBooks()">
-    <button onclick="searchBooks()">🔍</button>
-  </div>
-  <div class="logo">📚 Book Master</div>
-</header>
+  <div class="header">
+    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
+    <nav class="nav-links">
+        <a href="index.html" style="color: yellow; text-align: center">Home</a>
+        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>
+        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
+        <a href="signup.html" style="color: yellow; text-align: center">Signup</a>
+        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
+</div>
+<br>
+<br>
+<br>
+<br>
 
-<main>
-  <h1>Welcome to BookMaster</h1>
-  <p>Find your favorite books by selecting a genre or using the search bar.</p>
 
-  <!-- Genre Buttons -->
-  <div class="genres">
-    <button onclick="filterGenre('all')">All</button>
-    <button onclick="filterGenre('fiction')">Fiction</button>
-    <button onclick="filterGenre('mystery')">Mystery</button>
-    <button onclick="filterGenre('fantasy')">Fantasy</button>
-    <button onclick="filterGenre('sci-fi')">Science Fiction</button>
-    <button onclick="filterGenre('romance')">Romance</button>
-  </div>
+<h2>Bestselling Books</h2>
 
   <!-- Book Grid -->
   <div class="book-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-content: center; max-width: 600px; margin: auto;">
@@ -75,6 +69,11 @@
       <p>Science Fiction</p>
     </div>
   </div>
+  <section class="about">
+    <h2>About Book Master</h2>
+    <p>Book Master is an interactive application designed to make buying and selling books easier. Whether you're looking to browse books of your favorite genre, buy the latest bestsellers, or sell your own collection, we've got you covered. Our user-friendly platform lets you find books, sell books, and interact with other users in a safe, secure environment. Start your reading journey with Book Master today!</p>
+</section>
+</main>
 </main>
 
 <script>
@@ -105,4 +104,7 @@
 </script>
 
 </body>
+<footer class="footer">
+  <p>&copy; 2025 Book Master. All Rights Reserved.</p>
+</footer>
 </html>

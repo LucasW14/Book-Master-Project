@@ -5,6 +5,7 @@
     <title>Book Master</title>
     <link rel="stylesheet" href="style.css">
     <script src="bookdetails.js" defer></script>
+    <script src="notification.js" defer></script>
 
 
 </head>
@@ -59,7 +60,17 @@
         <button class="Buy" data-id="2" data-name="The Great Gatsby" data-price="11.99" data-image="images/gatsby.jpg">
             Buy *USED*
         </button>
+<!-- Notification Container -->
+<div id="notification" class="notification">
+    <p>I see that you are not subscribed, Would you like to check out our <a href="subscription.html">subsciptions</a>?</p>
+    <button id="close-btn" onclick="closeNotification()">X</button>
+</div>
 
+
+
+
+</body>
+</html>
 
 
 </body>
