@@ -75,11 +75,72 @@ public class Book {
 //
 //    }
 
-    Book(){
+    public Book(){
 
     }
 
+    public int getBookId(){
+        return bookId;
+    }
 
+    public void setBookId(int bookId){
+        this.bookId = bookId;
+
+    }
+
+    public String getBookName(){
+        return bookName;
+    }
+
+    public void setBookName(String bookName){
+        this.bookName = bookName;
+
+    }
+
+    public String getAuthor(){
+        return author;
+    }
+
+    public void setAuthor(String author){
+        this.author = author;
+
+    }
+
+    public String getGenre(){
+        return genre;
+    }
+
+    public void setGenre(String genre){
+        this.genre = genre;
+
+    }
+
+    public Date getPublishDate(){
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate){
+        this.publishDate = publishDate;
+
+    }
+
+    public Double getBookPrice(){
+        return bookPrice;
+    }
+
+    public void setBookPrice(Double bookPrice){
+        this.bookPrice = bookPrice;
+
+    }
+
+    public int getBookQuantity(){
+        return bookQuantity;
+    }
+
+    public void setBookQuantity(int bookQuantity){
+        this.bookQuantity = bookQuantity;
+
+    }
 
 
 
