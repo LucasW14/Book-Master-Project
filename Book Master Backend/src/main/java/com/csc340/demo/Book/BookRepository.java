@@ -16,7 +16,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> getBooksByPrice(double bookPrice);
 
     @Query(value = "select * from books b where b.name like %?1% ", nativeQuery = true)
-    List<Book> getBooksByName(String bookName);
+    List<Book> getBooksByTitle(String bookTitle);
 
     @Query(value = "select * from books b where b.userId = ?1", nativeQuery = true)
     List<Book> getBooksBySellerId(int userId);

@@ -31,12 +31,29 @@ public class BookController {
 
     }
 
-    @GetMapping("/name")
+    @GetMapping("/title")
     public Object getBooksByTitle(@RequestParam(name = "search", defaultValue = "") String search){
         return new ResponseEntity<>(bookService.getBooksByTitle(search), HttpStatus.OK);
 
 
     }
+
+    @GetMapping("/genre")
+    public Object getBooksByGenre(@RequestParam(name = "search", defaultValue = "") String search){
+        return new ResponseEntity<>(bookService.getBooksByGenre(search), HttpStatus.OK);
+
+
+    }
+
+    @GetMapping("/{bookPrice}")
+    public Object getBooksByPrice(@PathVariable double bookPrice){
+        return new ResponseEntity<>(bookService.getBooksByPrice(bookPrice), HttpStatus.OK);
+
+
+    }
+
+
+
 
 
 }

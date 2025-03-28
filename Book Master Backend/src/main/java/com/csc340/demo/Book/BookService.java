@@ -40,7 +40,7 @@ public class BookService {
 
     public List<Book> getBooksByTitle(String bookName){
 
-        return bookRepository.getBooksByName(bookName);
+        return bookRepository.getBooksByTitle(bookName);
 
     }
 
