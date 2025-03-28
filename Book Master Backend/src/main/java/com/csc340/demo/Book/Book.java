@@ -13,7 +13,7 @@ public class Book {
     private int bookId;
 
     @Column(nullable = false)
-    private String bookName;
+    private String bookTitle;
 
     @Column(nullable = false)
     private String author;
@@ -38,7 +38,7 @@ public class Book {
 
     public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity){
         this.bookId = bookId;
-        this.bookName = bookName;
+        this.bookTitle = bookName;
         this.author = author;
         this.genre = genre;
         this.publishDate = publishDate;
@@ -50,7 +50,7 @@ public class Book {
     }
 
     public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity){
-        this.bookName = bookName;
+        this.bookTitle = bookName;
         this.author = author;
         this.genre = genre;
         this.publishDate = publishDate;
@@ -63,7 +63,7 @@ public class Book {
 
 //    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId){
 //        this.bookId = bookId;
-//        this.bookName = bookName;
+//        this.bookTitle = bookName;
 //        this.author = author;
 //        this.genre = genre;
 //        this.publishDate = publishDate;
