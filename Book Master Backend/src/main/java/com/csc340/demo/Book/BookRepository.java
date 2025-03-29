@@ -12,16 +12,16 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     List<Book> getBooksByGenre(String genre);
 
-    @Query(value = "select * from books b where b.bookPrice >= ?1", nativeQuery = true)
+    @Query(value = "select * from books b where b.book_price >= ?1", nativeQuery = true)
     List<Book> getBooksByPrice(double bookPrice);
 
-    @Query(value = "select * from books b where b.name like %?1% ", nativeQuery = true)
+    @Query(value = "select * from books b where b.book_title like %?1% ", nativeQuery = true)
     List<Book> getBooksByTitle(String bookTitle);
 
-    @Query(value = "select * from books b where b.userId = ?1", nativeQuery = true)
+    @Query(value = "select * from books b where b.user_id = ?1", nativeQuery = true)
     List<Book> getBooksBySellerId(int userId);
 
-    @Query(value = "select * from books b where b.publishDate = ?1", nativeQuery = true)
+    @Query(value = "select * from books b where b.publish_date = ?1", nativeQuery = true)
     List<Book> getBooksByPublishDate(Date publishDate);
 
 }

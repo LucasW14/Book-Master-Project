@@ -63,6 +63,13 @@ public class BookService {
     }
 
     public void updateBook(int bookId,Book book){
+        Book existing = getBookById(bookId);
+        existing.setBookTitle(book.getBookTitle());
+        existing.setAuthor(book.getAuthor());
+        existing.setGenre(book.getGenre());
+        existing.setPublishDate(book.getPublishDate());
+        existing.setBookPrice(book.getBookPrice());
+        existing.setBookQuantity(book.getBookQuantity());
 
         bookRepository.save(book);
 

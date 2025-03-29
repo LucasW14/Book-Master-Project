@@ -45,8 +45,8 @@ public class BookController {
 
     }
 
-    @GetMapping("/bookPrice")
-    public Object getBooksByPrice(@RequestParam(name = "price", defaultValue = "5.0") double bookPrice){
+    @GetMapping("/bookprice/{bookPrice}")
+    public Object getBooksByPrice(@PathVariable double bookPrice){
         return new ResponseEntity<>(bookService.getBooksByPrice(bookPrice), HttpStatus.OK);
 
 
@@ -61,7 +61,7 @@ public class BookController {
     }
 
     @PutMapping("/update/{bookId}")
-    public Object updateBook( @PathVariable int bookId, Book book) {
+    public Object updateBook(@PathVariable int bookId, @RequestBody Book book) {
         System.out.println(book.toString());
         bookService.updateBook(bookId, book);
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
@@ -69,8 +69,8 @@ public class BookController {
     }
 
     @DeleteMapping("/delete/{bookId}")
-    public Object deleteBookById(@PathVariable int studentId) {
-        bookService.deleteBooksById(studentId);
+    public Object deleteBookById(@PathVariable int bookId) {
+        bookService.deleteBooksById(bookId);
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
 
