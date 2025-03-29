@@ -52,8 +52,27 @@ public class BookController {
 
     }
 
+    @PostMapping("/new")
+    public Object addNewBook(@RequestBody Book book) {
+        System.out.println(book.toString());
+        bookService.addNewBook(book);
+        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
 
+    }
 
+    @PutMapping("/update/{bookId}")
+    public Object updateBook( @PathVariable int bookId, Book book) {
+        System.out.println(book.toString());
+        bookService.updateBook(bookId, book);
+        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
+
+    }
+
+    @DeleteMapping("/delete/{bookId}")
+    public Object deleteBookById(@PathVariable int studentId) {
+        bookService.deleteBooksById(studentId);
+        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
+    }
 
 
 }

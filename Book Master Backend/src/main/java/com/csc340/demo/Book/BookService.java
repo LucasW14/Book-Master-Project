@@ -62,7 +62,7 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void UpdateBook(int bookId,Book book){
+    public void updateBook(int bookId,Book book){
 
         bookRepository.save(book);
 
