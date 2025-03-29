@@ -25,8 +25,8 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}")
-    public Object getASnake(@PathVariable int snakeId) {
-        return new ResponseEntity<>(bookService.getBookById(snakeId), HttpStatus.OK);
+    public Object getABook(@PathVariable int bookId) {
+        return new ResponseEntity<>(bookService.getBookById(bookId), HttpStatus.OK);
 
 
     }
@@ -45,8 +45,8 @@ public class BookController {
 
     }
 
-    @GetMapping("/{bookPrice}")
-    public Object getBooksByPrice(@PathVariable double bookPrice){
+    @GetMapping("/bookPrice")
+    public Object getBooksByPrice(@RequestParam(name = "price", defaultValue = "5.0") double bookPrice){
         return new ResponseEntity<>(bookService.getBooksByPrice(bookPrice), HttpStatus.OK);
 
 
