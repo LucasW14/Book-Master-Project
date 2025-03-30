@@ -1,18 +1,41 @@
 package com.csc340.demo.User;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
     private String setType;
+
+    public User(){
+
+    }
+
+    public User(String name, String email, String username, String password, String setType) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.setType = setType;
+    }
+
 
     // Getters and Setters
 
