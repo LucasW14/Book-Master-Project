@@ -69,7 +69,7 @@ public class FineController {
     }
 
     @PostMapping("/new")
-    public Object addNewBook(@RequestBody Fine fine) {
+    public Object addNewFine(@RequestBody Fine fine) {
         System.out.println(fine.toString());
         fineService.addNewFine(fine);
         return new ResponseEntity<>(fineService.getAllFines(), HttpStatus.CREATED);

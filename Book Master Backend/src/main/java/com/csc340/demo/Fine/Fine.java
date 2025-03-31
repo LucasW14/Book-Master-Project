@@ -20,8 +20,7 @@ public class Fine {
     private double fineAmount;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
-    @Column(nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(nullable = false)
@@ -30,7 +29,8 @@ public class Fine {
     @Column(nullable = false)
     private String fineDesc;
 
-    @JoinColumn(name = "bookId")
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
     public Fine(int fineId, double fineAmount, User user, Date dateMade, String fineDesc, Book book){
@@ -66,6 +66,13 @@ public class Fine {
 
 
     }
+
+    Fine(){
+
+
+    }
+
+
 
     public int getFineId(){
 
