@@ -19,7 +19,7 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("/all")
-    public Object getAllStudents() {
+    public Object getAllBooks() {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
 
     }
