@@ -1,6 +1,5 @@
 package com.csc340.demo.Subscription;
 
-
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -30,5 +29,45 @@ public class Subscription {
         this.endDate = endDate;
     }
 
-    // Getters and Setters
+    // Getters
+    public Long getId() {
+        return id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
 }
