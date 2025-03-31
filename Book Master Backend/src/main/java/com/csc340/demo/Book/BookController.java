@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/books")
 public class BookController {
@@ -52,6 +55,15 @@ public class BookController {
 
     }
 
+
+    @GetMapping("/seller/{sellerId}")
+    public Object getSellerId(@PathVariable int sellerId) {
+        return new ResponseEntity<>(bookService.getBooksBySellerId(sellerId), HttpStatus.OK);
+
+
+    }
+
+
     @PostMapping("/new")
     public Object addNewBook(@RequestBody Book book) {
         System.out.println(book.toString());
@@ -74,5 +86,19 @@ public class BookController {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
 
+
+
+
+    @GetMapping("/totalbooks")
+    @ResponseBody
+    public String getTotalBooks() {
+        return "Total number of books: " + bookService.getTotalBooks();
+    }
+
+//    @GetMapping("/sellerbooks/{sellerId}")
+//    @ResponseBody
+//    public String getTotalBooks(@PathVariable int sellerId) {
+//        return "Total number of books for seller " + sellerId + " = " + bookService.getSellerBooks(sellerId);
+//    }
 
 }

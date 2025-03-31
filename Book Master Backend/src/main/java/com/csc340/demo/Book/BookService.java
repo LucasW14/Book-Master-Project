@@ -70,6 +70,7 @@ public class BookService {
         existing.setPublishDate(book.getPublishDate());
         existing.setBookPrice(book.getBookPrice());
         existing.setBookQuantity(book.getBookQuantity());
+        existing.setSellerId(book.getSellerId());
 
         bookRepository.save(book);
 
@@ -81,5 +82,14 @@ public class BookService {
 
 
     }
+
+    public long getTotalBooks() {
+        return bookRepository.countAllBooks();
+    }
+
+//    public long getSellerBooks(int sellerId) {
+//        return bookRepository.countSellerBooks(sellerId);
+//    }
+
 
 }

@@ -1,4 +1,5 @@
 package com.csc340.demo.Book;
+import com.csc340.demo.User.User;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -31,9 +32,9 @@ public class Book {
     @Column(nullable = false)
     private int bookQuantity;
 
-//    @ManyToOne
-//    @JoinColumn(name = "userId")
-//    private User sellerId;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User sellerId;
 
 
     public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity){
@@ -61,19 +62,19 @@ public class Book {
 
     }
 
-//    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId){
-//        this.bookId = bookId;
-//        this.bookTitle = bookName;
-//        this.author = author;
-//        this.genre = genre;
-//        this.publishDate = publishDate;
-//        this.bookPrice = bookPrice;
-//        this.bookQuantity = bookQuantity;
-//        this.sellerId;
-//
-//
-//
-//    }
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId){
+        this.bookId = bookId;
+        this.bookTitle = bookName;
+        this.author = author;
+        this.genre = genre;
+        this.publishDate = publishDate;
+        this.bookPrice = bookPrice;
+        this.bookQuantity = bookQuantity;
+        this.sellerId = sellerId;
+
+
+
+    }
 
     Book(){
 
@@ -170,6 +171,17 @@ public class Book {
     public void setBookQuantity(int bookQuantity){
 
         this.bookQuantity = bookQuantity;
+    }
+
+    public User getSellerId(){
+
+        return sellerId;
+
+    }
+
+    public void setSellerId(User sellerId){
+
+        this.sellerId = sellerId;
     }
 
 }

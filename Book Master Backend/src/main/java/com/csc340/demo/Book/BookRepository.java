@@ -2,6 +2,7 @@ package com.csc340.demo.Book;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -23,5 +24,11 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     @Query(value = "select * from books b where b.publish_date = ?1", nativeQuery = true)
     List<Book> getBooksByPublishDate(Date publishDate);
+
+    @Query("SELECT COUNT(b) FROM Book b")
+    long countAllBooks();
+
+    @Query("SELECT COUNT(b) FROM Book b WHERE b.user_id = :sellerId")
+    long countSellerBooks(@Param("sellerId") int userId);
 
 }
