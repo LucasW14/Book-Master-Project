@@ -102,7 +102,7 @@ public class Fine {
 
     }
 
-    public void setUser(){
+    public void setUser(User user){
 
         this.user = user;
 
@@ -127,7 +127,7 @@ public class Fine {
 
     }
 
-    public void setFineDesc(){
+    public void setFineDesc(String fineDesc){
 
         this.fineDesc = fineDesc;
 

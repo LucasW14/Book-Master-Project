@@ -2,6 +2,7 @@ package com.csc340.demo.Fine;
 
 
 import com.csc340.demo.Book.Book;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public interface FineRepository {
+public interface FineRepository extends JpaRepository<Fine, Integer> {
 
 
     @Query(value = "select * from fines f where f.fine_amount >= ?1", nativeQuery = true)
@@ -23,7 +24,7 @@ public interface FineRepository {
     List<Fine> findByBookId(int bookId);
 
     @Query(value = "select * from fines f where f.date_made = ?1", nativeQuery = true)
-    List<Book> getFineByDateMade(Date dateMade);
+    List<Fine> getFineByDateMade(Date dateMade);
 
 
 
