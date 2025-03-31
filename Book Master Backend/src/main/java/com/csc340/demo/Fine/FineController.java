@@ -6,6 +6,7 @@ import com.csc340.demo.Book.Book;
 import com.csc340.demo.Book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -61,8 +62,8 @@ public class FineController {
 
     }
 
-    @GetMapping("/finedate/{dateMade}")
-    public Object getUserId(@PathVariable Date dateMade){
+    @GetMapping("/finedate")
+    public Object getDateMade(@RequestParam(name = "date", defaultValue = "") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateMade){
         return new ResponseEntity<>(fineService.getFineByDateMade(dateMade), HttpStatus.OK);
 
 
@@ -77,15 +78,15 @@ public class FineController {
     }
 
     @PutMapping("/update/{fineId}")
-    public Object updateBook(@PathVariable int bookId, @RequestBody Fine fine) {
+    public Object updateFine(@PathVariable int fineId, @RequestBody Fine fine) {
         System.out.println(fine.toString());
-        fineService.updateFine(bookId, fine);
+        fineService.updateFine(fineId, fine);
         return new ResponseEntity<>(fineService.getAllFines(), HttpStatus.CREATED);
 
     }
 
-    @DeleteMapping("/delete/{bookId}")
-    public Object deleteBookById(@PathVariable int fineId) {
+    @DeleteMapping("/delete/{fineId}")
+    public Object deleteFineById(@PathVariable int fineId) {
         fineService.deleteFinesById(fineId);
         return new ResponseEntity<>(fineService.getAllFines(), HttpStatus.OK);
     }

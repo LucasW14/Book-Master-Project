@@ -24,6 +24,7 @@ public class Fine {
     private User user;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date dateMade;
 
     @Column(nullable = false)
