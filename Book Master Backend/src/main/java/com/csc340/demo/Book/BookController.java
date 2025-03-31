@@ -95,10 +95,10 @@ public class BookController {
         return "Total number of books: " + bookService.getTotalBooks();
     }
 
-//    @GetMapping("/sellerbooks/{sellerId}")
-//    @ResponseBody
-//    public String getTotalBooks(@PathVariable int sellerId) {
-//        return "Total number of books for seller " + sellerId + " = " + bookService.getSellerBooks(sellerId);
-//    }
+    @GetMapping("/sellerbooks/{sellerId}")
+    @ResponseBody
+    public String getTotalBooks(@PathVariable int sellerId) {
+        return "Total number of books for seller " + sellerId + " = " + bookService.getSellerBooks(sellerId);
+    }
 
 }

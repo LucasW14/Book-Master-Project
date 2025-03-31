@@ -33,7 +33,7 @@ public class Book {
     private int bookQuantity;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_Id")
     private User sellerId;
 
 

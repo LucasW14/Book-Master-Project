@@ -28,7 +28,9 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query("SELECT COUNT(b) FROM Book b")
     long countAllBooks();
 
-    @Query("SELECT COUNT(b) FROM Book b WHERE b.user_id = :sellerId")
+    @Query(value = "SELECT COUNT(*) FROM books WHERE user_id = :sellerId", nativeQuery = true)
     long countSellerBooks(@Param("sellerId") int userId);
+
+
 
 }

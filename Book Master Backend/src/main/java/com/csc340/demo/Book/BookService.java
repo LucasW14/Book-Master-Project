@@ -87,9 +87,9 @@ public class BookService {
         return bookRepository.countAllBooks();
     }
 
-//    public long getSellerBooks(int sellerId) {
-//        return bookRepository.countSellerBooks(sellerId);
-//    }
+    public long getSellerBooks(int sellerId) {
+        return bookRepository.countSellerBooks(sellerId);
+    }
 
 
 }
