@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates userId
     private int userId;
 
     @Column(nullable = false)
@@ -24,11 +24,11 @@ public class User {
     @Column(nullable = false)
     private String setType;
 
-    public User(){
+    public User(){ // First Constructor
 
     }
 
-    public User(String name, String email, String username, String password, String setType) {
+    public User(String name, String email, String username, String password, String setType) { // Second constructor
         this.name = name;
         this.email = email;
         this.username = username;
