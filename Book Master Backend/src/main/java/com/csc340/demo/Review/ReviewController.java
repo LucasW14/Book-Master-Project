@@ -47,5 +47,18 @@ public class ReviewController {
     public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
         return reviewService.deleteReview(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/reviewonbook/{bookId}")
+    @ResponseBody
+    public String getTotalReviews(@PathVariable int bookId) {
+        return "Total number of purchases for book " + bookId + " = " + reviewService.getTotalReviews(bookId);
+
+
+
+
+
+    }
+
+
 }
 

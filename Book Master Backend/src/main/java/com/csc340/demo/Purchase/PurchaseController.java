@@ -1,6 +1,7 @@
 package com.csc340.demo.Purchase;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,11 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/purchases")
+@RequestMapping("/purchase")
 public class PurchaseController {
 
     @Autowired
     private PurchaseService purchaseService;
+
 
     @PostMapping
     public ResponseEntity<Purchase> createPurchase(@RequestBody Purchase purchase) {
@@ -46,4 +48,16 @@ public class PurchaseController {
         purchaseService.deletePurchase(purchaseId);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/purchasesonbook/{bookId}")
+    @ResponseBody
+    public String getTotalBooks(@PathVariable int bookId) {
+        return "Total number of purchases for book " + bookId + " = " + purchaseService.getTotalPurchases(bookId);
+
+
+
+
+
+    }
+
 }

@@ -39,4 +39,12 @@ public class PurchaseService {
     public void deletePurchase(int purchaseId) {
         purchaseRepository.deleteById(purchaseId);
     }
+
+
+    public long getTotalPurchases(int bookId) {
+        return purchaseRepository.countPurchases(bookId);
+    }
+
+
+
 }

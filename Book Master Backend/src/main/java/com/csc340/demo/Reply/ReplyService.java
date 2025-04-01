@@ -49,7 +49,7 @@ public class ReplyService {
         Reply existing = getReplyById(replyId);
         existing.setUserId(reply.getUserId());
         existing.setReviewId(reply.getReviewId());
-        existing.setDesc(reply.getDesc());
+        existing.setDescription(reply.getDescription());
         existing.setDateMade(reply.getDateMade());
 
 

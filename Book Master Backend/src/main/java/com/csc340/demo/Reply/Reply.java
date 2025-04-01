@@ -10,6 +10,7 @@ import javax.management.Descriptor;
 import java.time.LocalDateTime;
 import java.util.*;
 
+
 @Entity
 @Table(name = "reply")
 public class Reply {
@@ -27,7 +28,7 @@ public class Reply {
     private Review reviewId;
 
     @Column(nullable = false)
-    private String desc;
+    private String description;
 
     @Column(nullable = false)
     private Date dateMade;
@@ -37,7 +38,7 @@ public class Reply {
         this.replyId = replyId;
         this.userId = userId;
         this.reviewId = reviewId;
-        this.desc = desc;
+        this.description = desc;
         this.dateMade = dateMade;
 
 
@@ -48,7 +49,7 @@ public class Reply {
 
         this.userId = userId;
         this.reviewId = reviewId;
-        this.desc = desc;
+        this.description = desc;
         this.dateMade = dateMade;
 
 
@@ -57,7 +58,7 @@ public class Reply {
     public Reply(int replyId, String desc, Date dateMade){
 
         this.replyId = replyId;
-        this.desc = desc;
+        this.description = desc;
         this.dateMade = dateMade;
 
 
@@ -100,13 +101,13 @@ public class Reply {
 
     }
 
-    public String getDesc(){
+    public String getDescription(){
 
-        return desc;
+        return description;
     }
 
-    public void setDesc(String desc){
-        this.desc = desc;
+    public void setDescription(String desc){
+        this.description = desc;
 
     }
 
