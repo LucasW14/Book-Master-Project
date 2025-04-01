@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
-    List<Subscription> findByUserId(Long userId);
+    @Query(value = "select * from subscriptions s where s.user_id = ?1", nativeQuery = true)
+    List<Subscription> findByUserId(long userId);
 }

@@ -1,5 +1,6 @@
 package com.csc340.demo.Subscription;
 
+import com.csc340.demo.User.User;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -10,8 +11,9 @@ public class Subscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User userId;
 
     @Column(nullable = false)
     private String plan; // Example: "Monthly", "Yearly"
@@ -26,7 +28,7 @@ public class Subscription {
 
     public Subscription() {}
 
-    public Subscription(Long userId, String plan, LocalDateTime endDate, String status) {
+    public Subscription(User userId, String plan, LocalDateTime endDate, String status) {
         this.userId = userId;
         this.plan = plan;
         this.endDate = endDate;
@@ -38,7 +40,7 @@ public class Subscription {
         return id;
     }
 
-    public Long getUserId() {
+    public User getUserId() {
         return userId;
     }
 
@@ -63,7 +65,7 @@ public class Subscription {
         this.id = id;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(User userId) {
         this.userId = userId;
     }
 

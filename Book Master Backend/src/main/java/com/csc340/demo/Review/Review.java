@@ -1,5 +1,7 @@
 package com.csc340.demo.Review;
 
+import com.csc340.demo.Book.Book;
+import com.csc340.demo.User.User;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -19,17 +21,19 @@ public class Review {
     @Column(nullable = false)
     private int rating; // Example: 1-5 stars
 
-    @Column(nullable = false)
-    private Long userId; // ID of the user who submitted the review
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User userId; // ID of the user who submitted the review
 
-    @Column(nullable = false)
-    private Long bookId; // ID of the book being reviewed
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book bookId; // ID of the book being reviewed
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
     public Review() {}
 
-    public Review(String reviewerName, String reviewText, int rating, Long userId, Long bookId) {
+    public Review(String reviewerName, String reviewText, int rating, User userId, Book bookId) {
         this.reviewerName = reviewerName;
         this.reviewText = reviewText;
         this.rating = rating;
@@ -55,11 +59,11 @@ public class Review {
         return rating;
     }
 
-    public Long getUserId() {
+    public User getUserId() {
         return userId;
     }
 
-    public Long getBookId() {
+    public Book getBookId() {
         return bookId;
     }
 
@@ -84,11 +88,11 @@ public class Review {
         this.rating = rating;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(User userId) {
         this.userId = userId;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(Book bookId) {
         this.bookId = bookId;
     }
 

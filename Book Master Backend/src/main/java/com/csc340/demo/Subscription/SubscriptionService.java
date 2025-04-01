@@ -1,6 +1,7 @@
 package com.csc340.demo.Subscription;
 
 
+import com.csc340.demo.User.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class SubscriptionService {
         return subscriptionRepository.findById(id);
     }
 
-    public List<Subscription> getSubscriptionsByUserId(Long userId) {
+    public List<Subscription> getSubscriptionsByUserId(long userId) {
         return subscriptionRepository.findByUserId(userId);
     }
 

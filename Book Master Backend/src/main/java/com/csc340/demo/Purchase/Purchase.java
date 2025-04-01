@@ -1,5 +1,7 @@
 package com.csc340.demo.Purchase;
 
+import com.csc340.demo.Book.Book;
+import com.csc340.demo.User.User;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -10,11 +12,19 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates a purchaseId
     private int purchaseId;
 
-    private int bookId;
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book bookId;
+
     private int quantity;
     private double totalPrice;
+
+
     private int sellerId;
-    private int userId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id",nullable = false)
+    private User userId;
 
     @Temporal(TemporalType.TIMESTAMP) // Stores date and time
     private Date datePurchased;
@@ -25,7 +35,7 @@ public class Purchase {
     }
 
     // Second constructor (excluding purchaseId since it's auto-generated)
-    public Purchase(int bookId, int quantity, double totalPrice, int sellerId, int userId) {
+    public Purchase(Book bookId, int quantity, double totalPrice, int sellerId, User userId) {
         this.bookId = bookId;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
@@ -39,11 +49,11 @@ public class Purchase {
         return purchaseId;
     }
 
-    public int getBookId() {
+    public Book getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(Book bookId) {
         this.bookId = bookId;
     }
 
@@ -71,11 +81,11 @@ public class Purchase {
         this.sellerId = sellerId;
     }
 
-    public int getUserId() {
+    public User getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(User userId) {
         this.userId = userId;
     }
 
