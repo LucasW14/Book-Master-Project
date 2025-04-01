@@ -21,12 +21,16 @@ public class Subscription {
 
     private LocalDateTime endDate;
 
+    @Column(nullable = false)
+    private String status; // Example: "Active", "Inactive", "Cancelled"
+
     public Subscription() {}
 
-    public Subscription(Long userId, String plan, LocalDateTime endDate) {
+    public Subscription(Long userId, String plan, LocalDateTime endDate, String status) {
         this.userId = userId;
         this.plan = plan;
         this.endDate = endDate;
+        this.status = status;
     }
 
     // Getters
@@ -50,6 +54,10 @@ public class Subscription {
         return endDate;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     // Setters
     public void setId(Long id) {
         this.id = id;
@@ -70,4 +78,9 @@ public class Subscription {
     public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
+
