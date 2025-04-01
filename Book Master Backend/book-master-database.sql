@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2025 at 11:29 PM
+-- Generation Time: Apr 01, 2025 at 01:52 PM
 -- Server version: 8.0.39
 -- PHP Version: 8.2.27
 
@@ -80,6 +80,100 @@ INSERT INTO `fines` (`fine_id`, `date_made`, `fine_amount`, `fine_desc`, `book_i
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `purchase_id` int NOT NULL,
+  `book_id` int NOT NULL,
+  `date_purchased` datetime(6) DEFAULT NULL,
+  `quantity` int NOT NULL,
+  `seller_id` int NOT NULL,
+  `total_price` double NOT NULL,
+  `user_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`purchase_id`, `book_id`, `date_purchased`, `quantity`, `seller_id`, `total_price`, `user_id`) VALUES
+(1, 4, '2021-02-13 00:00:00.000000', 6, 2, 20.5, 1),
+(2, 4, '2021-02-13 00:00:00.000000', 6, 2, 20.5, 1),
+(3, 4, '2021-02-13 00:00:00.000000', 70, 2, 20.5, 1),
+(4, 4, '2021-02-13 00:00:00.000000', 70, 2, 20.5, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `reply_id` int NOT NULL,
+  `date_made` datetime(6) NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `review_id` bigint DEFAULT NULL,
+  `user_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`reply_id`, `date_made`, `description`, `review_id`, `user_id`) VALUES
+(2, '2021-02-13 00:00:00.000000', 'I disagree with you brodie', 2, 3),
+(3, '2021-02-13 00:00:00.000000', 'I agree with you broski', 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint NOT NULL,
+  `book_id` bigint NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `rating` int NOT NULL,
+  `review_text` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `reviewer_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` bigint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `book_id`, `created_at`, `rating`, `review_text`, `reviewer_name`, `user_id`) VALUES
+(1, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(2, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Charles Walton', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscriptions`
+--
+
+CREATE TABLE `subscriptions` (
+  `id` bigint NOT NULL,
+  `end_date` datetime(6) DEFAULT NULL,
+  `plan` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `start_date` datetime(6) NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` bigint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscriptions`
+--
+
+INSERT INTO `subscriptions` (`id`, `end_date`, `plan`, `start_date`, `status`, `user_id`) VALUES
+(1, '2025-03-31 00:00:00.000000', '1 Year', '2026-03-31 00:00:00.000000', 'Active', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -121,6 +215,34 @@ ALTER TABLE `fines`
   ADD KEY `FK2cvlty8wk8q4sf6wauri0hb2j` (`user_id`);
 
 --
+-- Indexes for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`purchase_id`),
+  ADD KEY `FKltir9y8er2uk8rpq0g8prlchg` (`book_id`),
+  ADD KEY `FK86i0stm7cqsglqptdvjij1k3m` (`user_id`);
+
+--
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD PRIMARY KEY (`reply_id`),
+  ADD KEY `FKru7hindlj6cyx4jhr0a3f19l0` (`review_id`),
+  ADD KEY `FKapyyxlgntertu5okpkr685ir9` (`user_id`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -141,6 +263,30 @@ ALTER TABLE `books`
 --
 ALTER TABLE `fines`
   MODIFY `fine_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `purchase`
+--
+ALTER TABLE `purchase`
+  MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `reply_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -164,6 +310,20 @@ ALTER TABLE `books`
 ALTER TABLE `fines`
   ADD CONSTRAINT `FK2cvlty8wk8q4sf6wauri0hb2j` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   ADD CONSTRAINT `FKfptqakm37mcdtrbudlbodwxha` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+
+--
+-- Constraints for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD CONSTRAINT `FK86i0stm7cqsglqptdvjij1k3m` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `FKltir9y8er2uk8rpq0g8prlchg` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+
+--
+-- Constraints for table `reply`
+--
+ALTER TABLE `reply`
+  ADD CONSTRAINT `FKapyyxlgntertu5okpkr685ir9` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `FKru7hindlj6cyx4jhr0a3f19l0` FOREIGN KEY (`review_id`) REFERENCES `reviews` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
