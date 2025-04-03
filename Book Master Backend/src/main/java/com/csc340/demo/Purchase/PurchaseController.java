@@ -51,7 +51,7 @@ public class PurchaseController {
 
     @GetMapping("/purchasesonbook/{bookId}")
     @ResponseBody
-    public String getTotalBooks(@PathVariable int bookId) {
+    public String getTotalPurchases(@PathVariable int bookId) {
         return "Total number of purchases for book " + bookId + " = " + purchaseService.getTotalPurchases(bookId);
 
 

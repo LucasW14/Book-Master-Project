@@ -51,7 +51,7 @@ public class ReviewController {
     @GetMapping("/reviewonbook/{bookId}")
     @ResponseBody
     public String getTotalReviews(@PathVariable int bookId) {
-        return "Total number of purchases for book " + bookId + " = " + reviewService.getTotalReviews(bookId);
+        return "Total number of reviews for book " + bookId + " = " + reviewService.getTotalReviews(bookId);
 
 
 

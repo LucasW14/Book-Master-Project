@@ -46,8 +46,8 @@ public class ReplyController {
 
     @GetMapping("/totalreply/{reviewId}")
     @ResponseBody
-    public String getTotalBooks(@PathVariable int reviewId) {
-        return "Total number of books for seller " + reviewId + " = " + replyService.countReply(reviewId);
+    public String getTotalReplies(@PathVariable int reviewId) {
+        return "Total number of replies for this review " + reviewId + " = " + replyService.countReply(reviewId);
     }
 
     @PostMapping("/new")
