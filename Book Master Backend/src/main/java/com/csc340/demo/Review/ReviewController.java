@@ -2,6 +2,7 @@ package com.csc340.demo.Review;
 
 import com.csc340.demo.Review.Review;
 import com.csc340.demo.Review.ReviewService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -44,8 +45,9 @@ public class ReviewController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
-        return reviewService.deleteReview(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    public Object deleteReview(@PathVariable Long id) {
+        return new ResponseEntity<>(reviewService.getAllReviews(), HttpStatus.OK);
+        
     }
 
     @GetMapping("/reviewonbook/{bookId}")
