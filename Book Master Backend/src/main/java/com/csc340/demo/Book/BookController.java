@@ -1,104 +1,112 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.csc340.demo.Book;
 
-//import com.csc340.demo.team.TeamService;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Collections;
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/books")
 public class BookController {
-
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/all")
-    public Object getAllBooks() {
-        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
+    public BookController() {
+    }
 
+    @GetMapping("/all")
+    public Object getAllBooks(Model model) {
+        model.addAttribute("bookList", bookService.getAllBooks());
+        model.addAttribute("title", "All books");
+        return "MyBookStore";
     }
 
     @GetMapping("/{bookId}")
-    public Object getABook(@PathVariable int bookId) {
-        return new ResponseEntity<>(bookService.getBookById(bookId), HttpStatus.OK);
-
-
+    public Object getABook(@PathVariable int bookId, Model model) {
+        model.addAttribute("book", bookService.getBookById(bookId));
+        model.addAttribute("title", "Book #: " + bookId);
+        return "BookProfile";
     }
 
     @GetMapping("/title")
-    public Object getBooksByTitle(@RequestParam(name = "search", defaultValue = "") String search){
-        return new ResponseEntity<>(bookService.getBooksByTitle(search), HttpStatus.OK);
-
-
+    public Object getBooksByTitle(@RequestParam(name = "search",defaultValue = "") String search, Model model) {
+        model.addAttribute("bookList", bookService.getBooksByTitle(search));
+        model.addAttribute("title", "Books by Name: " + search);
+        return "MyBookStore";
     }
 
     @GetMapping("/genre")
-    public Object getBooksByGenre(@RequestParam(name = "search", defaultValue = "") String search){
-        return new ResponseEntity<>(bookService.getBooksByGenre(search), HttpStatus.OK);
-
-
+    public Object getBooksByGenre(@RequestParam(name = "search",defaultValue = "") String search) {
+        return new ResponseEntity(this.bookService.getBooksByGenre(search), HttpStatus.OK);
     }
 
     @GetMapping("/bookprice/{bookPrice}")
-    public Object getBooksByPrice(@PathVariable double bookPrice){
-        return new ResponseEntity<>(bookService.getBooksByPrice(bookPrice), HttpStatus.OK);
-
-
+    public Object getBooksByPrice(@PathVariable double bookPrice) {
+        return new ResponseEntity(this.bookService.getBooksByPrice(bookPrice), HttpStatus.OK);
     }
-
 
     @GetMapping("/seller/{sellerId}")
-    public Object getSellerId(@PathVariable int sellerId) {
-        return new ResponseEntity<>(bookService.getBooksBySellerId(sellerId), HttpStatus.OK);
-
-
+    public Object getSellerId(@PathVariable int sellerId, Model model) {
+        model.addAttribute("bookList",bookService.getBooksBySellerId(sellerId));
+        model.addAttribute("title", "books you are selling");
+        return "MyBookStore";
     }
 
+    @GetMapping("/bookForm")
+    public String showCreateForm(Model model) {
+        Book book = new Book();
+        model.addAttribute("book", book);
+        model.addAttribute("title", "Post New Book");
+        return "CreateBookProfile";
+    }
 
     @PostMapping("/new")
-    public Object addNewBook(@RequestBody Book book) {
+    public Object addNewBook(Book book, Model model) {
         System.out.println(book.toString());
-        bookService.addNewBook(book);
-        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
-
+        this.bookService.addNewBook(book);
+        return "redirect:/books/all";
     }
 
-    @PutMapping("/update/{bookId}")
-    public Object updateBook(@PathVariable int bookId, @RequestBody Book book) {
-        System.out.println(book.toString());
-        bookService.updateBook(bookId, book);
-        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
-
+    @GetMapping("/update/{bookId}")
+    public Object updateBook(@PathVariable int bookId, Model model) {
+        model.addAttribute("book", this.bookService.getBookById(bookId));
+        model.addAttribute("title", "Update book");
+        return "ModifyBook";
     }
 
-    @DeleteMapping("/delete/{bookId}")
+    @PostMapping("/update/{bookId}")
+    public Object updateSnake(@PathVariable int bookId, Book book) {
+        this.bookService.updateBook(bookId, book);
+        return "redirect:/books/" + bookId;
+    }
+
+    @GetMapping("/delete/{bookId}")
     public Object deleteBookById(@PathVariable int bookId) {
-        bookService.deleteBooksById(bookId);
-        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
+        this.bookService.deleteBooksById(bookId);
+        return "redirect:/books/all";
     }
-
-
-
 
     @GetMapping("/totalbooks")
     @ResponseBody
     public String getTotalBooks() {
-        return "Total number of books: " + bookService.getTotalBooks();
+        return "Total number of books: " + this.bookService.getTotalBooks();
     }
 
     @GetMapping("/sellerbooks/{sellerId}")
     @ResponseBody
     public String getTotalBooks(@PathVariable int sellerId) {
-        return "Total number of books for seller " + sellerId + " = " + bookService.getSellerBooks(sellerId);
+        return "Total number of books for seller " + sellerId + " = " + this.bookService.getSellerBooks(sellerId);
     }
-
 }

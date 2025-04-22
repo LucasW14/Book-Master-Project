@@ -1,43 +1,70 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.csc340.demo.Book;
+
 import com.csc340.demo.User.User;
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.util.Date;
-
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "books")
+@Table(
+        name = "books"
+)
 public class Book {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private int bookId;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String bookTitle;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String author;
-
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String genre;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
+    @DateTimeFormat(
+            pattern = "yyyy-MM-dd"
+    )
     private Date publishDate;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private Double bookPrice;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private int bookQuantity;
-
     @ManyToOne
-    @JoinColumn(name = "user_Id")
+    @JoinColumn(
+            name = "user_Id"
+    )
     private User sellerId;
+    @Column(
+            nullable = false
+    )
+    private String about;
 
-
-    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity){
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about) {
         this.bookId = bookId;
         this.bookTitle = bookName;
         this.author = author;
@@ -45,24 +72,20 @@ public class Book {
         this.publishDate = publishDate;
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
-
-
-
+        this.about = about;
     }
 
-    public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity){
+    public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about) {
         this.bookTitle = bookName;
         this.author = author;
         this.genre = genre;
         this.publishDate = publishDate;
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
-
-
-
+        this.about = about;
     }
 
-    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId){
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId, String about) {
         this.bookId = bookId;
         this.bookTitle = bookName;
         this.author = author;
@@ -71,120 +94,81 @@ public class Book {
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
         this.sellerId = sellerId;
-
-
-
+        this.about = about;
     }
 
-    Book(){
-
+    Book() {
     }
 
-    public int getBookId(){
-
-        return bookId;
-
-
+    public int getBookId() {
+        return this.bookId;
     }
 
-    public void setBookId(int bookId){
-
+    public void setBookId(int bookId) {
         this.bookId = bookId;
-
-
     }
 
-
-    public String getBookTitle(){
-
-        return bookTitle;
-
-
+    public String getBookTitle() {
+        return this.bookTitle;
     }
 
-    public void setBookTitle(String bookTitle){
-
+    public void setBookTitle(String bookTitle) {
         this.bookTitle = bookTitle;
-
-
     }
 
-    public String getAuthor(){
-
-       return author;
-
+    public String getAuthor() {
+        return this.author;
     }
 
-    public void setAuthor(String author){
-
+    public void setAuthor(String author) {
         this.author = author;
-
     }
 
-    public String getGenre(){
-
-        return genre;
-
-
+    public String getGenre() {
+        return this.genre;
     }
 
-
-    public void setGenre(String genre){
-
+    public void setGenre(String genre) {
         this.genre = genre;
-
-
     }
 
-    public Date getPublishDate(){
-
-        return publishDate;
-
+    public Date getPublishDate() {
+        return this.publishDate;
     }
 
-    public void setPublishDate(Date publishDate){
-
+    public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
-
     }
 
-    public Double getBookPrice(){
-
-        return bookPrice;
+    public Double getBookPrice() {
+        return this.bookPrice;
     }
 
-    public void setBookPrice(double bookPrice){
-
+    public void setBookPrice(double bookPrice) {
         this.bookPrice = bookPrice;
-
-
     }
 
-
-    public int getBookQuantity(){
-
-
-
-        return bookQuantity;
+    public int getBookQuantity() {
+        return this.bookQuantity;
     }
 
-    public void setBookQuantity(int bookQuantity){
-
+    public void setBookQuantity(int bookQuantity) {
         this.bookQuantity = bookQuantity;
     }
 
-    public User getSellerId(){
-
-        return sellerId;
-
+    public User getSellerId() {
+        return this.sellerId;
     }
 
-    public void setSellerId(User sellerId){
-
+    public void setSellerId(User sellerId) {
         this.sellerId = sellerId;
     }
 
+    public String getAbout() {
+        return this.about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
 }
-
-
-

@@ -1,34 +1,48 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.csc340.demo.User;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates userId
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private int userId;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String name;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String email;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String username;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String password;
-
-    @Column(nullable = false)
+    @Column(
+            nullable = false
+    )
     private String setType;
 
-    public User(){ // First Constructor
-
+    public User() {
     }
 
-    public User(String name, String email, String username, String password, String setType) { // Second constructor
+    public User(String name, String email, String username, String password, String setType) {
         this.name = name;
         this.email = email;
         this.username = username;
@@ -36,11 +50,8 @@ public class User {
         this.setType = setType;
     }
 
-
-    // Getters and Setters
-
     public int getUserId() {
-        return userId;
+        return this.userId;
     }
 
     public void setUserId(int userId) {
@@ -48,7 +59,7 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -56,7 +67,7 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -64,7 +75,7 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
@@ -72,7 +83,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -80,7 +91,7 @@ public class User {
     }
 
     public String getSetType() {
-        return setType;
+        return this.setType;
     }
 
     public void setSetType(String setType) {
