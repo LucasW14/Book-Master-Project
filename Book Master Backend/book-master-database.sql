@@ -169,3 +169,21 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `review_id` int NOT NULL AUTO_INCREMENT,
+  `reviewer_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `review_text` text COLLATE utf8mb4_general_ci NOT NULL,
+  `rating` int NOT NULL,
+  `book_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`review_id`),
+  KEY `FK_review_book` (`book_id`),
+  KEY `FK_review_user` (`user_id`),
+  CONSTRAINT `FK_review_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`),
+  CONSTRAINT `FK_review_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
