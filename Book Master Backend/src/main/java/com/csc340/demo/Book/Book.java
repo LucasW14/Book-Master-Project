@@ -14,7 +14,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import java.util.Date;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -23,48 +25,38 @@ import org.springframework.format.annotation.DateTimeFormat;
 )
 public class Book {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
-    @Column(
-            nullable = false
-    )
-    private String bookTitle;
-    @Column(
-            nullable = false
-    )
+
+    @Column(nullable = false)
+    private String bookTitle
+            ;
+    @Column(nullable = false)
     private String author;
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     private String genre;
-    @Column(
-            nullable = false
-    )
-    @DateTimeFormat(
-            pattern = "yyyy-MM-dd"
-    )
+
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date publishDate;
-    @Column(
-            nullable = false
-    )
+
+    @Column(nullable = false)
     private Double bookPrice;
-    @Column(
-            nullable = false
-    )
+
+    @Column(nullable = false)
     private int bookQuantity;
     @ManyToOne
-    @JoinColumn(
-            name = "user_Id"
-    )
+    @JoinColumn(name = "user_Id")
     private User sellerId;
-    @Column(
-            nullable = false
-    )
+
+    @Column(nullable = false)
     private String about;
 
-    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about) {
+    private String bookPicturePath;
+
+
+
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicturePath) {
         this.bookId = bookId;
         this.bookTitle = bookName;
         this.author = author;
@@ -73,9 +65,10 @@ public class Book {
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
         this.about = about;
+        this.bookPicturePath = bookPicturePath;
     }
 
-    public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about) {
+    public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicturePath) {
         this.bookTitle = bookName;
         this.author = author;
         this.genre = genre;
@@ -83,9 +76,11 @@ public class Book {
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
         this.about = about;
+        this.bookPicturePath = bookPicturePath;
+
     }
 
-    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId, String about) {
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId, String about,String bookPicturePath ) {
         this.bookId = bookId;
         this.bookTitle = bookName;
         this.author = author;
@@ -95,6 +90,8 @@ public class Book {
         this.bookQuantity = bookQuantity;
         this.sellerId = sellerId;
         this.about = about;
+        this.bookPicturePath = bookPicturePath;
+
     }
 
     Book() {
@@ -171,4 +168,14 @@ public class Book {
     public void setAbout(String about) {
         this.about = about;
     }
+
+    public String getBookPicturePath() {
+        return bookPicturePath;
+    }
+
+    public void setBookPicturePath(String profilePicturePath) {
+        this.bookPicturePath = bookPicturePath;
+    }
+
+
 }

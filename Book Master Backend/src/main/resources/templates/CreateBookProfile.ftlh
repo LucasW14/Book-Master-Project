@@ -67,7 +67,12 @@
 <!--    <label for="profile-pic">Upload Profile Picture:</label>-->
 <!--    <input type="file" id="profile-pic" name="profile-pic" accept="image/*">-->
 <!--    </br>-->
+    <label for="bookPicturePath">Upload Book Cover (JPG only):</label>
+    <input type="file" id="bookPicturePath" name="bookPicturePath" accept="image/jpeg" required>
+    <br>
 
+    <!-- Optional Preview -->
+    <img id="preview" src="#" alt="Image Preview" style="display:none; max-width: 200px;"/>
 
 
     <!-- Submit Button -->
