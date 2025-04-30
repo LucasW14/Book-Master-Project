@@ -5,7 +5,7 @@
     <#include "fragments/navbar.ftlh">
 </head>
 <body>
-    <h1>Purchase Error</h1>
+    <h1>Signup Success!</h1>
 
     <a href="/books">Back to Bookstore</a>
 </body>
