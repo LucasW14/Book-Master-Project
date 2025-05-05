@@ -1,41 +1,69 @@
 package com.csc340.demo.Review;
 
-
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "reviews")
 public class Review {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String content;
+    private String reviewerName;
+    private String reviewText;
+    private int rating;
+    private Long bookId;
 
-    @Column(nullable = false)
-    private int rating; // Example: 1-5 stars
+    // Constructors
+    public Review() {}
 
-    @Column(nullable = false)
-    private Long userId; // ID of the user who submitted the review
-
-    @Column(nullable = false)
-    private Long bookId; // ID of the book being reviewed
-
-    private final LocalDateTime createdAt = LocalDateTime.now();
-
-    public Review() {
-    }
-
-    public Review(String content, int rating, Long userId, Long bookId) {
-        this.content = content;
+    public Review(String reviewerName, String reviewText, int rating, Long bookId) {
+        this.reviewerName = reviewerName;
+        this.reviewText = reviewText;
         this.rating = rating;
-        this.userId = userId;
         this.bookId = bookId;
     }
 
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getReviewerName() {
+        return reviewerName;
+    }
+
+    public void setReviewerName(String reviewerName) {
+        this.reviewerName = reviewerName;
+    }
+
+    public String getReviewText() {
+        return reviewText;
+    }
+
+    public void setReviewText(String reviewText) {
+        this.reviewText = reviewText;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
 }
 

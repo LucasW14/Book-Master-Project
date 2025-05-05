@@ -36,7 +36,7 @@
 
             <tr>
                 <th><img
-                        src="${book.bookPicturePath}"
+                        src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660145160l/61718053.jpg"
                         alt="Cobra image" width="104" height="142">
                     <label for="profile-pic"> Upload Profile Picture:</label>
                     <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
