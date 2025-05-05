@@ -68,8 +68,8 @@
 <!--    <label for="profile-pic">Upload Profile Picture:</label>-->
 <!--    <input type="file" id="profile-pic" name="profile-pic" accept="image/*">-->
 <!--    </br>-->
-    <label for="bookPicturePath">path: </label>
-    <input type="text" id="bookPicturePath" name="bookPicturePath" required >
+    <label for="bookPicture">give image link: </label>
+    <input type="text" id="bookPicture" name="bookPicture" required>
 
     <button type="submit" class="btn btn-primary">Create Book Profile</button>
 
