@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2025 at 01:52 PM
+-- Generation Time: May 05, 2025 at 10:29 PM
 -- Server version: 8.0.39
 -- PHP Version: 8.2.27
 
@@ -35,22 +35,38 @@ CREATE TABLE `books` (
   `book_title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `genre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `publish_date` datetime(6) NOT NULL,
-  `user_id` int DEFAULT NULL
+  `user_id` int DEFAULT NULL,
+  `about` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `book_picture` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `author`, `book_price`, `book_quantity`, `book_title`, `genre`, `publish_date`, `user_id`) VALUES
-(1, 'Lucas Walton', 10.9, 5, 'africas most', 'romance', '2025-03-27 20:00:00.000000', 2),
-(2, 'Kwame Alexander', 10.9, 5, 'crossover', 'fiction', '2016-05-13 20:00:00.000000', 1),
-(4, 'Matthew Palmer', 13.99, 18, 'American Mission', 'political thriller ', '2014-06-23 20:00:00.000000', 1),
-(5, 'Angie Thomas', 14.99, 25, 'Concrete Rose', 'Urban Fiction ', '2021-01-11 19:00:00.000000', 1),
-(6, 'Angie Thomas', 14.99, 25, 'Concrete Rose', 'Urban Fiction ', '2021-01-11 19:00:00.000000', 1),
-(7, 'Angie Thomas', 14.99, 25, 'Concrete Rose', 'Urban Fiction ', '2021-01-11 19:00:00.000000', 1),
-(9, 'Lucas Walton', 10.9, 5, 'africas most wanted', 'romance', '2025-03-27 20:00:00.000000', 3),
-(10, 'Lucas Walton', 10.9, 5, 'africas most wanted', 'romance', '2025-03-27 20:00:00.000000', 2);
+INSERT INTO `books` (`book_id`, `author`, `book_price`, `book_quantity`, `book_title`, `genre`, `publish_date`, `user_id`, `about`, `book_picture`) VALUES
+(1, 'Lucas Walton', 10.9, 5, 'africas most', 'action', '2025-05-07 00:00:00.000000', NULL, 'a book about Lucas Walton', NULL),
+(2, 'Kwame Alexander', 10.9, 5, 'crossover', 'fiction', '2016-05-13 20:00:00.000000', 1, '', NULL),
+(7, 'Angie Thomas', 14.99, 25, 'Concrete Rose', 'Urban Fiction ', '2021-01-11 19:00:00.000000', 1, '', NULL),
+(10, 'Lucas Walton', 10.9, 5, 'africas most wanted', 'romance', '2025-03-27 20:00:00.000000', 2, '', NULL),
+(20, 'Leo Zeilig', 21.99, 45, 'Lucas', 'romance', '1955-05-13 00:00:00.000000', 4, 'a book about a dumb negro', NULL),
+(22, 'Lucas Walton', 21.99, 6, 'Lucas', 'romance', '2025-04-16 00:00:00.000000', 1, 'a book about Lucas Walton', NULL),
+(24, 'Lucas Walton', 10.95, 56, 'africas most', 'Biography ', '2025-04-12 00:00:00.000000', 20, 'It is about a girl who falls in love', NULL),
+(25, 'Suzanne collins ', 25.99, 67, 'The Hunger Games ', 'Adventure Fiction', '2025-04-21 00:00:00.000000', 10, 'a girl who goes on an adventrue', NULL),
+(27, 'Suzanne collins ', 25.99, 45, 'The Hunger Games ', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 10, 'a dystopian novel by Suzanne Collins that follows 16-year-old Katniss Everdeen in the post-apocalyptic nation of Panem, where the Capitol forces each district to send a boy and a girl to participate in a televised battle royale called the Hunger Games as a punishment for a past rebellion', NULL),
+(28, 'Suzanne collins ', 25.99, 65, 'The Hunger Games ', 'Adventure Fiction', '2025-04-23 00:00:00.000000', 10, 'a dystopian novel by Suzanne Collins that follows 16-year-old Katniss Everdeen in the post-apocalyptic nation of Panem, where the Capitol forces each district to send a boy and a girl to participate in a televised battle royale called the Hunger Games as a punishment for a past rebellion', NULL),
+(29, 'Lucas Walton', 12.99, 45, 'africas most', 'Urban Fiction ', '2025-04-01 00:00:00.000000', 22, 'A description is a statement or account that details the characteristics, qualities, or features of something, such as a person, place, thing, or event. It\'s essentially a way of putting something in words, making it come alive for the reader. \r\n', NULL),
+(30, 'kyler romanstoff', 30.99, 54, 'Cobra Kai', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 23, 'the cobra kai fight miyagi do for the all valley championship ', NULL),
+(31, 'Suzanne collins ', 34.99, 3, 'The Hunger Games ', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 24, 'a dystopian novel set in the post-apocalyptic nation of Panem, where the Capitol forces twelve districts to send tributes to compete in a televised battle to the death as a punishment for a past rebellion', NULL),
+(32, 'Suzanne collins ', 25.99, 14, 'The Hunger Games ', 'Adventure Fiction', '2025-04-10 00:00:00.000000', 20, 'A book about a girl who shoots arrows.\r\n', NULL),
+(33, 'Suzanne collins ', 10.95, 4, 'The Hunger Games ', 'Adventure Fiction', '2025-04-29 00:00:00.000000', 12, 'a girl who shoots arrows ', NULL),
+(38, 'Lucas Walton', 21.99, 2, 'The Hunger Games ', 'Adventure Fiction', '2025-05-06 00:00:00.000000', 1, 'tyyr vyrk', NULL),
+(39, 'Lucas Walton', 30.99, 2, 'africas most', 'Adventure Fiction', '2025-05-07 00:00:00.000000', 1, 'tgfuty yehdu', NULL),
+(40, 'test', 23, 2, 'test', 'test', '2025-05-06 00:00:00.000000', 1, 'test test', NULL),
+(41, 'test2', 23, 2, 'test 2', 'test2', '2025-05-06 00:00:00.000000', 1, 'test test2', NULL),
+(42, 'Suzanne collins ', 12.99, 54, 'The Hunger Games ', 'Adventure Fiction', '2025-05-05 00:00:00.000000', 1, 'a girl who shoots arrows ', NULL),
+(43, 'Suzanne collins ', 30.99, 65, 'The Hunger Games ', 'Adventure Fiction', '2025-05-05 00:00:00.000000', 1, 'eiorwfniwefpfeiwo[fe', NULL),
+(44, 'Suzanne collins ', 25.99, 6, 'The Hunger Games ', 'Adventure Fiction', '2025-05-07 00:00:00.000000', 1, 'opjodafkaeopfe', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,16 +83,6 @@ CREATE TABLE `fines` (
   `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `fines`
---
-
-INSERT INTO `fines` (`fine_id`, `date_made`, `fine_amount`, `fine_desc`, `book_id`, `user_id`) VALUES
-(7, '2021-02-13', 76.99, '63 Torn Pages', 6, 3),
-(8, '2021-01-14', 26.99, '63 Torn Pages', 4, 3),
-(9, '2021-01-14', 36.99, '63 Torn Pages', 6, 3),
-(11, '2025-03-30', 21.99, '25 Torn Pages', 6, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -92,16 +98,6 @@ CREATE TABLE `purchase` (
   `total_price` double NOT NULL,
   `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `purchase`
---
-
-INSERT INTO `purchase` (`purchase_id`, `book_id`, `date_purchased`, `quantity`, `seller_id`, `total_price`, `user_id`) VALUES
-(1, 4, '2021-02-13 00:00:00.000000', 6, 2, 20.5, 1),
-(2, 4, '2021-02-13 00:00:00.000000', 6, 2, 20.5, 1),
-(3, 4, '2021-02-13 00:00:00.000000', 70, 2, 20.5, 1),
-(4, 4, '2021-02-13 00:00:00.000000', 70, 2, 20.5, 1);
 
 -- --------------------------------------------------------
 
@@ -123,7 +119,11 @@ CREATE TABLE `reply` (
 
 INSERT INTO `reply` (`reply_id`, `date_made`, `description`, `review_id`, `user_id`) VALUES
 (2, '2021-02-13 00:00:00.000000', 'I disagree with you brodie', 2, 3),
-(3, '2021-02-13 00:00:00.000000', 'I agree with you broski', 2, 3);
+(3, '2021-02-13 00:00:00.000000', 'I agree with you broski', 2, 3),
+(4, '2021-02-13 00:00:00.000000', 'I disagree with you it was bad', 2, 3),
+(5, '2021-02-13 00:00:00.000000', 'I disagree with you brodie', 2, 3),
+(6, '2021-02-13 00:00:00.000000', 'I disagree with you brodie', 2, 3),
+(9, '2021-02-13 00:00:00.000000', 'I disagree with you it was bad', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,15 @@ CREATE TABLE `reviews` (
 
 INSERT INTO `reviews` (`id`, `book_id`, `created_at`, `rating`, `review_text`, `reviewer_name`, `user_id`) VALUES
 (1, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
-(2, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Charles Walton', 3);
+(2, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Charles Walton', 3),
+(3, 6, '2025-04-01 11:27:14.547256', 2, 'it was Bad', 'Grume Fikre', 3),
+(4, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(5, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(6, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(8, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(10, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(11, 6, '2025-03-27 00:00:00.000000', 5, 'it was good', 'Lucas Walton', 3),
+(13, 6, '2025-04-03 11:30:13.695560', 2, 'it was great ', 'Grume Fikre', 3);
 
 -- --------------------------------------------------------
 
@@ -169,7 +177,9 @@ CREATE TABLE `subscriptions` (
 --
 
 INSERT INTO `subscriptions` (`id`, `end_date`, `plan`, `start_date`, `status`, `user_id`) VALUES
-(1, '2025-03-31 00:00:00.000000', '1 Year', '2026-03-31 00:00:00.000000', 'Active', 2);
+(1, '2025-03-31 00:00:00.000000', '1 Year', '2026-03-31 00:00:00.000000', 'Active', 2),
+(2, '2025-03-31 00:00:00.000000', '1 Year', '2026-03-31 00:00:00.000000', 'Active', 4),
+(3, '2025-03-31 00:00:00.000000', '1 Year', '2026-03-31 00:00:00.000000', 'Active', 4);
 
 -- --------------------------------------------------------
 
@@ -191,9 +201,31 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `name`, `password`, `set_type`, `username`) VALUES
-(1, 'kayembewalton@gmail.com', 'Lucas Walton', 'LucasisDrip8', 'Buyer', 'Drip God'),
-(2, 'kwalton@gmail.com', 'Kayembe Walton', 'LucasisDrip8', 'Buyer', 'Drip God'),
-(3, 'kaywal@gmail.com', 'Lucas Kayembe', 'LucasisDrip8', 'Admin', 'LucasisaG');
+(1, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
+(2, 'kwalton@gmail.com', 'Jarius Walton', 'LucasisDrip8', 'Buyer', 'block God'),
+(3, 'kaywal@gmail.com', 'Lucas Kayembe', 'LucasisDrip8', 'Admin', 'LucasisaG'),
+(4, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'seller', 'OT7 quanny'),
+(5, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
+(6, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
+(7, 'Kaywal@gmail.com', 'Lucas Kayembe', 'lucasisDrip8', 'Seller', 'DripisLucas'),
+(8, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
+(9, 'Kaywal@gmail.com', 'Lucas Kayembe', 'lucasisDrip8', 'Seller', 'DripisLucas'),
+(10, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(11, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(12, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_69'),
+(13, 'kayembewalton12@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucsIsBig'),
+(14, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'customer', 'LucasKaye_6'),
+(15, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(16, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(17, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(18, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'kayembewalton1'),
+(19, 'kayembewalton@gmail.com', 'Lucas Walton', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(20, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(21, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_69'),
+(22, 'kaywalC@gmail.com', 'Lucas Kayembe', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
+(23, 'jlaw21@gmail.com', 'Johnny lawrence ', 'jlaw21454', 'seller', 'LayDownTheLaw'),
+(24, 'lonnie1@gmail.com', 'lonnie walker ', 'jlaw21454', 'seller', 'lonnie123'),
+(25, 'kayembewalton@gmail.com', 'Lucas Walton ', 'LucasisDrip28', 'seller', 'LucasKaye_6');
 
 --
 -- Indexes for dumped tables
@@ -256,7 +288,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `book_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `fines`
@@ -268,31 +300,31 @@ ALTER TABLE `fines`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `reply_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `reply_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `subscriptions`
 --
 ALTER TABLE `subscriptions`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
