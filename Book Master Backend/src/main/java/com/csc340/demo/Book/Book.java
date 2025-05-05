@@ -52,8 +52,8 @@ public class Book {
     @Column(nullable = false)
     private String about;
 
-    private String bookPicturePath;
 
+    private String bookPicture;
 
 
     public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicturePath) {
@@ -177,5 +177,19 @@ public class Book {
         this.bookPicturePath = bookPicturePath;
     }
 
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookTitle='" + bookTitle + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", publishDate=" + publishDate +
+                ", bookPrice=" + bookPrice +
+                ", bookQuantity=" + bookQuantity +
+                ", sellerId=" + sellerId +
+                ", about='" + about + '\'' +
+                ", bookPicturePath='" + bookPicturePath + '\'' +
+                '}';
+    }
 }

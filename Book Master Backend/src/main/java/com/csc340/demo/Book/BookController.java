@@ -28,7 +28,7 @@ public class BookController {
     public BookController() {
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public String showBooks(Model model) {
         List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
@@ -42,12 +42,12 @@ public class BookController {
 //return "bookstore";
  //   }
 
-    @GetMapping("/all")
-    public Object getAllBooks(Model model) {
-        model.addAttribute("bookList", bookService.getAllBooks());
-        model.addAttribute("title", "All books");
-        return "MyBookStore";
-    }
+//    @GetMapping("/all")
+//    public Object getAllBooks(Model model) {
+//        model.addAttribute("bookList", bookService.getAllBooks());
+//        model.addAttribute("title", "All books");
+//        return "MyBookStore";
+//    }
 
     @GetMapping("/{bookId}")
     public Object getABook(@PathVariable int bookId, Model model) {
@@ -58,9 +58,9 @@ public class BookController {
 
     @GetMapping("/title")
     public Object getBooksByTitle(@RequestParam(name = "search",defaultValue = "") String search, Model model) {
-        model.addAttribute("bookList", bookService.getBooksByTitle(search));
+        model.addAttribute("books", bookService.getBooksByTitle(search));
         model.addAttribute("title", "Books by Name: " + search);
-        return "MyBookStore";
+        return "BookStore";
     }
 
     @GetMapping("/genre")
@@ -75,9 +75,9 @@ public class BookController {
 
     @GetMapping("/seller/{sellerId}")
     public Object getSellerId(@PathVariable int sellerId, Model model) {
-        model.addAttribute("bookList",bookService.getBooksBySellerId(sellerId));
+        model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
         model.addAttribute("title", "books you are selling");
-        return "MyBookStore";
+        return "BookStore";
     }
 
     @GetMapping("/bookForm")

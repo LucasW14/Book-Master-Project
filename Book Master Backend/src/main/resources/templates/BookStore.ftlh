@@ -117,9 +117,13 @@
     </style>
 </head>
 <body>
-<form action="/books/search" method="get" class="search-form">
+
+<#include "fragments/navbar.ftlh">
+
+
+<form action="/books/title" method="get" class="search-form">
     <div class="search-bar-wrapper">
-        <input type="text" name="keyword" placeholder="Search by title" value="${search?if_exists}" required>
+        <input type="text" name="search" placeholder="Search by title" required>
         <button type="submit"> Search</button>
     </div>
 </form>
@@ -156,6 +160,7 @@
                             <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
                             <button type="submit">Buy</button>
                         </form>
+                        <a href="/books/${book.bookId?c}"><button>View Details</button></a>
                     </td>
                 </tr>
             </#list>

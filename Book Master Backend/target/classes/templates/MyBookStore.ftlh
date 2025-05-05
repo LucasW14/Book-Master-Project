@@ -43,7 +43,7 @@
 
 
 <div class="table-container">
-    <#list bookList as book>
+    <#list books as book>
 
     <table>
 

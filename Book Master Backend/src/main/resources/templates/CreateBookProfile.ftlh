@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
 
 
@@ -16,21 +16,22 @@
 
 
 
+<#include "fragments/navbar.ftlh">
 
-<div class="header">
-    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
-    <nav class="nav-links">
-        <a href="index.html" style="color: yellow; text-align: center">Home</a>
-        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>
-        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
-        <a href="page3\.html" style="color: yellow; text-align: center">Settings</a>
-    </nav>
-</div>
+<!--<div class="header">-->
+<!--    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>-->
+<!--    <nav class="nav-links">-->
+<!--        <a href="index.html" style="color: yellow; text-align: center">Home</a>-->
+<!--        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>-->
+<!--        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>-->
+<!--        <a href="page3\.html" style="color: yellow; text-align: center">Settings</a>-->
+<!--    </nav>-->
+<!--</div>-->
 
-<h2 class="header2" style="color: yellow; text-align: center">Sell a new book</h2>
-<h3 class="header3" style="color: yellow; text-align: center">${title}</h3>
+<h2 class="header2" style="color: black; text-align: center">Sell a new book</h2>
+<h3 class="header3" style="color: black; text-align: center">${title}</h3>
 
-
+<div class="container" >
 <form id="new-book" action="/books/new" method="post">
     <!-- First Name -->
     <label for="bookTitle">Book Title: </label>
@@ -61,29 +62,18 @@
     <input type="number" id="sellerId" name="sellerId" placeholder="Enter your seller ID " required>
     <br>
     <label for="about">Description: </label>
-    <textarea id="about" name="about" placeholder="What is the book about" rows="5" cols="40" required></textarea>
+    <textarea id="about" name="about" placeholder="What is the book about" rows="5" cols="35" required></textarea>
     </br>
 
 <!--    <label for="profile-pic">Upload Profile Picture:</label>-->
 <!--    <input type="file" id="profile-pic" name="profile-pic" accept="image/*">-->
 <!--    </br>-->
-    <label for="bookPicturePath">Upload Book Cover (JPG only):</label>
-    <input type="file" id="bookPicturePath" name="bookPicturePath" accept="image/jpeg" required>
-    <br>
+    <label for="bookPicturePath">path: </label>
+    <input type="text" id="bookPicturePath" name="bookPicturePath" required >
 
-    <!-- Optional Preview -->
-    <img id="preview" src="#" alt="Image Preview" style="display:none; max-width: 200px;"/>
-
-
-    <!-- Submit Button -->
-
-
-
-    <button type="submit">Save to drafts</button>
-    <button type="submit">Discard Changes</button>
     <button type="submit" class="btn btn-primary">Create Book Profile</button>
 
 </form>
-
+</div>
 </body>
 </html>

@@ -4,66 +4,38 @@
     <meta charset="UTF-8">
     <title>Seller</title>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
     <style>
 
+<!--        body {-->
+<!--      font-family: Arial, sans-serif;-->
+<!--  }-->
 
     </style>
 
 </head>
 <body>
 
-<div class="header">
-    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
-    <nav class="nav-links">
-        <a href="/books/all" style="color: yellow; text-align: center">Home</a>
-        <a href="/books/all" style="color: yellow; text-align: center">Book Store</a>
-        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
-        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
-    </nav>
-</div>
+<#include "fragments/navbar.ftlh">
 
-<h2 class="header2" style="color: yellow; text-align: center">Seller Profile</h2>
+<!--<div class="header">-->
+<!--    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>-->
+<!--    <nav class="nav-links">-->
+<!--        <a href="/books/all" style="color: yellow; text-align: center">Home</a>-->
+<!--        <a href="/books/all" style="color: yellow; text-align: center">Book Store</a>-->
+<!--        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>-->
+<!--        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>-->
+<!--    </nav>-->
+<!--</div>-->
 
-<div class="table-container">
-    <table>
-        <tr>
-            <td><b><i> Best Selling Book</i></b></td>
-        </tr>
-        <tr>
-            <th><img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660145160l/61718053.jpg"
-                     alt="Cobra image" width="104" height="142"></th>
-        </tr>
-        <tr>
-            <td>Book Name: Happy Place</td>
-        </tr>
-        <tr>
-            <td>Genre: Romance</td>
-        </tr>
-        <tr>
-            <td>Price: $25.00</td>
-        </tr>
-        <tr>
-            <td><a href="Book%20Profile.html"><button>View Details</button></a></td>
-        </tr>
+<h2 class="header2" style="color: Black; text-align: center">Seller Profile</h2>
 
-    </table>
-
-    <!-- Button Section (Centered) -->
-    <div class="button-container">
-        <a href="My%20Book%20Drafts.html"><button class="button1">My Book Drafts</button></a>
-        <a href="Sales%20Statistics.html">
-            <button class="button1">Sales Statistics</button>
-        </a>
-        <a href="/books/bookForm"><button class="button1">Sell a new book</button></a>
-        <a href="/books/seller/${user.userId?c}"><button class="button1">My Book Store</button></a>
-    </div>
-
-    <table>
+<div class="profile-container">
+    <table class="profile-table">
         <tr>
             <th><img src="https://upload.wikimedia.org/wikipedia/en/2/2e/Pat-Morita_%28Karate_Kid%29.jpg"
-                     alt="Cobra image" width="104" height="142"></th>
+                     alt="Seller image" width="104" height="142"></th>
         </tr>
         <tr>
             <td>Name: ${user.name}</td>
@@ -72,7 +44,7 @@
             <td>Classification: ${user.setType}</td>
         </tr>
         <tr>
-            <td>Genres: Romance, Anime<br>Fiction, Non-fiction</td>
+            <td>ID: ${user.userId?c}</td>
         </tr>
         <tr>
             <td>Follower Count: 25,000</td>
@@ -83,7 +55,19 @@
     </table>
 </div>
 
-<h1 style="color: yellow; text-align: center">“It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it
+
+    <!-- Button Section (Centered) -->
+<!-- Button Section: moved inside profile container -->
+<div class="button-container">
+    <a href="My%20Book%20Drafts.html"><button class="button1">My Book Drafts</button></a>
+    <a href="Sales%20Statistics.html"><button class="button1">Sales Statistics</button></a>
+    <a href="/books/bookForm"><button class="button1">Sell a new book</button></a>
+    <a href="/books/seller/${user.userId?c}"><button class="button1">My Book Store</button></a>
+</div>
+</div>
+</div>
+
+<h1 style="color: black; text-align: center">“It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it
     was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness,
     it was the spring of hope, it was the winter of despair.” — Charles Dickens, A Tale of Two Cities</h1>
 

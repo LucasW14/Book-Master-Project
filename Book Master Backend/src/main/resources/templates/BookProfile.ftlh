@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
 
     <style>
@@ -14,23 +14,24 @@
 
 </head>
 <body>
+<#include "fragments/navbar.ftlh">
 
-<div class="header">
-    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
-    <nav class="nav-links">
-        <a href="index.html" style="color: yellow; text-align: center">Home</a>
-        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>
-        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
-        <a href="signup.html" style="color: yellow; text-align: center">Signup</a>
-        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
-    </nav>
-</div>
+<!--<div class="header">-->
+<!--    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>-->
+<!--    <nav class="nav-links">-->
+<!--        <a href="index.html" style="color: yellow; text-align: center">Home</a>-->
+<!--        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>-->
+<!--        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>-->
+<!--        <a href="signup.html" style="color: yellow; text-align: center">Signup</a>-->
+<!--        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>-->
+<!--    </nav>-->
+<!--</div>-->
 
-<h2 class="header2" style="color: yellow; text-align: center">Book Profile</h2>
+<h2 class="header2" style="color: white; text-align: center">Book Profile</h2>
 
 
-<div class="container">
-    <div class="table-container">
+<div class="profile-container">
+    <div class="book-table">
         <table>
 
             <tr>
