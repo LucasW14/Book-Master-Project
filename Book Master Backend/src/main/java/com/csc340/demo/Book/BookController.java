@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/books")
 public class BookController {
@@ -25,6 +27,20 @@ public class BookController {
 
     public BookController() {
     }
+
+    @GetMapping
+    public String showBooks(Model model) {
+        List<Book> books = bookService.getAllBooks();
+        model.addAttribute("books", books);
+        return "BookStore"; // bookstore.ftlh
+    }
+   // @GetMapping("/search")
+  //  public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
+      //  List<Book> books = BookRepository.findByBookTitleContainingIgnoreCase(keyword);
+      //  model.addAttribute("books", books);
+      //  model.addAttribute("search", keyword); // to keep the search keyword in the input
+//return "bookstore";
+ //   }
 
     @GetMapping("/all")
     public Object getAllBooks(Model model) {

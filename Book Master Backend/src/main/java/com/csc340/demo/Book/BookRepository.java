@@ -35,4 +35,6 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     long countSellerBooks(@Param("sellerId") int userId);
 
 
+    List<Book> findByBookTitleContainingIgnoreCase(String keyword);
+
 }
