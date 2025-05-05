@@ -36,7 +36,7 @@
 
             <tr>
                 <th><img
-                        src="${book.bookPicturePath}"
+                        src="${book.bookPicture}"
                         alt="Cobra image" width="104" height="142">
                     <label for="profile-pic"> Upload Profile Picture:</label>
                     <input type="file" id="profile-pic" name="profile-pic" accept="image/*">

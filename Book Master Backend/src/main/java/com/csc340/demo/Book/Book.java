@@ -29,8 +29,8 @@ public class Book {
     private int bookId;
 
     @Column(nullable = false)
-    private String bookTitle
-            ;
+    private String bookTitle;
+
     @Column(nullable = false)
     private String author;
     @Column(nullable = false)
@@ -52,11 +52,10 @@ public class Book {
     @Column(nullable = false)
     private String about;
 
-
     private String bookPicture;
 
 
-    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicturePath) {
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicture) {
         this.bookId = bookId;
         this.bookTitle = bookName;
         this.author = author;
@@ -65,10 +64,10 @@ public class Book {
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
         this.about = about;
-        this.bookPicturePath = bookPicturePath;
+        this.bookPicture = bookPicture;
     }
 
-    public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicturePath) {
+    public Book(String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, String about, String bookPicture) {
         this.bookTitle = bookName;
         this.author = author;
         this.genre = genre;
@@ -76,11 +75,11 @@ public class Book {
         this.bookPrice = bookPrice;
         this.bookQuantity = bookQuantity;
         this.about = about;
-        this.bookPicturePath = bookPicturePath;
+        this.bookPicture = bookPicture;
 
     }
 
-    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId, String about,String bookPicturePath ) {
+    public Book(int bookId, String bookName, String author, String genre, Date publishDate, Double bookPrice, int bookQuantity, User sellerId, String about,String bookPicture ) {
         this.bookId = bookId;
         this.bookTitle = bookName;
         this.author = author;
@@ -90,7 +89,7 @@ public class Book {
         this.bookQuantity = bookQuantity;
         this.sellerId = sellerId;
         this.about = about;
-        this.bookPicturePath = bookPicturePath;
+        this.bookPicture = bookPicture;
 
     }
 
@@ -169,12 +168,12 @@ public class Book {
         this.about = about;
     }
 
-    public String getBookPicturePath() {
-        return bookPicturePath;
+    public String getBookPicture() {
+        return bookPicture;
     }
 
-    public void setBookPicturePath(String profilePicturePath) {
-        this.bookPicturePath = bookPicturePath;
+    public void setBookPicture(String bookPicture) {
+        this.bookPicture = bookPicture;
     }
 
     @Override
@@ -189,7 +188,7 @@ public class Book {
                 ", bookQuantity=" + bookQuantity +
                 ", sellerId=" + sellerId +
                 ", about='" + about + '\'' +
-                ", bookPicturePath='" + bookPicturePath + '\'' +
+                ", bookPicturePath='" + bookPicture + '\'' +
                 '}';
     }
 }
