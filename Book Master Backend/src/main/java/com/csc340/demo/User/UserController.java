@@ -61,10 +61,25 @@ public class UserController {
         return "redirect:/users/" + savedUser.getUserId();
     }
 
-    @PutMapping({"/update/{userId}"})
-    public ResponseEntity<User> updateUser(@PathVariable int userId, @RequestBody User userDetails) {
-        Optional<User> updatedUser = this.userService.updateUser(userId, userDetails);
-        return (ResponseEntity)updatedUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    @GetMapping("/update/{userId}")
+    public String updateUser(@PathVariable int userId, Model model) {
+        Optional<User> optionalUser = this.userService.getUserById(userId);
+        if (optionalUser.isPresent()) {
+            model.addAttribute("user", optionalUser.get()); // ✅ Unwrapped here
+            model.addAttribute("title", "Update user account");
+            return "ModifyProfile";
+        } else {
+            model.addAttribute("errorMessage", "User not found");
+            return "error";
+        }
+    }
+
+
+
+    @PostMapping({"/update/{userId}"})
+    public String updateUser(@PathVariable int userId, User user) {
+       this.userService.updateUser(userId, user);
+        return "redirect:/users/" + userId;
     }
 
     @DeleteMapping({"/{userId}"})

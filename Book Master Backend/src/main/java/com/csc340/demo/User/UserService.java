@@ -31,6 +31,8 @@ public class UserService {
             existingUser.setUsername(userDetails.getUsername());
             existingUser.setPassword(userDetails.getPassword());
             existingUser.setSetType(userDetails.getSetType());
+            existingUser.setProfileImage(userDetails.getProfileImage());
+
             return userRepository.save(existingUser);
         });
     }

@@ -36,8 +36,11 @@
             <option value="seller">Seller</option>
         </select>
 
-        <button type="submit">Discard Changes</button>
-        <button type="submit" class="btn btn-primary">Create User</button>
+        <label for="profileImage">Profile picture (give image link): </label>
+        <input type="text" id="profileImage" name="profileImage" required>
+
+        <button type="submit" class="orange-button">Discard Changes</button>
+        <button type="submit" class="orange-button">Create User</button>
     </form>
 </div>
 

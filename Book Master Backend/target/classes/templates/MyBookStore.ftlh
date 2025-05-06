@@ -114,6 +114,7 @@
 }
 
 
+
     </style>
 </head>
 <body>
@@ -155,8 +156,10 @@
         <td>$${book.bookPrice}</td>
         <td>${book.bookQuantity}</td>
         <td>
-            <a href="/books/${book.bookId?c}"><button>View Details</button></a>
-            <a href="/books/update/${book.bookId?c}"><button>Modify</button></a>
+            <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
+            <a href="/books/update/${book.bookId?c}">
+                <button class="orange-button">Modify</button>
+            </a>
             <a href="/books/delete/${book.bookId?c}">
                 <button style="background-color: red; color: white;">Delete</button>
             </a>
