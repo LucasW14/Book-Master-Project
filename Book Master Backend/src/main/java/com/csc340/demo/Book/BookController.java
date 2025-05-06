@@ -26,6 +26,8 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    int sellerId;
+
     public BookController() {
     }
 
@@ -77,8 +79,9 @@ public class BookController {
     @GetMapping("/seller/{sellerId}")
     public Object getSellerId(@PathVariable int sellerId, Model model) {
         model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
-        model.addAttribute("title", "books you are selling");
-        return "BookStore";
+        model.addAttribute("title", "BOOKS BEING SOLD BY YOU");
+        this.sellerId = sellerId;
+        return "MyBookStore";
     }
 
     @GetMapping("/bookForm")
@@ -112,7 +115,7 @@ public class BookController {
     @GetMapping("/delete/{bookId}")
     public Object deleteBookById(@PathVariable int bookId) {
         this.bookService.deleteBooksById(bookId);
-        return "redirect:/books/all";
+        return "redirect:/books/seller/" + sellerId;
     }
 
     @GetMapping("/totalbooks")
