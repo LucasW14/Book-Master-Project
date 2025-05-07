@@ -177,6 +177,8 @@
                             <button type="submit" class="orange-button">Buy</button>
                         </form>
                         <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
+                        <a href="/reviews/reviewonbook/${book.bookId?c}"><button class="orange-button">Reviews</button></a>
+
                     </td>
                 </tr>
             </#list>

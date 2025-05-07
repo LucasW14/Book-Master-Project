@@ -1,5 +1,7 @@
 package com.csc340.demo.Review;
 
+import com.csc340.demo.Book.Book;
+import com.csc340.demo.Book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,9 @@ public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
+
+    @Autowired
+    BookService bookService;
 
     // 1. Show all reviews
     @GetMapping
@@ -38,6 +43,18 @@ public class ReviewController {
         reviewService.deleteReview(id);
 
         return "redirect:/reviews";
+    }
+
+    @GetMapping("/reviewonbook/{bookId}")
+    public String getReviews(int bookId, Model model) {
+        Book book = bookService.getBookById(bookId);
+
+        model.addAttribute("book", book);
+        model.addAttribute("reviews", reviewService.getReviewsByBookId(bookId));
+        model.addAttribute("reviewCount", reviewService.countReviewsBook(bookId));
+
+
+        return "BookReview";
     }
 
 }

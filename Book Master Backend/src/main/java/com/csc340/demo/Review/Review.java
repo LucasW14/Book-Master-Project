@@ -19,7 +19,7 @@ public class Review {
     private String reviewerName;
     private String reviewText;
     private int rating;
-    private Long bookId;
+    private int bookId;
 
     @Column(nullable = false, name = "created_At")
     @CreationTimestamp
@@ -28,7 +28,7 @@ public class Review {
     // Constructors
     public Review() {}
 
-    public Review(String reviewerName, String reviewText, int rating, Long bookId, int userId, LocalDateTime createdAt) {
+    public Review(String reviewerName, String reviewText, int rating, int bookId, int userId, LocalDateTime createdAt) {
         this.reviewerName = reviewerName;
         this.reviewText = reviewText;
         this.rating = rating;
@@ -70,11 +70,11 @@ public class Review {
         this.rating = rating;
     }
 
-    public Long getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 

@@ -26,7 +26,7 @@ public class ReviewService {
         return reviewRepository.findById(id);
     }
 
-    public List<Review> getReviewsByBookId(Long bookId) {
+    public List<Review> getReviewsByBookId(int bookId) {
         return reviewRepository.findByBookId(bookId);
     }
 
@@ -50,4 +50,12 @@ public class ReviewService {
         }
         return false;
     }
+
+    public long countReviewsBook(int bookId){
+
+
+        return reviewRepository.countReviews(bookId);
+    }
+
+
 }
