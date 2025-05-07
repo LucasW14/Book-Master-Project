@@ -12,6 +12,12 @@
             min-height: calc(100vh - 60px); /* Adjust for navbar height */
         }
 
+        .container2 {
+            max-width: 1200px;
+            margin: 0 auto;  /* Center the content */
+            padding: 20px;
+        }
+
         form {
             background-color: grey;
             padding: 30px;
@@ -51,6 +57,13 @@
             width: 100%;
         }
 
+        .profile-container2 {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
         .profile-table {
             background-color: #333;
             color: white;
@@ -60,6 +73,27 @@
             width: 280px;
             text-align: center;
         }
+
+        table2 {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+
+
+        }
+
+    th2, td2 {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+
+th2 {
+    background-color: #f1f1f1;
+}
+
+
 
 .book-table {
     background-color: #333;
@@ -96,6 +130,20 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
+
+        button2 {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover2 {
+            background-color: #45a049;
+        }
+
 
         .button1:hover {
             background-color: white;

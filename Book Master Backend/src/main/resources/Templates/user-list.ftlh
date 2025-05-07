@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Users</title>
     <link rel="stylesheet" href="/css/styles.css">
+
+
+
+
+
 </head>
 <body>
 
@@ -11,21 +16,21 @@
 
 <h2 class="header2" style="color: white; text-align: center">User List</h2>
 
-<div class="profile-container">
-    <div class="book-table">
-        <table>
-            <tr><th>ID</th><th>Name</th><th>Email</th><th>Actions</th></tr>
+<div class="container2">
+    <div class="profile-container2">
+        <table class="table2">
+            <tr><th class="th2">ID</th><th class="th2">Name</th><th class="th2">Email</th><th class="th2">Actions</th></tr>
             <#list users as user>
             <tr>
-                <td>${user.userId}</td>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td>
-                    <a href="/users/update/${user.userId}"><button>Edit</button></a>
-                    <a href="/users/delete/${user.userId}"><button>Delete</button></a>
+                <td class="td2">${user.userId}</td>
+                <td class="td2">${user.name}</td>
+                <td class="td2">${user.email}</td>
+                <td class="td2">
+                    <a href="/users/update/${user.userId}"><button class="button2">Edit</button></a>
+                    <a href="/users/delete/${user.userId}"><button class="button2">Delete</button></a>
                 </td>
             </tr>
-        </list>
+        </#list>
         </table>
     </div>
 </div>
