@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 05, 2025 at 10:29 PM
+-- Generation Time: May 07, 2025 at 05:34 PM
 -- Server version: 8.0.39
 -- PHP Version: 8.2.27
 
@@ -37,36 +37,30 @@ CREATE TABLE `books` (
   `publish_date` datetime(6) NOT NULL,
   `user_id` int DEFAULT NULL,
   `about` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `book_picture` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `book_picture` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `book_picture_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `author`, `book_price`, `book_quantity`, `book_title`, `genre`, `publish_date`, `user_id`, `about`, `book_picture`) VALUES
-(1, 'Lucas Walton', 10.9, 5, 'africas most', 'action', '2025-05-07 00:00:00.000000', NULL, 'a book about Lucas Walton', NULL),
-(2, 'Kwame Alexander', 10.9, 5, 'crossover', 'fiction', '2016-05-13 20:00:00.000000', 1, '', NULL),
-(7, 'Angie Thomas', 14.99, 25, 'Concrete Rose', 'Urban Fiction ', '2021-01-11 19:00:00.000000', 1, '', NULL),
-(10, 'Lucas Walton', 10.9, 5, 'africas most wanted', 'romance', '2025-03-27 20:00:00.000000', 2, '', NULL),
-(20, 'Leo Zeilig', 21.99, 45, 'Lucas', 'romance', '1955-05-13 00:00:00.000000', 4, 'a book about a dumb negro', NULL),
-(22, 'Lucas Walton', 21.99, 6, 'Lucas', 'romance', '2025-04-16 00:00:00.000000', 1, 'a book about Lucas Walton', NULL),
-(24, 'Lucas Walton', 10.95, 56, 'africas most', 'Biography ', '2025-04-12 00:00:00.000000', 20, 'It is about a girl who falls in love', NULL),
-(25, 'Suzanne collins ', 25.99, 67, 'The Hunger Games ', 'Adventure Fiction', '2025-04-21 00:00:00.000000', 10, 'a girl who goes on an adventrue', NULL),
-(27, 'Suzanne collins ', 25.99, 45, 'The Hunger Games ', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 10, 'a dystopian novel by Suzanne Collins that follows 16-year-old Katniss Everdeen in the post-apocalyptic nation of Panem, where the Capitol forces each district to send a boy and a girl to participate in a televised battle royale called the Hunger Games as a punishment for a past rebellion', NULL),
-(28, 'Suzanne collins ', 25.99, 65, 'The Hunger Games ', 'Adventure Fiction', '2025-04-23 00:00:00.000000', 10, 'a dystopian novel by Suzanne Collins that follows 16-year-old Katniss Everdeen in the post-apocalyptic nation of Panem, where the Capitol forces each district to send a boy and a girl to participate in a televised battle royale called the Hunger Games as a punishment for a past rebellion', NULL),
-(29, 'Lucas Walton', 12.99, 45, 'africas most', 'Urban Fiction ', '2025-04-01 00:00:00.000000', 22, 'A description is a statement or account that details the characteristics, qualities, or features of something, such as a person, place, thing, or event. It\'s essentially a way of putting something in words, making it come alive for the reader. \r\n', NULL),
-(30, 'kyler romanstoff', 30.99, 54, 'Cobra Kai', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 23, 'the cobra kai fight miyagi do for the all valley championship ', NULL),
-(31, 'Suzanne collins ', 34.99, 3, 'The Hunger Games ', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 24, 'a dystopian novel set in the post-apocalyptic nation of Panem, where the Capitol forces twelve districts to send tributes to compete in a televised battle to the death as a punishment for a past rebellion', NULL),
-(32, 'Suzanne collins ', 25.99, 14, 'The Hunger Games ', 'Adventure Fiction', '2025-04-10 00:00:00.000000', 20, 'A book about a girl who shoots arrows.\r\n', NULL),
-(33, 'Suzanne collins ', 10.95, 4, 'The Hunger Games ', 'Adventure Fiction', '2025-04-29 00:00:00.000000', 12, 'a girl who shoots arrows ', NULL),
-(38, 'Lucas Walton', 21.99, 2, 'The Hunger Games ', 'Adventure Fiction', '2025-05-06 00:00:00.000000', 1, 'tyyr vyrk', NULL),
-(39, 'Lucas Walton', 30.99, 2, 'africas most', 'Adventure Fiction', '2025-05-07 00:00:00.000000', 1, 'tgfuty yehdu', NULL),
-(40, 'test', 23, 2, 'test', 'test', '2025-05-06 00:00:00.000000', 1, 'test test', NULL),
-(41, 'test2', 23, 2, 'test 2', 'test2', '2025-05-06 00:00:00.000000', 1, 'test test2', NULL),
-(42, 'Suzanne collins ', 12.99, 54, 'The Hunger Games ', 'Adventure Fiction', '2025-05-05 00:00:00.000000', 1, 'a girl who shoots arrows ', NULL),
-(43, 'Suzanne collins ', 30.99, 65, 'The Hunger Games ', 'Adventure Fiction', '2025-05-05 00:00:00.000000', 1, 'eiorwfniwefpfeiwo[fe', NULL),
-(44, 'Suzanne collins ', 25.99, 6, 'The Hunger Games ', 'Adventure Fiction', '2025-05-07 00:00:00.000000', 1, 'opjodafkaeopfe', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg');
+INSERT INTO `books` (`book_id`, `author`, `book_price`, `book_quantity`, `book_title`, `genre`, `publish_date`, `user_id`, `about`, `book_picture`, `book_picture_path`) VALUES
+(2, 'Kwame Alexander', 10.9, 5, 'crossover', 'fiction', '2016-05-13 20:00:00.000000', 1, '', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(7, 'Angie Thomas', 14.99, 25, 'Concrete Rose', 'Urban Fiction ', '2021-01-11 19:00:00.000000', 1, '', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(10, 'Lucas Walton', 10.9, 5, 'africas most wanted', 'romance', '2025-03-27 20:00:00.000000', 2, '', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(20, 'Leo Zeilig', 21.99, 45, 'Lucas', 'romance', '1955-05-13 00:00:00.000000', 4, 'a book about a dumb negro', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(22, 'Lucas Walton', 21.99, 6, 'Lucas', 'romance', '2025-04-16 00:00:00.000000', 1, 'a book about Lucas Walton', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(24, 'Lucas Walton', 10.95, 56, 'africas most', 'Biography ', '2025-04-12 00:00:00.000000', 20, 'It is about a girl who falls in love', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(25, 'Suzanne collins ', 25.99, 67, 'The Hunger Games ', 'Adventure Fiction', '2025-04-21 00:00:00.000000', 10, 'a girl who goes on an adventrue', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(27, 'Suzanne collins ', 25.99, 45, 'The Hunger Games ', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 10, 'a dystopian novel by Suzanne Collins that follows 16-year-old Katniss Everdeen in the post-apocalyptic nation of Panem, where the Capitol forces each district to send a boy and a girl to participate in a televised battle royale called the Hunger Games as a punishment for a past rebellion', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(28, 'Suzanne collins ', 25.99, 65, 'The Hunger Games ', 'Adventure Fiction', '2025-04-23 00:00:00.000000', 10, 'a dystopian novel by Suzanne Collins that follows 16-year-old Katniss Everdeen in the post-apocalyptic nation of Panem, where the Capitol forces each district to send a boy and a girl to participate in a televised battle royale called the Hunger Games as a punishment for a past rebellion', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(29, 'Lucas Walton', 12.99, 45, 'africas most', 'Urban Fiction ', '2025-04-01 00:00:00.000000', 22, 'A description is a statement or account that details the characteristics, qualities, or features of something, such as a person, place, thing, or event. It\'s essentially a way of putting something in words, making it come alive for the reader. \r\n', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(30, 'kyler romanstoff', 30.99, 54, 'Cobra Kai', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 23, 'the cobra kai fight miyagi do for the all valley championship ', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(31, 'Suzanne collins ', 34.99, 3, 'The Hunger Games ', 'Adventure Fiction', '2025-04-24 00:00:00.000000', 24, 'a dystopian novel set in the post-apocalyptic nation of Panem, where the Capitol forces twelve districts to send tributes to compete in a televised battle to the death as a punishment for a past rebellion', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(33, 'Suzanne collins ', 10.95, 4, 'The Hunger Games ', 'Adventure Fiction', '2025-04-29 00:00:00.000000', 12, 'a girl who shoots arrows ', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(38, 'Lucas Walton', 21.99, 2, 'The Hunger Games ', 'Adventure Fiction', '2025-05-06 00:00:00.000000', 1, 'tyyr vyrk', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL),
+(39, 'Lucas Walton', 30.99, 2, 'africas most', 'Adventure Fiction', '2025-05-07 00:00:00.000000', 1, 'tgfuty yehdu', 'https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s1200x630.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -98,6 +92,37 @@ CREATE TABLE `purchase` (
   `total_price` double NOT NULL,
   `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`purchase_id`, `book_id`, `date_purchased`, `quantity`, `seller_id`, `total_price`, `user_id`) VALUES
+(1, 2, '2025-05-06 14:30:00.000000', 5, 2, 50.99, 2),
+(3, 2, '2023-07-06 14:30:00.000000', 5, 2, 65.99, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchases`
+--
+
+CREATE TABLE `purchases` (
+  `purchase_id` int NOT NULL,
+  `purchase_date` datetime(6) NOT NULL,
+  `quantity` int NOT NULL,
+  `seller_id` int NOT NULL,
+  `total_price` double NOT NULL,
+  `book_id` int NOT NULL,
+  `buyer_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`purchase_id`, `purchase_date`, `quantity`, `seller_id`, `total_price`, `book_id`, `buyer_id`) VALUES
+(1, '2025-05-07 13:30:00.000000', 3, 4, 59.97, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -193,39 +218,47 @@ CREATE TABLE `user` (
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `set_type` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `profile_image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `email`, `name`, `password`, `set_type`, `username`) VALUES
-(1, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
-(2, 'kwalton@gmail.com', 'Jarius Walton', 'LucasisDrip8', 'Buyer', 'block God'),
-(3, 'kaywal@gmail.com', 'Lucas Kayembe', 'LucasisDrip8', 'Admin', 'LucasisaG'),
-(4, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'seller', 'OT7 quanny'),
-(5, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
-(6, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
-(7, 'Kaywal@gmail.com', 'Lucas Kayembe', 'lucasisDrip8', 'Seller', 'DripisLucas'),
-(8, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny'),
-(9, 'Kaywal@gmail.com', 'Lucas Kayembe', 'lucasisDrip8', 'Seller', 'DripisLucas'),
-(10, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(11, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(12, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_69'),
-(13, 'kayembewalton12@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucsIsBig'),
-(14, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'customer', 'LucasKaye_6'),
-(15, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(16, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(17, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(18, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'kayembewalton1'),
-(19, 'kayembewalton@gmail.com', 'Lucas Walton', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(20, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(21, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_69'),
-(22, 'kaywalC@gmail.com', 'Lucas Kayembe', 'LucasisDrip28', 'seller', 'LucasKaye_6'),
-(23, 'jlaw21@gmail.com', 'Johnny lawrence ', 'jlaw21454', 'seller', 'LayDownTheLaw'),
-(24, 'lonnie1@gmail.com', 'lonnie walker ', 'jlaw21454', 'seller', 'lonnie123'),
-(25, 'kayembewalton@gmail.com', 'Lucas Walton ', 'LucasisDrip28', 'seller', 'LucasKaye_6');
+INSERT INTO `user` (`user_id`, `email`, `name`, `password`, `set_type`, `username`, `profile_pic`, `profile_image`) VALUES
+(1, 'LaquanC@gmail.com', 'Laquan Crawforder', 'quannyisDrip8', 'customer', 'OT7 quanny', NULL, NULL),
+(2, 'kwalton@gmail.com', 'Jarius Walton', 'LucasisDrip8', 'Buyer', 'block God', NULL, NULL),
+(3, 'kaywal@gmail.com', 'Lucas Kayembe', 'LucasisDrip8', 'Admin', 'LucasisaG', NULL, NULL),
+(4, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'seller', 'OT7 quanny', NULL, NULL),
+(5, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny', NULL, NULL),
+(6, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny', NULL, NULL),
+(7, 'Kaywal@gmail.com', 'Lucas Kayembe', 'lucasisDrip8', 'Seller', 'DripisLucas', NULL, NULL),
+(8, 'LaquanC@gmail.com', 'Laquan Crawford', 'quannyisDrip8', 'Buyer', 'OT7 quanny', NULL, NULL),
+(9, 'Kaywal@gmail.com', 'Lucas Kayembe', 'lucasisDrip8', 'Seller', 'DripisLucas', NULL, NULL),
+(10, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(11, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(12, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_69', NULL, NULL),
+(13, 'kayembewalton12@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucsIsBig', NULL, NULL),
+(14, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'customer', 'LucasKaye_6', NULL, NULL),
+(15, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(16, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(17, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(18, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'kayembewalton1', NULL, NULL),
+(19, 'kayembewalton@gmail.com', 'Lucas Walton', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(20, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'customer', 'LucasKaye_7', NULL, NULL),
+(21, 'kayembewalton@gmail.com', 'lonnie1', 'LucasisDrip28', 'seller', 'LucasKaye_69', NULL, NULL),
+(22, 'kaywalC@gmail.com', 'Lucas Kayembe', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(23, 'jlaw21@gmail.com', 'Johnny lawrence ', 'jlaw21454', 'seller', 'LayDownTheLaw', NULL, NULL),
+(24, 'lonnie1@gmail.com', 'lonnie walker ', 'jlaw21454', 'seller', 'lonnie123', NULL, NULL),
+(25, 'kayembewalton@gmail.com', 'Lucas Walton ', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, NULL),
+(26, 'kayembewalton@gmail.com', 'Lucas Kayembe', 'jlaw21454', 'customer', 'LucasKaye_6', 'https://static.wikia.nocookie.net/crashban/images/0/03/Crash_1_Crash_Bandicoot.png/revision/latest?cb=20230516213125', NULL),
+(27, 'kayembewalton@gmail.com', 'Jhase Lynear', 'jlaw21454', 'seller', 'LucasKaye_6', 'https://static.wikia.nocookie.net/crashban/images/0/03/Crash_1_Crash_Bandicoot.png/revision/latest?cb=20230516213125', NULL),
+(28, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6', 'https://static.wikia.nocookie.net/crashban/images/0/03/Crash_1_Crash_Bandicoot.png/revision/latest?cb=20230516213125', NULL),
+(29, 'kayembewalton@gmail.com', 'Lucas', 'jlaw21454', 'seller', 'LucasKaye_6', NULL, 'https://static.wikia.nocookie.net/crashban/images/0/03/Crash_1_Crash_Bandicoot.png/revision/latest?cb=20230516213125'),
+(30, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'customer', 'LucasKaye_6', NULL, 'https://static.wikia.nocookie.net/crashban/images/0/03/Crash_1_Crash_Bandicoot.png/revision/latest?cb=20230516213125'),
+(31, 'kayembewalton@gmail.com', 'Lucas', 'LucasisDrip28', 'seller', 'LucasKaye_6', NULL, 'https://static.wikia.nocookie.net/crashban/images/0/03/Crash_1_Crash_Bandicoot.png/revision/latest?cb=20230516213125');
 
 --
 -- Indexes for dumped tables
@@ -253,6 +286,14 @@ ALTER TABLE `purchase`
   ADD PRIMARY KEY (`purchase_id`),
   ADD KEY `FKltir9y8er2uk8rpq0g8prlchg` (`book_id`),
   ADD KEY `FK86i0stm7cqsglqptdvjij1k3m` (`user_id`);
+
+--
+-- Indexes for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD PRIMARY KEY (`purchase_id`),
+  ADD KEY `FK4wsc9h3nuk217sy5lp4bg2888` (`book_id`),
+  ADD KEY `FK348yig6trhrwl6dtxgvxn9jwq` (`buyer_id`);
 
 --
 -- Indexes for table `reply`
@@ -303,6 +344,12 @@ ALTER TABLE `purchase`
   MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `purchases`
+--
+ALTER TABLE `purchases`
+  MODIFY `purchase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
@@ -324,7 +371,7 @@ ALTER TABLE `subscriptions`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
@@ -349,6 +396,13 @@ ALTER TABLE `fines`
 ALTER TABLE `purchase`
   ADD CONSTRAINT `FK86i0stm7cqsglqptdvjij1k3m` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   ADD CONSTRAINT `FKltir9y8er2uk8rpq0g8prlchg` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+
+--
+-- Constraints for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD CONSTRAINT `FK348yig6trhrwl6dtxgvxn9jwq` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `FK4wsc9h3nuk217sy5lp4bg2888` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
 
 --
 -- Constraints for table `reply`
