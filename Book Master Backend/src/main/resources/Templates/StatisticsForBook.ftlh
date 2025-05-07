@@ -96,11 +96,28 @@
                     </a>
 
 
+
+
                 </td>
             </tr>
 
 
         </table>
+
+        <table border="1">
+            <tr>
+                <th>Total Sales This Month</th>
+                <th>Total Sales Past 6 Months</th>
+                <th>Total Sales Past This Year</th>
+            </tr>
+            <tr>
+                <td>${sellerPurchases}</td>
+                <td>${sellerPurchases}</td>
+                <td>${sellerPurchases}</td>
+            </tr>
+        </table>
+
+
     </div>
 
 

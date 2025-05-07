@@ -2,6 +2,7 @@ package com.csc340.demo.Purchase;
 
 import com.csc340.demo.Book.Book;
 import com.csc340.demo.Book.BookService;
+import com.csc340.demo.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,9 +59,12 @@ public class PurchaseController{
 
     @GetMapping("/statsonbook/{bookId}")
     public Object getTotalPurchases(@PathVariable int bookId, Model model) {
-        model.addAttribute("book", bookService.getBookById(bookId));
-        model.addAttribute("purchaseAmount", purchaseService.getTotalPurchases(bookId));
+        Book book = bookService.getBookById(bookId);
+        User sellerId = bookService.getBookSellerId(bookId);
 
+        model.addAttribute("book", book);
+        model.addAttribute("purchaseAmount", purchaseService.getTotalPurchases(bookId));
+        model.addAttribute("sellerPurchases", purchaseService.getTotalPurchasesSeller(sellerId.getUserId()));
 
         return "StatisticsForBook";
     }

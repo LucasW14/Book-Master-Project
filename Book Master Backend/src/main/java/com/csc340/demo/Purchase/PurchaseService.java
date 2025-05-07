@@ -1,5 +1,6 @@
 package com.csc340.demo.Purchase;
 
+import com.csc340.demo.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

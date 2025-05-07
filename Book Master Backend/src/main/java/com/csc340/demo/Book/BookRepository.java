@@ -7,6 +7,8 @@ package com.csc340.demo.Book;
 
 import java.util.Date;
 import java.util.List;
+
+import com.csc340.demo.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -34,6 +36,8 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query(value = "SELECT COUNT(*) FROM books WHERE user_id = :sellerId", nativeQuery = true)
     long countSellerBooks(@Param("sellerId") int userId);
 
+    @Query(value = "SELECT b.sellerId FROM Book b WHERE b.bookId = :bookId")
+    User getBookSellerId(@Param("bookId") int bookId);
 
     List<Book> findByBookTitleContainingIgnoreCase(String keyword);
 
