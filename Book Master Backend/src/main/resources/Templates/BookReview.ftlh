@@ -50,16 +50,23 @@
 
           <table>
             <tr>
-              <th>ID</th>
               <th>Name</th>
-              <th>Email</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Alice Smith</td>
-              <td>alice@example.com</td>
+              <th>Rating out of 5</th>
+              <th>Review</th>
+              <th><a><button>View Replies</button></a></th>
+              <th><a><button>Reply</button></a></th>
+
             </tr>
 
+            <#list reviews as review>
+
+            <tr>
+              <td>${review.reviewerName}</td>
+              <td>${review.rating}</td>
+              <td>${review.reviewText}</td>
+            </tr>
+
+            </#list>
           </table>
 
 

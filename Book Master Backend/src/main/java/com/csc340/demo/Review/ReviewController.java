@@ -46,7 +46,7 @@ public class ReviewController {
     }
 
     @GetMapping("/reviewonbook/{bookId}")
-    public String getReviews(int bookId, Model model) {
+    public String getReviews(@PathVariable int bookId, Model model) {
         Book book = bookService.getBookById(bookId);
 
         model.addAttribute("book", book);
