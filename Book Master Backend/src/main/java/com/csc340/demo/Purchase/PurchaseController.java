@@ -32,10 +32,7 @@ public class PurchaseController {
     }
 
     @PostMapping("/buy")
-    public String buyBook(@RequestParam int buyerId,
-                          @RequestParam int bookId,
-                          @RequestParam int quantity,
-                          Model model) {
+    public String buyBook(@RequestParam int buyerId, @RequestParam int bookId, @RequestParam int quantity, Model model) {
 
         Optional<User> buyerOpt = userService.getUserById(buyerId);
         Book book = bookService.getBookById(bookId);
