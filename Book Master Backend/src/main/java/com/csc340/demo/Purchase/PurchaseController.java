@@ -1,16 +1,23 @@
 package com.csc340.demo.Purchase;
 
+import com.csc340.demo.Book.Book;
+import com.csc340.demo.Book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/purchase")
-public class PurchaseController {
+public class PurchaseController{
+
+    @Autowired
+    private BookService bookService;
 
     @Autowired
     private PurchaseService purchaseService;
@@ -33,7 +40,7 @@ public class PurchaseController {
         return purchaseService.getAllPurchases();
     }
 
-    @PutMapping("/{purchaseId}")
+    @PostMapping("/{purchaseId}")
     public ResponseEntity<Purchase> updatePurchase(@PathVariable int purchaseId, @RequestBody Purchase updatedPurchase) {
         try {
             Purchase purchase = purchaseService.updatePurchase(purchaseId, updatedPurchase);
@@ -43,21 +50,19 @@ public class PurchaseController {
         }
     }
 
-    @DeleteMapping("/{purchaseId}")
-    public ResponseEntity<Void> deletePurchase(@PathVariable int purchaseId) {
-        purchaseService.deletePurchase(purchaseId);
-        return ResponseEntity.noContent().build();
-    }
+//    @GetMapping("/{purchaseId}")
+//    public ResponseEntity<Void> deletePurchase(@PathVariable int purchaseId) {
+//        purchaseService.deletePurchase(purchaseId);
+//        return ResponseEntity.noContent().build();
+//    }
 
-    @GetMapping("/purchasesonbook/{bookId}")
-    @ResponseBody
-    public String getTotalPurchases(@PathVariable int bookId) {
-        return "Total number of purchases for book " + bookId + " = " + purchaseService.getTotalPurchases(bookId);
-
-
+    @GetMapping("/statsonbook/{bookId}")
+    public Object getTotalPurchases(@PathVariable int bookId, Model model) {
+        model.addAttribute("book", bookService.getBookById(bookId));
+        model.addAttribute("purchaseAmount", purchaseService.getTotalPurchases(bookId));
 
 
-
+        return "StatisticsForBook";
     }
 
 }

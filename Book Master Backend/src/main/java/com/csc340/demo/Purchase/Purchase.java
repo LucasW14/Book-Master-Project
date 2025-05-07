@@ -21,7 +21,7 @@ public class Purchase {
     private double totalPrice;
 
 
-    private int sellerId;
+    protected int sellerId;
 
     @ManyToOne
     @JoinColumn(name = "user_id",nullable = false)

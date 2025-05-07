@@ -13,5 +13,8 @@ public interface PurchaseRepository extends JpaRepository<Purchase, Integer> {
     @Query(value = "SELECT COUNT(*) FROM purchase WHERE book_id = :bookId", nativeQuery = true)
     long countPurchases(@Param("bookId") int bookId);
 
+    @Query(value = "SELECT COUNT(*) FROM purchase WHERE seller_id = :sellerId", nativeQuery = true)
+    long countPurchasesSeller(@Param("sellerId") int sellerId);
+
 
 }

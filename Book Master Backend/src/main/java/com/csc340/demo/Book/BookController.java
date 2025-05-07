@@ -80,9 +80,20 @@ public class BookController {
     public Object getSellerId(@PathVariable int sellerId, Model model) {
         model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
         model.addAttribute("title", "BOOKS BEING SOLD BY YOU");
+        model.addAttribute("totalBooks", bookService.getSellerBooks(sellerId));
         this.sellerId = sellerId;
         return "MyBookStore";
     }
+
+    @GetMapping("/stats/{sellerId}")
+    public Object getSellerStats(@PathVariable int sellerId, Model model) {
+        model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
+        model.addAttribute("title", "Book Statistics");
+        model.addAttribute("totalBooks", bookService.getSellerBooks(sellerId));
+        this.sellerId = sellerId;
+        return "BookStatistics";
+    }
+
 
     @GetMapping("/bookForm")
     public String showCreateForm(Model model) {

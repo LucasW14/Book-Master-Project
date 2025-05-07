@@ -48,20 +48,10 @@
             <tr>
                 <td>Book ID: ${book.bookId?c}</td>
             </tr>
+
+
             <tr>
                 <td>Book Title: ${book.bookTitle}</td>
-            </tr>
-            <tr>
-                <td>Author: ${book.author}</td>
-            </tr>
-
-            <tr>
-                <td>Date Published: ${book.publishDate}</td>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Genre: ${book.genre}<br></td>
             </tr>
 
 
@@ -69,9 +59,20 @@
                 <td>Price: ${book.bookPrice}</td>
             </tr>
 
+
             <tr>
-                <td>Description: ${book.about}</td>
+                <td>Book Sold this Month: ${purchaseAmount}</td>
             </tr>
+
+            <tr>
+                <td> Book sold past six Months: ${purchaseAmount}</td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Book Sold this past year: ${purchaseAmount} </td>
+            </tr>
+
 
             <tr>
                 <td><a href="/books/update/${book.bookId?c}">
@@ -90,7 +91,7 @@
             <tr>
                 <td>
 
-                    <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
+                    <a href="/books/all">
                         <button class="orange-button">Go to My Book Store</button>
                     </a>
 

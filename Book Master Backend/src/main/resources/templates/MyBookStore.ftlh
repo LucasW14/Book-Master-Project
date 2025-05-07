@@ -133,6 +133,7 @@
 </form>
 
 <h1 style="text-align: center;">${title}</h1>
+<h2 style="text-align: center;">YOU HAVE A TOTAL OF ${totalBooks} BOOKS UP FOR SALE</h2>
 
 <table>
     <thead>

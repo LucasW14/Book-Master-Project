@@ -144,7 +144,7 @@
         <th>Publish Date</th>
         <th>Price</th>
         <th>Quantity Available</th>
-        <th>Edit</th>
+        <th>Books Sold</th>
     </tr>
     </thead>
     <tbody>
@@ -157,13 +157,7 @@
         <td>$${book.bookPrice}</td>
         <td>${book.bookQuantity}</td>
         <td>
-            <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
-            <a href="/books/update/${book.bookId?c}">
-                <button class="orange-button">Modify</button>
-            </a>
-            <a href="/books/delete/${book.bookId?c}">
-                <button style="background-color: red; color: white;">Delete</button>
-            </a>
+            <a href="/purchase/statsonbook/${book.bookId?c}"><button class="orange-button">View Book Statistics</button></a>
 
         </td>
     </tr>

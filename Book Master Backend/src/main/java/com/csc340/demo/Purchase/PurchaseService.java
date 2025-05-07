@@ -45,6 +45,9 @@ public class PurchaseService {
         return purchaseRepository.countPurchases(bookId);
     }
 
+    public long getTotalPurchasesSeller(int sellerId){
 
+        return purchaseRepository.countPurchasesSeller(sellerId);
+    }
 
 }

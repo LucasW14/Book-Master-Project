@@ -21,7 +21,7 @@ public class Book {
     private int bookId;
 
     @Column(nullable = false)
-    private String bookTitle;
+    public String bookTitle;
 
     @Column(nullable = false)
     private String author;
