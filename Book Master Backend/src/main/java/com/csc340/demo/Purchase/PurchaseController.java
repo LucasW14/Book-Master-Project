@@ -69,9 +69,12 @@ public class PurchaseController {
 
     @GetMapping("/statsonbook/{bookId}")
     public Object getTotalPurchases(@PathVariable int bookId, Model model) {
-        model.addAttribute("book", bookService.getBookById(bookId));
-        model.addAttribute("purchaseAmount", purchaseService.getTotalPurchases(bookId));
+        Book book = bookService.getBookById(bookId);
+        User sellerId = book.getSellerId();
 
+        model.addAttribute("book",book );
+        model.addAttribute("purchaseAmount", purchaseService.getTotalPurchases(bookId));
+        model.addAttribute("sellerPurchases", purchaseService.getTotalPurchasesSeller(sellerId.getUserId()));
 
 
 

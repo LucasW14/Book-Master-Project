@@ -164,3 +164,15 @@ th2 {
 .orange-button:hover {
     background-color: #e68a00;
 }
+
+.table-wrapper {
+    margin-bottom: 30px; /* space below each table */
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+
+table2 {
+    width: 100%;
+    border-collapse: collapse;
+}

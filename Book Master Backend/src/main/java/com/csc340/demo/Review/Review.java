@@ -1,6 +1,11 @@
 package com.csc340.demo.Review;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
@@ -8,21 +13,28 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+    private Long id;
+    private int userId;
     private String reviewerName;
     private String reviewText;
     private int rating;
     private Long bookId;
 
+    @Column(nullable = false, name = "created_At")
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
     // Constructors
     public Review() {}
 
-    public Review(String reviewerName, String reviewText, int rating, Long bookId) {
+    public Review(String reviewerName, String reviewText, int rating, Long bookId, int userId, LocalDateTime createdAt) {
         this.reviewerName = reviewerName;
         this.reviewText = reviewText;
         this.rating = rating;
         this.bookId = bookId;
+        this.userId = userId;
+        this.createdAt = createdAt;
     }
 
     // Getters and Setters
@@ -64,6 +76,22 @@ public class Review {
 
     public void setBookId(Long bookId) {
         this.bookId = bookId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
 

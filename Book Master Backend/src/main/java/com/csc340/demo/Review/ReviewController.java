@@ -32,5 +32,13 @@ public class ReviewController {
         reviewService.addReview(review); // Save the review
         return "redirect:/reviews"; // Redirect to the list of reviews
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteReview(@PathVariable long id){
+        reviewService.deleteReview(id);
+
+        return "redirect:/reviews";
+    }
+
 }
 
