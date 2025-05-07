@@ -8,7 +8,7 @@
 
   <!-- Navigation links on the right -->
   <div>
-    <a href="/" style="color: white; margin-left: 25px; text-decoration: none; font-size: 16px; font-weight: 600; position: relative;">Home</a>
+    <a href="/home" style="color: white; margin-left: 25px; text-decoration: none; font-size: 16px; font-weight: 600; position: relative;">Home</a>
     <a href="/books/all" style="color: white; margin-left: 25px; text-decoration: none; font-size: 16px; font-weight: 600; position: relative;">Bookstore</a>
     <a href="/profile" style="color: white; margin-left: 25px; text-decoration: none; font-size: 16px; font-weight: 600; position: relative;">Profile</a>
     <a href="/users/userForm" style="color: white; margin-left: 25px; text-decoration: none; font-size: 16px; font-weight: 600; position: relative;">Sign Up</a>
