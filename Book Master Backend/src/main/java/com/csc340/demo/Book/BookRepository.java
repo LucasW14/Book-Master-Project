@@ -39,6 +39,8 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query(value = "SELECT b.sellerId FROM Book b WHERE b.bookId = :bookId")
     User getBookSellerId(@Param("bookId") int bookId);
 
-    List<Book> findByBookTitleContainingIgnoreCase(String keyword);
+    static List<Book> findByBookTitleContainingIgnoreCase(String keyword) {
+        return null;
+    }
 
 }

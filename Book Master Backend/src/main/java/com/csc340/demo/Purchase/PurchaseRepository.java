@@ -1,6 +1,5 @@
 package com.csc340.demo.Purchase;
 
-import com.csc340.demo.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,6 +1,5 @@
 package com.csc340.demo.Purchase;
 
-import com.csc340.demo.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +26,12 @@ public class PurchaseService {
 
     public Purchase updatePurchase(int purchaseId, Purchase updatedPurchase) {
         return purchaseRepository.findById(purchaseId).map(existingPurchase -> {
-            existingPurchase.setBookId(updatedPurchase.getBookId());
+            existingPurchase.setBook(updatedPurchase.getBook());
             existingPurchase.setQuantity(updatedPurchase.getQuantity());
             existingPurchase.setTotalPrice(updatedPurchase.getTotalPrice());
+            existingPurchase.setBuyer(updatedPurchase.getBuyer());
             existingPurchase.setSellerId(updatedPurchase.getSellerId());
-            existingPurchase.setUserId(updatedPurchase.getUserId());
-            existingPurchase.setDatePurchased(updatedPurchase.getDatePurchased());
+            existingPurchase.setPurchaseDate(updatedPurchase.getPurchaseDate());
             return purchaseRepository.save(existingPurchase);
         }).orElseThrow(() -> new RuntimeException("Purchase with" + purchaseId + "ID not found"));
     }

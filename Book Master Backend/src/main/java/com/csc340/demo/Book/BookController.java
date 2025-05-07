@@ -37,13 +37,13 @@ public class BookController {
         model.addAttribute("books", books);
         return "BookStore"; // bookstore.ftlh
     }
-   // @GetMapping("/search")
-  //  public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
-      //  List<Book> books = BookRepository.findByBookTitleContainingIgnoreCase(keyword);
-      //  model.addAttribute("books", books);
-      //  model.addAttribute("search", keyword); // to keep the search keyword in the input
-//return "bookstore";
- //   }
+   @GetMapping("/search")
+ public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
+      List<Book> books = BookRepository.findByBookTitleContainingIgnoreCase(keyword);
+   model.addAttribute("books", books);
+ model.addAttribute("search", keyword); // to keep the search keyword in the input
+return "bookstore";
+  }
 
 //    @GetMapping("/all")
 //    public Object getAllBooks(Model model) {
