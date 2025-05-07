@@ -113,6 +113,22 @@
     background-color: #e68a00;
 }
 
+               .orange-button {
+    padding: 10px 20px;
+    border: 2px solid #ff9900;
+    background-color: #ff9900;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.orange-button:hover {
+    background-color: #e68a00;
+}
+
+
 
     </style>
 </head>
@@ -155,12 +171,12 @@
                     <td>$${book.bookPrice}</td>
                     <td>${book.bookQuantity}</td>
                     <td>
-                        <form method="post" action="/purchase">
+                        <form method="post" action="/purchases/buy">
                             <input type="hidden" name="bookId" value="${book.bookId}">
                             <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
-                            <button type="submit">Buy</button>
+                            <button type="submit" class="orange-button">Buy</button>
                         </form>
-                        <a href="/books/${book.bookId?c}"><button>View Details</button></a>
+                        <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
                     </td>
                 </tr>
             </#list>

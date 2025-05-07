@@ -38,8 +38,7 @@
                 <th><img
                         src="${book.bookPicture}"
                         alt="Cobra image" width="104" height="142">
-                    <label for="profile-pic"> Upload Profile Picture:</label>
-                    <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+
 
 
                 </th>
@@ -76,14 +75,14 @@
 
             <tr>
                 <td><a href="/books/update/${book.bookId?c}">
-                    <button>Modify</button>
+                    <button class="orange-button">Modify</button>
                 </a></td>
 
             </tr>
 
             <tr>
                 <td><a href="/users/${(book.sellerId.userId?c)!'0'}">
-                    <button>Go to seller's profile</button>
+                    <button class="orange-button">Go to seller's profile</button>
                 </a></td>
 
             </tr>
@@ -91,8 +90,8 @@
             <tr>
                 <td>
 
-                    <a href="/books/all">
-                        <button>Go to My Book Store</button>
+                    <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
+                        <button class="orange-button">Go to My Book Store</button>
                     </a>
 
 

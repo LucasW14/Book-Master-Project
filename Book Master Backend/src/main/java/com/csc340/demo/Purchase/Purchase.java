@@ -3,46 +3,51 @@ package com.csc340.demo.Purchase;
 import com.csc340.demo.Book.Book;
 import com.csc340.demo.User.User;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 @Entity
-@Table(name = "purchase")
+@Table(name = "purchases")
 public class Purchase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates a purchaseId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int purchaseId;
 
     @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book bookId;
-
-    private int quantity;
-    private double totalPrice;
-
-
-    private int sellerId;
+    @JoinColumn(name = "buyer_id", nullable = false)
+    private User buyer;
 
     @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false)
-    private User userId;
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;
 
-    @Temporal(TemporalType.TIMESTAMP) // Stores date and time
-    private Date datePurchased;
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date purchaseDate;
 
+    @Column(nullable = false)
+    private int quantity;
 
-    public Purchase() {
-        this.datePurchased = new Date(); // This constructor Auto-sets the purchase date
-    }
+    @Column(nullable = false)
+    private double totalPrice;
 
-    // Second constructor (excluding purchaseId since it's auto-generated)
-    public Purchase(Book bookId, int quantity, double totalPrice, int sellerId, User userId) {
-        this.bookId = bookId;
+    public int sellerId;
+
+    public Purchase() {}
+
+    public Purchase(User buyer, Book book, Date purchaseDate, int quantity, double totalPrice,int sellerId) {
+        this.buyer = buyer;
+        this.book = book;
+        this.purchaseDate = purchaseDate;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
-        this.sellerId = sellerId;
-        this.userId = userId;
-        this.datePurchased = new Date();
+    }
+
+    public Purchase(User buyer, Book book, Date date, int quantity, double total) {
+
+
     }
 
     // Getters and Setters
@@ -50,12 +55,32 @@ public class Purchase {
         return purchaseId;
     }
 
-    public Book getBookId() {
-        return bookId;
+    public void setPurchaseId(int purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
-    public void setBookId(Book bookId) {
-        this.bookId = bookId;
+    public User getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(User buyer) {
+        this.buyer = buyer;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
     public int getQuantity() {
@@ -74,27 +99,14 @@ public class Purchase {
         this.totalPrice = totalPrice;
     }
 
-    public int getSellerId() {
+    public int getSellerId(){
+
         return sellerId;
     }
 
-    public void setSellerId(int sellerId) {
+    public void setSellerId(int sellerId){
+
         this.sellerId = sellerId;
-    }
 
-    public User getUserId() {
-        return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
-    }
-
-    public Date getDatePurchased() {
-        return datePurchased;
-    }
-
-    public void setDatePurchased(Date datePurchased) {
-        this.datePurchased = datePurchased;
     }
 }

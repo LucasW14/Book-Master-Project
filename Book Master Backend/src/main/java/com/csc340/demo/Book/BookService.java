@@ -7,6 +7,8 @@ package com.csc340.demo.Book;
 
 import java.util.Date;
 import java.util.List;
+
+import com.csc340.demo.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,4 +67,10 @@ public class BookService {
     public long getSellerBooks(int sellerId) {
         return this.bookRepository.countSellerBooks(sellerId);
     }
+
+    public User getBookSellerId(int bookId){
+
+        return this.bookRepository.getBookSellerId(bookId);
+    }
+
 }

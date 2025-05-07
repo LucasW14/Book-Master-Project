@@ -39,15 +39,19 @@ public class User {
     )
     private String setType;
 
+    @Column(nullable = true)
+    private String profileImage;
+
     public User() {
     }
 
-    public User(String name, String email, String username, String password, String setType) {
+    public User(String name, String email, String username, String password, String setType, String profileImage) {
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
         this.setType = setType;
+        this.profileImage = profileImage;
     }
 
     public int getUserId() {
@@ -97,4 +101,15 @@ public class User {
     public void setSetType(String setType) {
         this.setType = setType;
     }
+
+    public String getProfileImage(){
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage){
+        this.profileImage = profileImage;
+
+    }
+
+
 }
