@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookstore</title>
-    <#include "fragments/navbar.ftlh">
     <style>
         body {
             font-family: Arial, sans-serif;

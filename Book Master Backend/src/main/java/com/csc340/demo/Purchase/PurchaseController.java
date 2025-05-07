@@ -2,6 +2,8 @@ package com.csc340.demo.Purchase;
 
 import com.csc340.demo.Book.Book;
 import com.csc340.demo.Book.BookService;
+import com.csc340.demo.User.User;
+import com.csc340.demo.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class PurchaseController{
 
     @Autowired
     private PurchaseService purchaseService;
+
+    @Autowired
+    private UserService userService;
 
 
     @PostMapping
@@ -64,5 +69,35 @@ public class PurchaseController{
 
         return "StatisticsForBook";
     }
+
+    @PostMapping("/buy")
+    public String buyBook(@RequestParam int buyerId,
+                          @RequestParam int bookId,
+                          @RequestParam int quantity,
+                          Model model) {
+
+        Optional<User> buyerOpt = userService.getUserById(buyerId);
+        Book book = bookService.getBookById(bookId);
+
+        if (buyerOpt.isEmpty() || book == null) {
+            model.addAttribute("errorMessage", "Invalid buyer or book.");
+            return "error";
+        }
+
+        if (book.getBookQuantity() < quantity) {
+            model.addAttribute("errorMessage", "Not enough stock.");
+            return "error";
+        }
+
+        book.setBookQuantity(book.getBookQuantity() - quantity);
+        bookService.updateBook(bookId, book);
+        purchaseService.createPurchase(buyerOpt.get(), book, quantity);
+
+        return "redirect:/purchases";
+    }
+
+
+
+
 
 }
