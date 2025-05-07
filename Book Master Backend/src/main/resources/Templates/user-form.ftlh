@@ -2,47 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>${user?exists?then('Edit User', 'Create User')}</title>
+    <title>User Form</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>${user?exists?then('Edit User', 'Create User')}</h1>
 
-<form action="${user?exists?then('/users/' + user.id, '/users')}" method="post">
-    <#if user??>
-    <!-- Only for editing: override method to PUT -->
-    <input type="hidden" name="_method" value="put">
-</#if>
+<#include "fragments/navbar.ftlh">
 
-<!-- Username input -->
-<label for="username">Username:</label><br>
-<input type="text" id="username" name="username" value="${user.username!}" required><br><br>
+<h2 class="header2" style="color: white; text-align: center">User Form</h2>
 
-<!-- Name input -->
-<label for="name">Name:</label><br>
-<input type="text" id="name" name="name" value="${user.name!}" required><br><br>
+<div class="profile-container">
+    <form action="/users/save" method="post">
+        <div class="book-table">
+            <table>
+                <tr><td>Name:</td><td><input type="text" name="name" required></td></tr>
+                <tr><td>Email:</td><td><input type="email" name="email" required></td></tr>
+                <tr><td>Username:</td><td><input type="text" name="username" required></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="password" required></td></tr>
+                <tr><td colspan="2" style="text-align:center;"><button type="submit">Save</button></td></tr>
+            </table>
+        </div>
+    </form>
+</div>
 
-<!-- Email input -->
-<label for="email">Email:</label><br>
-<input type="email" id="email" name="email" value="${user.email!}" required><br><br>
-
-<!-- Password input -->
-<label for="password">Password:</label><br>
-<input type="password" id="password" name="password" value="${user.password!}" required><br><br>
-
-<!-- User role/type input -->
-<label for="setType">User Type:</label><br>
-<select id="setType" name="setType" required>
-    <option value="">Select a type</option>
-    <option value="admin" ${user.setType?string == "admin"?then('selected', '')}>Admin</option>
-    <option value="customer" ${user.setType?string == "customer"?then('selected', '')}>Customer</option>
-    <option value="provider" ${user.setType?string == "provider"?then('selected', '')}>Provider</option>
-</select><br><br>
-
-<!-- Submit button -->
-<button type="submit">${user?exists?then('Update', 'Create')}</button>
-</form>
-
-<br>
-<a href="/users">Back to User List</a>
 </body>
 </html>

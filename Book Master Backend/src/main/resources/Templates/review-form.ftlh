@@ -2,43 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create a Review</title>
+    <title>Review Form</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-<h1>Write a New Review</h1>
+<#include "fragments/navbar.ftlh">
 
+<h2 class="header2" style="color: white; text-align: center">Submit Review</h2>
 
-<form action="/reviews" method="post">
-    <!-- Review content input -->
-    <label for="content">Content:</label><br>
-    <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+<div class="profile-container">
+    <form action="/reviews/save" method="post">
+        <div class="book-table">
+            <table>
+                <tr><td>Rating:</td><td><input type="number" name="rating" min="1" max="5" required></td></tr>
+                <tr><td>Comment:</td><td><textarea name="comment" rows="4" required></textarea></td></tr>
+                <tr><td colspan="2" style="text-align:center;"><button type="submit">Submit</button></td></tr>
+            </table>
+        </div>
+    </form>
+</div>
 
-    <!-- Rating input (dropdown for 1–5 stars) -->
-    <label for="rating">Rating (1-5):</label><br>
-    <select id="rating" name="rating" required>
-        <option value="">Select Rating</option> <!-- Placeholder option -->
-        <option value="1">1</option> <!-- Rating options -->
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select><br><br>
-
-    <!-- User ID input -->
-    <label for="userId">User ID:</label><br>
-    <input type="number" id="userId" name="userId" required><br><br>
-
-    <!-- Book ID input -->
-    <label for="bookId">Book ID:</label><br>
-    <input type="number" id="bookId" name="bookId" required><br><br>
-
-    <!-- Submit button to send the form -->
-    <button type="submit">Submit Review</button>
-</form>
-
-<br>
-<!-- Back link to all reviews -->
-<a href="/reviews">Back to All Reviews</a>
 </body>
 </html>
