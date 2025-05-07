@@ -45,6 +45,11 @@ public class Purchase {
         this.totalPrice = totalPrice;
     }
 
+    public Purchase(User buyer, Book book, Date date, int quantity, double total) {
+
+
+    }
+
     // Getters and Setters
     public int getPurchaseId() {
         return purchaseId;
