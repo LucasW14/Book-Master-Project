@@ -61,18 +61,13 @@
     <input type="number" id="sellerId" name="sellerId" placeholder="Enter your seller ID " required>
     <br>
     <label for="about">Description: </label>
-    <textarea id="about" name="about" placeholder="What is the book about" rows="5" cols="40" required></textarea>
+    <input type="text" id="about" name="about" placeholder="What is the book about" required>
     </br>
 
 <!--    <label for="profile-pic">Upload Profile Picture:</label>-->
 <!--    <input type="file" id="profile-pic" name="profile-pic" accept="image/*">-->
 <!--    </br>-->
-    <label for="bookPicturePath">Upload Book Cover (JPG only):</label>
-    <input type="file" id="bookPicturePath" name="bookPicturePath" accept="image/jpeg" required>
-    <br>
 
-    <!-- Optional Preview -->
-    <img id="preview" src="#" alt="Image Preview" style="display:none; max-width: 200px;"/>
 
 
     <!-- Submit Button -->

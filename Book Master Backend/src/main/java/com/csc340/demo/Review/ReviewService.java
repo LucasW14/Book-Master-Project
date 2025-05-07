@@ -50,9 +50,4 @@ public class ReviewService {
         }
         return false;
     }
-
-
-    public long getTotalReviews(int bookId) {
-        return reviewRepository.countReviews(bookId);
-    }
 }

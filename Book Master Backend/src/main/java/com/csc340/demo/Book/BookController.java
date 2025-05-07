@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import java.util.List;
 
 @Controller
@@ -25,10 +26,12 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    int sellerId;
+
     public BookController() {
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public String showBooks(Model model) {
         List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
@@ -42,12 +45,12 @@ public class BookController {
 return "bookstore";
   }
 
-    @GetMapping("/all")
-    public Object getAllBooks(Model model) {
-        model.addAttribute("bookList", bookService.getAllBooks());
-        model.addAttribute("title", "All books");
-        return "MyBookStore";
-    }
+//    @GetMapping("/all")
+//    public Object getAllBooks(Model model) {
+//        model.addAttribute("bookList", bookService.getAllBooks());
+//        model.addAttribute("title", "All books");
+//        return "MyBookStore";
+//    }
 
     @GetMapping("/{bookId}")
     public Object getABook(@PathVariable int bookId, Model model) {
@@ -58,9 +61,9 @@ return "bookstore";
 
     @GetMapping("/title")
     public Object getBooksByTitle(@RequestParam(name = "search",defaultValue = "") String search, Model model) {
-        model.addAttribute("bookList", bookService.getBooksByTitle(search));
+        model.addAttribute("books", bookService.getBooksByTitle(search));
         model.addAttribute("title", "Books by Name: " + search);
-        return "MyBookStore";
+        return "BookStore";
     }
 
     @GetMapping("/genre")
@@ -75,10 +78,22 @@ return "bookstore";
 
     @GetMapping("/seller/{sellerId}")
     public Object getSellerId(@PathVariable int sellerId, Model model) {
-        model.addAttribute("bookList",bookService.getBooksBySellerId(sellerId));
-        model.addAttribute("title", "books you are selling");
+        model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
+        model.addAttribute("title", "BOOKS BEING SOLD BY YOU");
+        model.addAttribute("totalBooks", bookService.getSellerBooks(sellerId));
+        this.sellerId = sellerId;
         return "MyBookStore";
     }
+
+    @GetMapping("/stats/{sellerId}")
+    public Object getSellerStats(@PathVariable int sellerId, Model model) {
+        model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
+        model.addAttribute("title", "Book Statistics");
+        model.addAttribute("totalBooks", bookService.getSellerBooks(sellerId));
+        this.sellerId = sellerId;
+        return "BookStatistics";
+    }
+
 
     @GetMapping("/bookForm")
     public String showCreateForm(Model model) {
@@ -111,7 +126,7 @@ return "bookstore";
     @GetMapping("/delete/{bookId}")
     public Object deleteBookById(@PathVariable int bookId) {
         this.bookService.deleteBooksById(bookId);
-        return "redirect:/books/all";
+        return "redirect:/books/seller/" + sellerId;
     }
 
     @GetMapping("/totalbooks")

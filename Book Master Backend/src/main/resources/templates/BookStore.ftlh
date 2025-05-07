@@ -114,13 +114,33 @@
     background-color: #e68a00;
 }
 
+               .orange-button {
+    padding: 10px 20px;
+    border: 2px solid #ff9900;
+    background-color: #ff9900;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.orange-button:hover {
+    background-color: #e68a00;
+}
+
+
 
     </style>
 </head>
 <body>
-<form action="/books/search" method="get" class="search-form">
+
+<#include "fragments/navbar.ftlh">
+
+
+<form action="/books/title" method="get" class="search-form">
     <div class="search-bar-wrapper">
-        <input type="text" name="keyword" placeholder="Search by title" value="${search?if_exists}" required>
+        <input type="text" name="search" placeholder="Search by title" required>
         <button type="submit"> Search</button>
     </div>
 </form>
@@ -155,8 +175,9 @@
                         <form method="post" action="/purchases/buy">
                             <input type="hidden" name="bookId" value="${book.bookId}">
                             <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
-                            <button type="submit">Buy</button>
+                            <button type="submit" class="orange-button">Buy</button>
                         </form>
+                        <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
                     </td>
                 </tr>
             </#list>

@@ -2,96 +2,177 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bookstore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+                width: 90%;
+                margin: 30px auto;
+                border-collapse: separate;
+                border-spacing: 0 15px;
+                font-family: 'Inter', sans-serif;
+            }
+
+            thead tr {
+                background-color: #000;
+                color: white;
+                text-align: left;
+            }
+
+            thead th {
+                padding: 12px 20px;
+                font-weight: 600;
+            }
+
+            thead th:first-child {
+                border-radius: 8px 0 0 8px;
+            }
+
+            thead th:last-child {
+                border-radius: 0 8px 8px 0;
+            }
+
+            tbody tr {
+                background-color: #f9f9f9;
+                transition: background-color 0.3s ease;
+            }
+
+            tbody tr:hover {
+                background-color: #f0f0f0;
+            }
+
+            tbody td {
+                padding: 12px 20px;
+                vertical-align: middle;
+            }
+
+            tbody td:first-child {
+                border-left: 4px solid #ffcc00;
+            }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="number"] {
+            width: 60px;
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-bar-wrapper {
+    display: flex;
+    width: 400px;
+}
+
+.search-bar-wrapper input[type="text"] {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #ff9900;
+    border-right: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.search-bar-wrapper input[type="text"]:focus {
+    border-color: #ff9900;
+    box-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+}
+
+.search-bar-wrapper button {
+    padding: 10px 20px;
+    border: 2px solid #ff9900;
+    background-color: #ff9900;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.search-bar-wrapper button:hover {
+    background-color: #e68a00;
+}
 
 
-    <link rel="stylesheet" href="/css/style.css">
 
-
-
+    </style>
 </head>
 <body>
 
-<div class="header">
-    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
-    <nav class="nav-links">
-        <a href="Home.ftlh" style="color: yellow; text-align: center">Home</a>
-        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>
-        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
-        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
-    </nav>
-</div>
-
-<h2 class="header2" style="color: yellow; text-align: center">My Book Store</h2>
+<#include "fragments/navbar.ftlh">
 
 
-<h2> </h2>
+<form action="/books/title" method="get" class="search-form">
+    <div class="search-bar-wrapper">
+        <input type="text" name="search" placeholder="Search by title" required>
+        <button type="submit"> Search</button>
+    </div>
+</form>
 
 
-<div class="search-bar" style="margin-top: 200px; text-align: center;">
-    <form action="/books/title">
-        <input type="text" name="search" placeholder="Search By Name 🔍" required>
-        <button type="submit">Search</button>
-    </form>
-</div>
+</form>
 
+<h1 style="text-align: center;">${title}</h1>
+<h2 style="text-align: center;">YOU HAVE A TOTAL OF ${totalBooks} BOOKS UP FOR SALE</h2>
 
-<div>
-    <button onclick="window.location.href='/books/bookForm'" class="btn">Post New Book</button>
-</div>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Publish Date</th>
+        <th>Price</th>
+        <th>Quantity Available</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <#list books as book>
+    <tr>
+        <td>${book.bookTitle}</td>
+        <td>${book.author}</td>
+        <td>${book.genre}</td>
+        <td>${book.publishDate?string("yyyy-MM-dd")}</td>
+        <td>$${book.bookPrice}</td>
+        <td>${book.bookQuantity}</td>
+        <td>
+            <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
+            <a href="/books/update/${book.bookId?c}">
+                <button class="orange-button">Modify</button>
+            </a>
+            <a href="/books/delete/${book.bookId?c}">
+                <button style="background-color: red; color: white;">Delete</button>
+            </a>
 
+        </td>
+    </tr>
+    </#list>
+    </tbody>
+</table>
 
-
-<div class="table-container">
-    <#list bookList as book>
-
-    <table>
-
-        <tr>
-            <th><img class="img2" src="https://m.media-amazon.com/images/I/71cy4TZzs4L.jpg"
-                     alt="American mission image" width="104" height="142"></th>
-        </tr>
-        <tr>
-            <td>Book Title: ${book.bookTitle}</td>
-        </tr>
-        <tr>
-            <td>Genre: ${book.genre}</td>
-        </tr>
-        <tr>
-            <td>Price: ${book.bookPrice}</td>
-        </tr>
-        <tr>
-            <td>Author: ${book.author}</td>
-        </tr>
-        <tr>
-            <td><a href="/books/${book.bookId?c}">
-                <button>View Details</button>
-            </a></td>
-        </tr>
-
-        <tr>
-            <td><a href="Book%20Profile.html">
-                <a href="Review%20Page.html"><button>View Reviews</button></a>
-            </a></td>
-        </tr>
-
-        <tr>
-            <td>
-                <a href="/books/delete/${book.bookId?c}"><button>Delete</button></a>
-            </td>
-        </tr>
-
-
-    </table>
-
-</#list>
-
-
-
-
-</div>
-
-
+<footer>
+    © 2025 Book Master. All Rights Reserved.
+</footer>
 </body>
-<p>&copy; 2025 Book Master. All Rights Reserved.</p>
 </html>
