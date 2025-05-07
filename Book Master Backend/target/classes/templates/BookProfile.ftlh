@@ -81,6 +81,13 @@
             </tr>
 
             <tr>
+                <td><a href="/users/${(book.sellerId.userId?c)!'0'}">
+                    <button>Go to seller's profile</button>
+                </a></td>
+
+            </tr>
+
+            <tr>
                 <td>
 
                     <a href="/books/all">

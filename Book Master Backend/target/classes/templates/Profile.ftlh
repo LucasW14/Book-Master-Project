@@ -72,7 +72,7 @@
             <td>Classification: ${user.setType}</td>
         </tr>
         <tr>
-            <td>Genres: Romance, Anime<br>Fiction, Non-fiction</td>
+            <td>ID: ${user.userId?c}</td>
         </tr>
         <tr>
             <td>Follower Count: 25,000</td>

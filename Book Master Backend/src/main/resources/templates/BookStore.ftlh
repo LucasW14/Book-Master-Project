@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookstore</title>
+    <#include "fragments/navbar.ftlh">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -151,7 +152,7 @@
                     <td>$${book.bookPrice}</td>
                     <td>${book.bookQuantity}</td>
                     <td>
-                        <form method="post" action="/purchase">
+                        <form method="post" action="/purchases/buy">
                             <input type="hidden" name="bookId" value="${book.bookId}">
                             <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
                             <button type="submit">Buy</button>

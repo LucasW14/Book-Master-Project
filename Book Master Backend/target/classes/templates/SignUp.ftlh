@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstore - Sign Up</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                background-color: white;
+                color: yellow;
+                font-family: 'Roboto', sans-serif;
+            }
+            form {
+                background-color: grey; /* Optional: deeper red for contrast */
+                padding: 30px;
+                border-radius: 10px;
+            }
+            label, input, select {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        </style>
+    <#include "fragments/navbar.ftlh">
 </head>
 <body>
 
 
-<div class="header">
-    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>
-    <nav class="nav-links">
-        <a href="index.html" style="color: yellow; text-align: center">Home</a>
-        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>
-        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>
-        <a href="signup.html" style="color: yellow; text-align: center">Signup</a>
-        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>
-    </nav>
-</div>
 
 
 <div class="container">
