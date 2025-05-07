@@ -50,7 +50,7 @@
             <td>Follower Count: 25,000</td>
         </tr>
         <tr>
-            <td><a href="/users/update/${user.userId?c}"><button>Modify Profile</button></a></td>
+            <td><a href="/users/update/${user.userId?c}"><button class="orange-button" >Modify Profile</button></a></td>
         </tr>
     </table>
 </div>
@@ -59,7 +59,7 @@
     <!-- Button Section (Centered) -->
 <!-- Button Section: moved inside profile container -->
 <div class="button-container">
-    <a href="My%20Book%20Drafts.html"><button class="button1">My Book Drafts</button></a>
+<!--    <a href="My%20Book%20Drafts.html"><button class="button1">My Book Drafts</button></a>-->
     <a href="/books/stats/${user.userId?c}"><button class="button1">Sales Statistics</button></a>
     <a href="/books/bookForm"><button class="button1">Sell a new book</button></a>
     <a href="/books/seller/${user.userId?c}"><button class="button1">My Book Store</button></a>

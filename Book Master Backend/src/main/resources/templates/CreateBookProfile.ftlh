@@ -71,7 +71,7 @@
     <label for="bookPicture">give image link: </label>
     <input type="text" id="bookPicture" name="bookPicture" required>
 
-    <button type="submit" class="btn btn-primary">Create Book Profile</button>
+    <button type="submit" class="orange-button">Create Book Profile</button>
 
 </form>
 </div>
