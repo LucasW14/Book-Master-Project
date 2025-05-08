@@ -1,5 +1,6 @@
 package com.csc340.demo.Reply;
 
+import java.nio.file.Path;
 import java.util.*;
 
 import com.csc340.demo.Book.Book;
@@ -80,8 +81,25 @@ public class ReplyController {
         model.addAttribute("replyList", replyService.getReplyByReviewId(review.getId()));
         model.addAttribute("review", review);
 
+        return "redirect:/reply/replies/" + review.getId();
+    }
+
+    @GetMapping("/replies/{reviewId}")
+     public Object getRepliesForReview(Model model, @PathVariable long reviewId){
+        Optional<Review> optionalReview = reviewService.getReviewById(reviewId);
+        if (optionalReview.isEmpty()) {
+            return "error-page"; // or redirect
+        }
+
+        Review review = optionalReview.get();
+
+        model.addAttribute("replyList", replyService.getReplyByReviewId(reviewId));
+        model.addAttribute("review", review);
+
         return "ReplyList";
     }
+
+
 
     @PutMapping("/update/{replyId}")
     public Object updateBook(@PathVariable int replyId, @RequestBody Reply reply) {

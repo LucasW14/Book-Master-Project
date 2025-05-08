@@ -82,7 +82,7 @@
       <td>${review.reviewerName}</td>
       <td>${review.rating}</td>
       <td>${review.reviewText}</td>
-      <td><button class="orange-button">View Replies</button></td>
+      <td><a href="/reply/replies/${review.id?c}"><button class="orange-button">View Replies</button></a></td>
       <td>
         <a href="/reply/replyForm/${review.id?c}">
           <button type="button" class="orange-button">Reply</button>

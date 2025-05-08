@@ -71,18 +71,17 @@
     <thead>
     <tr>
       <th>Name</th>
-      <th>Rating out of 5</th>
-      <th>Review</th>
-      <th>Replies</th>
-      <th>Make A Reply</th>
+      <th>Reply</th>
+      <th>Date Made</th>
+
     </tr>
     </thead>
     <tbody>
-    <#list reviews as review>
+    <#list replyList as reply>
     <tr>
-      <td>${review.reviewerName}</td>
-      <td>${review.rating}</td>
-      <td>${review.reviewText}</td>
+      <td>${reply.replierName}</td>
+      <td>${reply.description}</td>
+      <td>${reply.dateMade}</td>
       <td><button class="orange-button">View Replies</button></td>
       <td>
         <a href="/reply/replyForm/${review.id?c}">
@@ -94,17 +93,17 @@
     </tbody>
   </table>
 
-  <a href="/books/update/${book.bookId?c}">
-    <button class="orange-button">Modify</button>
-  </a>
+<!--  <a href="/books/update/${book.bookId?c}">-->
+<!--    <button class="orange-button">Modify</button>-->
+<!--  </a>-->
 
-  <a href="/users/${(book.sellerId.userId?c)!'0'}">
-    <button class="orange-button">Go to Seller's Profile</button>
-  </a>
+<!--  <a href="/users/${(book.sellerId.userId?c)!'0'}">-->
+<!--    <button class="orange-button">Go to Seller's Profile</button>-->
+<!--  </a>-->
 
-  <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
-    <button class="orange-button">Go to My Book Store</button>
-  </a>
+<!--  <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">-->
+<!--    <button class="orange-button">Go to My Book Store</button>-->
+<!--  </a>-->
 </div>
 
 </body>
