@@ -87,4 +87,12 @@ public class PurchaseController {
         purchaseService.deletePurchase(id);
         return "redirect:/purchases";
     }
+    @GetMapping("/books-list")
+    public String showBooksList(Model model) {
+        model.addAttribute("purchaseList", purchaseService.getAllPurchases());
+        model.addAttribute("title", "Books Purchased");
+        return "books-list";
+    }
+
+
 }

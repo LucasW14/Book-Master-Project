@@ -70,7 +70,7 @@ public class UserController {
     public String updateUser(@PathVariable int userId, Model model) {
         Optional<User> optionalUser = this.userService.getUserById(userId);
         if (optionalUser.isPresent()) {
-            model.addAttribute("user", optionalUser.get()); // ✅ Unwrapped here
+            model.addAttribute("user", optionalUser.get()); //  Unwrapped here
             model.addAttribute("title", "Update user account");
             return "ModifyProfile";
         } else {
