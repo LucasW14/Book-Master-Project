@@ -164,8 +164,8 @@
         <th>Publish Date</th>
         <th>Price</th>
         <th>Quantity Available</th>
-        <th>Purchase</th>
         <th>Seller ID</th>
+        <th>Purchase</th>
     </tr>
     </thead>
     <tbody>
@@ -177,9 +177,9 @@
         <td>${book.publishDate?string("yyyy-MM-dd")}</td>
         <td>$${book.bookPrice}</td>
         <td>${book.bookQuantity}</td>
-        <td>${book.sellerId}</td>
+        <td>${book.sellerId.userId}</td>
         <td>
-            <form method="post" action="/purchase/purchase">
+            <form method="get" action="/purchase/purchase">
                 <input type="hidden" name="bookId" value="${book.bookId}">
                 <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
                 <button type="submit" class="orange-button">Buy</button>
