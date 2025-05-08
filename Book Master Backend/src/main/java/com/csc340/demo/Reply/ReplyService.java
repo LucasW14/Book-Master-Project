@@ -26,7 +26,7 @@ public class ReplyService {
         return replyRepository.findById(replyId).orElse(null);
     }
 
-    public List<Reply> getReplyByReviewId(int reviewId) {
+    public List<Reply> getReplyByReviewId(long reviewId) {
 
 
         return replyRepository.getReplyByReviewId(reviewId);

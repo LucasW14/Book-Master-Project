@@ -13,7 +13,7 @@ public interface ReplyRepository extends JpaRepository<Reply, Integer> {
 
 
     @Query(value = "select * from reply r where r.review_id = ?1", nativeQuery = true)
-    List<Reply> getReplyByReviewId(int reviewId);
+    List<Reply> getReplyByReviewId(long reviewId);
 
     @Query(value = "SELECT COUNT(*) FROM reply WHERE review_id = :reviewId", nativeQuery = true)
     long countReply(@Param("reviewId") int reviewId);

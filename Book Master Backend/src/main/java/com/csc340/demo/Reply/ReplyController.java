@@ -74,10 +74,13 @@ public class ReplyController {
 
     @PostMapping("/new")
     public Object addNewReply(Model model,Reply reply) {
-        model.addAttribute("reply", reply);
+        replyService.addNewReply(reply);
+        Review review = reply.getReviewId();
 
+        model.addAttribute("replyList", replyService.getReplyByReviewId(review.getId()));
+        model.addAttribute("review", review);
 
-        return "";
+        return "ReplyList";
     }
 
     @PutMapping("/update/{replyId}")
