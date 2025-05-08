@@ -195,7 +195,7 @@
             </form>
             <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
 
-            <a href="/reviews/reviewonbook/${book.bookId?c}"><button class="orange-button">Reviews</button></a>
+            <a href="/reviews/reviewonbook/${book.bookId?c}"><button class="orange-button">Write a review</button></a>
 
         </td>
     </tr>
