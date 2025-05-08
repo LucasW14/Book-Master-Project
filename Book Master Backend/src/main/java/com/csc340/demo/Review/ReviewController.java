@@ -25,8 +25,11 @@ public class ReviewController {
     }
 
     // 2. Show form to create a new review
-    @GetMapping("/new")
-    public String showReviewForm(Model model) {
+    @GetMapping("/new/{bookId}")
+    public String showReviewForm(Model model, @PathVariable int bookId) {
+
+        Book book = bookService.getBookById(bookId);
+        model.addAttribute("book", book);
         model.addAttribute("review", new Review()); // Empty review object for the form
         return "review-form"; // refers to review-form.ftlh
     }
@@ -34,8 +37,11 @@ public class ReviewController {
     // 3. Handle form submission (create a review)
     @PostMapping
     public String createReview(@ModelAttribute Review review) {
-        reviewService.addReview(review); // Save the review
-        return "redirect:/reviews"; // Redirect to the list of reviews
+        reviewService.addReview(review);
+
+        long bookId = reviewService.getReviewBookId(review.getId());
+        // Save the review
+        return "redirect:/reviews/reviewonbook/" + bookId; // Redirect to the list of reviews
     }
 
     @GetMapping("/delete/{id}")

@@ -164,6 +164,8 @@
             <a href="/books/delete/${book.bookId?c}">
                 <button style="background-color: red; color: white;">Delete</button>
             </a>
+            <a href="/reviews/reviewonbook/${book.bookId?c}"><button class="orange-button">Reviews</button></a>
+
 
         </td>
     </tr>

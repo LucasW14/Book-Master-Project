@@ -25,6 +25,11 @@ public class ReviewService {
         return reviewRepository.findByBookId(bookId);
     }
 
+    public int getReviewBookId(long reviewId){
+
+        return reviewRepository.getReviewBookId(reviewId);
+    }
+
     public Review addReview(Review review) {
         return reviewRepository.save(review);
     }

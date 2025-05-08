@@ -58,9 +58,9 @@
 <!-- Sales Table (OUTSIDE the container) -->
 <table class="sales-table">
     <tr>
-        <th>Total Sales This Month</th>
-        <th>Total Sales Past 6 Months</th>
-        <th>Total Sales Past This Year</th>
+        <th>Total Book Sales This Month</th>
+        <th>Total Book Sales Past 6 Months</th>
+        <th>Total Book Sales Past This Year</th>
     </tr>
     <tr>
         <td>${sellerPurchases}</td>

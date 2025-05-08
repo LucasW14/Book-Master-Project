@@ -79,7 +79,7 @@ return "bookstore";
     @GetMapping("/seller/{sellerId}")
     public Object getSellerId(@PathVariable int sellerId, Model model) {
         model.addAttribute("books",bookService.getBooksBySellerId(sellerId));
-        model.addAttribute("title", "BOOKS BEING SOLD BY YOU");
+        model.addAttribute("title", "BOOKS BEING SOLD");
         model.addAttribute("totalBooks", bookService.getSellerBooks(sellerId));
         this.sellerId = sellerId;
         return "MyBookStore";

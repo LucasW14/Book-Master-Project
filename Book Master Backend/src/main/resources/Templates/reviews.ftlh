@@ -59,7 +59,7 @@
 
 <div class="profile-container">
 
-    <a href="/reviews/new">Add New Review</a>
+<!--    <a href="/reviews/new">Add New Review</a>-->
 
 
 </div>

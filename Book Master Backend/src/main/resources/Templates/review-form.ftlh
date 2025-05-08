@@ -15,8 +15,8 @@
     <form action="/reviews" method="post">
         <div class="book-table">
             <table>
-                <tr><td>ID of Book:</td><td><input type="number" name="bookId" min="1" max="5" required></td></tr>
-                <tr><td>Your User Id:</td><td><input type="number" name="userId" min="1" max="5" required></td></tr>
+                <tr><td>ID of Book:</td><td><input type="number" name="bookId" min="1" max="5" value="${book.bookId}" readonly required></td></tr>
+                <tr><td>Your User Id:</td><td><input type="number" name="userId" required></td></tr>
                 <tr><td>Your Name:</td><td><input type="text" name="reviewerName" min="1" max="5" required></td></tr>
                 <tr><td>Rating:</td><td><input type="number" name="rating" min="1" max="5" required></td></tr>
                 <tr><td>Comment:</td><td><textarea name="reviewText" rows="4" required></textarea></td></tr>

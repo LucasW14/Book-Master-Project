@@ -65,7 +65,9 @@
 
 <div class="book-reviews-container">
   <img src="${book.bookPicture}" alt="Book Image" width="104" height="142">
-
+  <h2>${book.bookTitle}</h2>
+  <h3>By: ${book.author}</h3>
+  <a href="/reviews/new/${book.bookId?c}"><button>Write a review</button></a>
   <table class="reviews-table">
     <thead>
     <tr>

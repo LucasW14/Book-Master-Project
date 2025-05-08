@@ -91,7 +91,7 @@
                 <td>
 
                     <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
-                        <button class="orange-button">Go to My Book Store</button>
+                        <button class="orange-button">Go to Seller Book Store</button>
                     </a>
 
 

@@ -2,10 +2,8 @@ package com.csc340.demo.Review;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
@@ -38,7 +36,7 @@ public class Review {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

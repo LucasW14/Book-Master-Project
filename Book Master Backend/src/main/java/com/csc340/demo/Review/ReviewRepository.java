@@ -23,6 +23,9 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     @Query(value = "SELECT r.userId FROM Review r WHERE r.id = :reviewId")
     int getReviewUserId(@Param("reviewId") int reviewId);
 
+    @Query(value = "SELECT r.bookId FROM Review r WHERE r.id = :reviewId")
+    int getReviewBookId(@Param("reviewId") long reviewId);
+
 
 }
 
