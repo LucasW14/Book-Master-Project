@@ -158,6 +158,7 @@
         <th>Publish Date</th>
         <th>Price</th>
         <th>Quantity Available</th>
+        <th>Books Sold</th>
         <th>Purchase</th>
     </tr>
     </thead>
