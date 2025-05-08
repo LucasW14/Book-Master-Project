@@ -16,7 +16,7 @@
     <div class="book-table">
         <table>
             <tr><td><a href="/reviews"><button>View All Reviews</button></a></td></tr>
-            <tr><td><a href="/books-list"><button>Manage Books</button></a></td></tr>
+            <tr><td><a href="/purchase/books-list"><button>Manage Books</button></a></td></tr>
             <tr><td><a href="/users/list"><button>View User List</button></a></td></tr>
             <tr><td><a href="/admin/logout"><button>Logout</button></a></td></tr>
         </table>

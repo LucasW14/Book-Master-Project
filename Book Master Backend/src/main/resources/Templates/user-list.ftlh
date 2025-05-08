@@ -30,7 +30,7 @@
                     <a href="/users/delete/${user.userId}"><button class="button2">Delete</button></a>
                 </td>
             </tr>
-        </list>
+        </#list>
         </table>
     </div>
 </div>

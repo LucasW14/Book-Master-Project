@@ -1,7 +1,10 @@
 package com.csc340.demo.Admin;
 
 import com.csc340.demo.User.User;
-import com.csc340.demo.User.UserRepository;
+import com.csc340.demo.User.UserService;
+import com.csc340.demo.Purchase.Purchase;
+import com.csc340.demo.Purchase.PurchaseService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,15 +20,16 @@ public class AdminController {
     private AdminService adminService;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
-    // 1. Show login form
+    @Autowired
+    private PurchaseService purchaseService;
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "admin-login";
     }
 
-    // 2. Handle login submission
     @PostMapping("/login")
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
@@ -41,24 +45,19 @@ public class AdminController {
         }
     }
 
-    // 3. Show dashboard
     @GetMapping("/dashboard")
-    public String dashboard() {
+    public String dashboard(Model model) {
+        List<User> users = userService.getAllUsers();
+        List<Purchase> purchases = purchaseService.getAllPurchases();
+
+        model.addAttribute("users", users);
+        model.addAttribute("purchases", purchases);
+
         return "admin-dashboard";
     }
 
-    // 4. View all users
-    @GetMapping("/users")
-    public String viewAllUsers(Model model) {
-        List<User> users = userRepository.findAll();
-        model.addAttribute("users", users);
-        return "user-list";  // Refers to templates/user-list.ftlh
-    }
-
-    // 5. Logout (optional redirect or session handling)
     @GetMapping("/logout")
     public String logout() {
-        // Implement logout logic if needed
         return "redirect:/admin/login";
     }
 }

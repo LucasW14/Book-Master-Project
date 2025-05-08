@@ -98,12 +98,6 @@ public class UserController {
     }
 
 
-    @GetMapping("/list")
-    public String showUserList(Model model) {
-        List<User> users = userService.getAllUsers();
-        model.addAttribute("users", users);
-        return "user-list"; // FTL page
-    }
 
 
 
@@ -140,6 +134,12 @@ public class UserController {
         return "redirect:/users/list";
     }
 
+    @GetMapping("/list")
+    public String showUserList(Model model) {
+        List<User> users = userService.getAllUsers();
+        model.addAttribute("users", users);
+        return "user-list"; // Only shown when /users/list is visited
+    }
 
 
 

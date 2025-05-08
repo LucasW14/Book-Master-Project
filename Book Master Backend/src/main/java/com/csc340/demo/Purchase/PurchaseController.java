@@ -72,27 +72,23 @@ public class PurchaseController {
         Book book = bookService.getBookById(bookId);
         User sellerId = book.getSellerId();
 
-        model.addAttribute("book",book );
+        model.addAttribute("book", book);
         model.addAttribute("purchaseAmount", purchaseService.getTotalPurchases(bookId));
         model.addAttribute("sellerPurchases", purchaseService.getTotalPurchasesSeller(sellerId.getUserId()));
 
-
-
         return "StatisticsForBook";
     }
-
 
     @GetMapping("/delete/{id}")
     public String deletePurchase(@PathVariable int id) {
         purchaseService.deletePurchase(id);
         return "redirect:/purchases";
     }
+
     @GetMapping("/books-list")
     public String showBooksList(Model model) {
-        model.addAttribute("purchaseList", purchaseService.getAllPurchases());
+        model.addAttribute("purchases", purchaseService.getAllPurchases());  // Correct attribute name for displaying purchases
         model.addAttribute("title", "Books Purchased");
-        return "books-list";
+        return "books"; // links to the 'books.ftlh' template
     }
-
-
 }
