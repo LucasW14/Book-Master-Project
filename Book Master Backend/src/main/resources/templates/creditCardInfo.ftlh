@@ -9,9 +9,9 @@
     <form action="/submitCreditCard" method="post">
         <input type="hidden" name="bookId" value="${bookId}">
         <input type="hidden" name="quantity" value="${quantity}">
-        <p>Book: ${bookTitle}</p>
-        <p>Quantity: ${quantity}</p>
-        <p>Total Price: ${totalPrice}</p>
+        <p>Book: ${book.bookTitle}</p>
+        <p>Quantity: ${book.quantity}</p>
+        <p>Total Price: ${book.totalPrice}</p>
 
         <label for="cardNumber">Card Number:</label><br>
         <input type="text" id="cardNumber" name="cardNumber" required><br><br>

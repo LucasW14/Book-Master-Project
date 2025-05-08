@@ -134,6 +134,12 @@
 </head>
 <body>
 
+<#if successMessage??>
+<div style="background-color: #d4edda; color: #155724; padding: 10px 20px; border: 1px solid #c3e6cb; border-radius: 5px; margin: 20px auto; width: 80%; text-align: center;">
+    ${successMessage}
+</div>
+</#if>
+
 <#include "fragments/navbar.ftlh">
 
 
@@ -147,46 +153,55 @@
 
 </form>
 
-    <h1 style="text-align: center;">Available Books</h1>
+<h1 style="text-align: center;">Available Books</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Genre</th>
-                <th>Publish Date</th>
-                <th>Price</th>
-                <th>Quantity Available</th>
-                <th>Purchase</th>
-            </tr>
-        </thead>
-        <tbody>
-            <#list books as book>
-                <tr>
-                    <td>${book.bookTitle}</td>
-                    <td>${book.author}</td>
-                    <td>${book.genre}</td>
-                    <td>${book.publishDate?string("yyyy-MM-dd")}</td>
-                    <td>$${book.bookPrice}</td>
-                    <td>${book.bookQuantity}</td>
-                    <td>
-                        <form method="post" action="/purchases/buy">
-                            <input type="hidden" name="bookId" value="${book.bookId}">
-                            <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
-                            <button type="submit" class="orange-button">Buy</button>
-                        </form>
-                        <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
-                        <a href="/reviews/reviewonbook/${book.bookId?c}"><button class="orange-button">Reviews</button></a>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Publish Date</th>
+        <th>Price</th>
+        <th>Quantity Available</th>
+        <th>Purchase</th>
+        <th>Seller ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <#list books as book>
+    <tr>
+        <td>${book.bookTitle}</td>
+        <td>${book.author}</td>
+        <td>${book.genre}</td>
+        <td>${book.publishDate?string("yyyy-MM-dd")}</td>
+        <td>$${book.bookPrice}</td>
+        <td>${book.bookQuantity}</td>
+        <td>${book.sellerId}</td>
+        <td>
+            <form method="get" action="/purchase/purchase">
+                <input type="hidden" name="bookId" value="${book.bookId}">
+                <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
+                <button type="submit" class="orange-button">Buy</button>
+            </form>
+            <form action="/subscriptions/new" method="post">
+                <input type="hidden" name="userId" value="1"/>
+                <input type="hidden" name="plan" value="Until Unsubscribe"/>
+                <input type="hidden" name="status" value="Active"/>
+                <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+                    Subscribe
+                </button>
 
-                    </td>
-                </tr>
-            </#list>
-        </tbody>
-    </table>
+            </form>
+            <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>
+        </td>
+    </tr>
+    </#list>
+    </tbody>
+</table>
 
-    <footer>
-            © 2025 Book Master. All Rights Reserved.
-        </footer>
+<footer>
+    © 2025 Book Master. All Rights Reserved.
+</footer>
 </body>
 </html>

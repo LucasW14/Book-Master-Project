@@ -73,4 +73,13 @@ public class BookService {
         return this.bookRepository.getBookSellerId(bookId);
     }
 
+    public void updateBookQuantity(Book book, int quantity) {
+        if (book != null && book.getBookQuantity() >= quantity) {
+            book.setBookQuantity(book.getBookQuantity() - quantity);
+            bookRepository.save(book);
+        }
+    }
 }
+
+
+

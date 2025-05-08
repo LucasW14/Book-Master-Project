@@ -91,4 +91,81 @@ public class PurchaseController {
         model.addAttribute("title", "Books Purchased");
         return "books"; // links to the 'books.ftlh' template
     }
+
+
+    @GetMapping("/purchase")
+    public String purchaseBook(@RequestParam("bookId") int bookId,
+                               @RequestParam("quantity") int quantity,
+                               Model model) {
+
+
+        Book book = bookService.getBookById(bookId);
+
+
+        if (book == null) {
+            model.addAttribute("message", "Book not found.");
+            return "error";
+        }
+
+
+        if (quantity <= 0) {
+            model.addAttribute("message", "Invalid quantity.");
+            return "error";
+        }
+
+
+        if (book.getBookQuantity() < quantity) {
+            model.addAttribute("message", "Not enough stock available.");
+            return "error";
+        }
+
+
+        model.addAttribute("bookId", bookId);
+        model.addAttribute("quantity", quantity);
+        model.addAttribute("bookTitle", book.getBookTitle());
+        model.addAttribute("totalPrice", book.getBookPrice() * quantity);
+        return "creditCardInfo";
+    }
+
+
+    @PostMapping("/submitCreditCard")
+    public String submitCreditCard(@RequestParam("bookId") int bookId,
+                                   @RequestParam("quantity") int quantity,
+                                   @RequestParam("cardNumber") String cardNumber,
+                                   @RequestParam("expiryDate") String expiryDate,
+                                   @RequestParam("cvv") String cvv,
+                                   Model model) {
+
+
+        if (cardNumber.isEmpty() || expiryDate.isEmpty() || cvv.isEmpty()) {
+            model.addAttribute("message", "Credit card information is incomplete.");
+            return "error";
+        }
+
+
+        Book book = bookService.getBookById(bookId);
+
+
+        if (book == null) {
+            model.addAttribute("message", "Book not found.");
+            return "error";
+        }
+
+
+        User buyer = book.getSellerId(); // Keeping original logic
+
+
+        purchaseService.createPurchase(buyer, book, quantity);
+        bookService.updateBookQuantity(book, quantity);
+
+
+        model.addAttribute("message", "Purchase successful!");
+        model.addAttribute("bookTitle", book.getBookTitle());
+        model.addAttribute("quantity", quantity);
+        model.addAttribute("totalPrice", book.getBookPrice() * quantity);
+        return "success";
+    }
+
+
+
 }
