@@ -4,6 +4,8 @@ import java.util.*;
 
 import com.csc340.demo.Book.Book;
 import com.csc340.demo.Book.BookService;
+import com.csc340.demo.Review.Review;
+import com.csc340.demo.Review.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,8 @@ public class ReplyController {
     @Autowired
     private ReplyService replyService;
 
+    @Autowired
+    public ReviewService reviewService;
 
     @GetMapping("/all")
     public Object getAllBooks() {
@@ -50,12 +54,30 @@ public class ReplyController {
         return "Total number of replies for this review " + reviewId + " = " + replyService.countReply(reviewId);
     }
 
-    @PostMapping("/new")
-    public Object addNewReply(@RequestBody Reply reply) {
-        System.out.println(reply.toString());
-        replyService.addNewReply(reply);
-        return new ResponseEntity<>(replyService.getAllReply(), HttpStatus.CREATED);
+    @GetMapping("/replyForm/{reviewId}")
+    public String replyForm(@PathVariable long reviewId, Model model) {
+        Optional<Review> optionalReview = reviewService.getReviewById(reviewId);
+        if (optionalReview.isEmpty()) {
+            return "error-page"; // or redirect
+        }
 
+        Review review = optionalReview.get();
+        Reply reply = new Reply();
+
+        model.addAttribute("reply", reply);
+        model.addAttribute("title", "Add a new reply");
+        model.addAttribute("review", review);
+        model.addAttribute("reviewerName", review.getReviewerName());
+
+        return "ReplyForm";
+    }
+
+    @PostMapping("/new")
+    public Object addNewReply(Model model,Reply reply) {
+        model.addAttribute("reply", reply);
+
+
+        return "";
     }
 
     @PutMapping("/update/{replyId}")

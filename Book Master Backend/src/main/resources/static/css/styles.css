@@ -64,6 +64,12 @@
             padding: 20px;
         }
 
+        .profile-container3 {
+            max-width: 1200px; /* or 100%, or any px/rem value */
+            width: 90%;        /* percent-based for responsiveness */
+            margin: 0 auto;    /* centers the container */
+          }
+
         .profile-table {
             background-color: #333;
             color: white;
@@ -105,6 +111,57 @@ th2 {
     text-align: center;
     border-collapse: collapse; /* Ensures borders don’t double up */
 }
+
+.book-reviews-container {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 95%; /* Responsive width */
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    overflow-x: auto; /* Prevents horizontal overflow */
+}
+
+/* Table Styling */
+.book-reviews-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* Table Header */
+.book-reviews-container th {
+    background-color: #444;
+    padding: 15px;
+    color: #ddd;
+    font-weight: bold;
+    border-bottom: 2px solid #555;
+}
+
+/* Table Cells */
+.book-reviews-container td {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+}
+
+/* Button Styling */
+.book-reviews-container button {
+    background-color: #f57c00; /* Orange for a personalized touch */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-reviews-container button:hover {
+    background-color: #fb8c00;
+}
+
 
 .book-table th,
 .book-table td {
@@ -175,4 +232,65 @@ th2 {
 table2 {
     width: 100%;
     border-collapse: collapse;
+}
+
+.form-container {
+    background-color: #333;
+    color: white;
+    border-radius: 15px;
+    padding: 30px 40px;
+    width: 400px;
+    margin: 40px auto;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #f57c00;
+    text-align: center;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #555;
+    color: #fff;
+    resize: vertical;
+}
+
+.form-container button {
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    font-weight: bold;
+}
+
+.form-container button:hover {
+    background-color: #fb8c00;
+}
+
+.form-container textarea {
+    min-height: 100px;
+}
+
+.form-container input[type="text"]:focus,
+.form-container textarea:focus {
+    border-color: #f57c00;
+    outline: none;
 }

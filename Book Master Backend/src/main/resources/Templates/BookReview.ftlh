@@ -2,109 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-
+  <title>Book Profile</title>
   <link rel="stylesheet" href="/css/styles.css">
-
-
   <style>
+    .book-reviews-container {
+        background-color: #333;
+        color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        width: 95%;
+        max-width: 1200px;
+        margin: 20px auto;
+        overflow-x: auto;
+        text-align: center;
+    }
 
+    .book-reviews-container img {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
 
+    .reviews-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .reviews-table th, .reviews-table td {
+        padding: 15px;
+        border-bottom: 1px solid #555;
+        color: #ddd;
+    }
+
+    .reviews-table th {
+        background-color: #444;
+        color: #ddd;
+        font-weight: bold;
+    }
+
+    .orange-button {
+        background-color: #f57c00;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 10px 0;
+    }
+
+    .orange-button:hover {
+        background-color: #fb8c00;
+    }
   </style>
-
 </head>
 <body>
 <#include "fragments/navbar.ftlh">
 
-<!--<div class="header">-->
-<!--    <h1 class="hw-title" style="color: yellow; text-align: center">Book Master</h1>-->
-<!--    <nav class="nav-links">-->
-<!--        <a href="index.html" style="color: yellow; text-align: center">Home</a>-->
-<!--        <a href="Book%20Store.html" style="color: yellow; text-align: center">Book Store</a>-->
-<!--        <a href="Seller Page.html" style="color: yellow; text-align: center">Profile</a>-->
-<!--        <a href="signup.html" style="color: yellow; text-align: center">Signup</a>-->
-<!--        <a href="page3.html" style="color: yellow; text-align: center">Contact</a>-->
-<!--    </nav>-->
-<!--</div>-->
+<h2 style="color: white; text-align: center">Book Profile</h2>
 
-<h2 class="header2" style="color: white; text-align: center">Book Profile</h2>
+<div class="book-reviews-container">
+  <img src="${book.bookPicture}" alt="Book Image" width="104" height="142">
 
+  <table class="reviews-table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rating out of 5</th>
+      <th>Review</th>
+      <th>Replies</th>
+      <th>Make A Reply</th>
+    </tr>
+    </thead>
+    <tbody>
+    <#list reviews as review>
+    <tr>
+      <td>${review.reviewerName}</td>
+      <td>${review.rating}</td>
+      <td>${review.reviewText}</td>
+      <td><button class="orange-button">View Replies</button></td>
+      <td>
+        <a href="/reply/replyForm/${review.id?c}">
+          <button type="button" class="orange-button">Reply</button>
+        </a>
+      </td>
+    </tr>
+    </#list>
+    </tbody>
+  </table>
 
-<div class="profile-container">
-  <div class="book-table">
-    <table>
+  <a href="/books/update/${book.bookId?c}">
+    <button class="orange-button">Modify</button>
+  </a>
 
-      <tr>
-        <th><img
-                src="${book.bookPicture}"
-                alt="Cobra image" width="104" height="142">
+  <a href="/users/${(book.sellerId.userId?c)!'0'}">
+    <button class="orange-button">Go to Seller's Profile</button>
+  </a>
 
-
-
-        </th>
-
-
-      </tr>
-      <tr>
-        <td>
-
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Rating out of 5</th>
-              <th>Review</th>
-              <th><a><button>View Replies</button></a></th>
-              <th><a><button>Reply</button></a></th>
-
-            </tr>
-
-            <#list reviews as review>
-
-            <tr>
-              <td>${review.reviewerName}</td>
-              <td>${review.rating}</td>
-              <td>${review.reviewText}</td>
-            </tr>
-
-            </#list>
-          </table>
-
-
-
-
-        </td>
-      </tr>
-
-
-      <tr>
-        <td><a href="/books/update/${book.bookId?c}">
-          <button class="orange-button">Modify</button>
-        </a></td>
-
-      </tr>
-
-      <tr>
-        <td><a href="/users/${(book.sellerId.userId?c)!'0'}">
-          <button class="orange-button">Go to seller's profile</button>
-        </a></td>
-
-      </tr>
-
-      <tr>
-        <td>
-
-          <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
-            <button class="orange-button">Go to My Book Store</button>
-          </a>
-
-
-        </td>
-      </tr>
-
-
-    </table>
-  </div>
-
+  <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
+    <button class="orange-button">Go to My Book Store</button>
+  </a>
+</div>
 
 </body>
 </html>
