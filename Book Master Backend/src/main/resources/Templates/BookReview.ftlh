@@ -68,6 +68,17 @@
   <h2>${book.bookTitle}</h2>
   <h3>By: ${book.author}</h3>
   <a href="/reviews/new/${book.bookId?c}"><button>Write a review</button></a>
+  <a href="/books/update/${book.bookId?c}">
+    <button class="orange-button">Modify</button>
+  </a>
+
+  <a href="/users/${(book.sellerId.userId?c)!'0'}">
+    <button class="orange-button">Go to Seller's Profile</button>
+  </a>
+
+  <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
+    <button class="orange-button">Go to My Book Store</button>
+  </a>
   <table class="reviews-table">
     <thead>
     <tr>
@@ -95,17 +106,7 @@
     </tbody>
   </table>
 
-  <a href="/books/update/${book.bookId?c}">
-    <button class="orange-button">Modify</button>
-  </a>
-
-  <a href="/users/${(book.sellerId.userId?c)!'0'}">
-    <button class="orange-button">Go to Seller's Profile</button>
-  </a>
-
-  <a href="/books/seller/${(book.sellerId.userId?c)!'0'}">
-    <button class="orange-button">Go to My Book Store</button>
-  </a>
+ 
 </div>
 
 </body>
