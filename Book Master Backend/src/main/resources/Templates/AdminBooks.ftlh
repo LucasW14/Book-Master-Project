@@ -158,8 +158,8 @@
         <th>Publish Date</th>
         <th>Price</th>
         <th>Quantity Available</th>
-        <th>Books Sold</th>
-        <th>Purchase</th>
+        <th>Statistics</th>
+        <th>Manage</th>
     </tr>
     </thead>
     <tbody>
@@ -171,6 +171,7 @@
         <td>${book.publishDate?string("yyyy-MM-dd")}</td>
         <td>$${book.bookPrice}</td>
         <td>${book.bookQuantity}</td>
+        <td><a href="/purchase/statsonbook/${book.bookId?c}"><button>View Book Statistics</button></a></td>
         <td>
 
             <a href="/books/${book.bookId?c}"><button class="orange-button">View Details</button></a>

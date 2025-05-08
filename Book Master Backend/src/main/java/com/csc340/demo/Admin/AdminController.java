@@ -2,6 +2,7 @@ package com.csc340.demo.Admin;
 
 import com.csc340.demo.Book.Book;
 import com.csc340.demo.Book.BookService;
+import com.csc340.demo.Purchase.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,9 @@ public class AdminController {
 
     @Autowired
     public BookService bookService;
+
+    @Autowired
+    public PurchaseService purchaseService;
 
     // 1. Display login page
     @GetMapping("/login")
@@ -53,9 +57,14 @@ public class AdminController {
     @GetMapping("/allbooks")
     public String showBooks(Model model) {
         List<Book> books = bookService.getAllBooks();
+
+
         model.addAttribute("books", books);
         model.addAttribute("title", "Admin Book Management");
         return "AdminBooks"; // AdminBooks.ftlh
+
+
+
     }
 
 
