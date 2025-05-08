@@ -67,6 +67,11 @@
   <h1>${review.reviewerName}</h1>
   <h2>${review.reviewText}</h2>
 
+  <a href="/reply/replyForm/${review.id?c}">
+    <button class="orange-button">Make a new reply</button>
+  </a>
+
+
   <table class="reviews-table">
     <thead>
     <tr>
@@ -82,20 +87,14 @@
       <td>${reply.replierName}</td>
       <td>${reply.description}</td>
       <td>${reply.dateMade}</td>
-      <td><button class="orange-button">View Replies</button></td>
-      <td>
-        <a href="/reply/replyForm/${review.id?c}">
-          <button type="button" class="orange-button">Reply</button>
-        </a>
-      </td>
+
     </tr>
     </#list>
     </tbody>
   </table>
 
-<!--  <a href="/books/update/${book.bookId?c}">-->
-<!--    <button class="orange-button">Modify</button>-->
-<!--  </a>-->
+
+
 
 <!--  <a href="/users/${(book.sellerId.userId?c)!'0'}">-->
 <!--    <button class="orange-button">Go to Seller's Profile</button>-->
