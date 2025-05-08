@@ -46,9 +46,7 @@
         <tr>
             <td>ID: ${user.userId?c}</td>
         </tr>
-        <tr>
-            <td>Follower Count: 25,000</td>
-        </tr>
+        
         <tr>
             <td><a href="/users/update/${user.userId?c}"><button class="orange-button" >Modify Profile</button></a></td>
         </tr>

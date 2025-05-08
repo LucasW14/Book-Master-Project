@@ -179,7 +179,7 @@
         <td>${book.bookQuantity}</td>
         <td>${book.sellerId.userId}</td>
         <td>
-            <form method="get" action="/purchase/purchase">
+            <form method="get" action="/purchase/purchase/${book.bookId?c}">
                 <input type="hidden" name="bookId" value="${book.bookId}">
                 <input type="number" name="quantity" value="1" min="1" max="${book.bookQuantity}" required>
                 <button type="submit" class="orange-button">Buy</button>
@@ -188,7 +188,7 @@
                 <input type="hidden" name="userId" value="1"/>
                 <input type="hidden" name="plan" value="Until Unsubscribe"/>
                 <input type="hidden" name="status" value="Active"/>
-                <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+                <button type="submit" class="orange-button" style= "padding: 10px 20px; border: none; border-radius: 5px;">
                     Subscribe
                 </button>
 

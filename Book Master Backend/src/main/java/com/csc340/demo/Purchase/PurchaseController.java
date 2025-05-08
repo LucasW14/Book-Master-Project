@@ -93,10 +93,8 @@ public class PurchaseController {
     }
 
 
-    @GetMapping("/purchase")
-    public String purchaseBook(@RequestParam("bookId") int bookId,
-                               @RequestParam("quantity") int quantity,
-                               Model model) {
+    @GetMapping("/purchase/{bookId}")
+    public String purchaseBook(@PathVariable int bookId, Model model) {
 
 
         Book book = bookService.getBookById(bookId);
@@ -108,39 +106,29 @@ public class PurchaseController {
         }
 
 
-        if (quantity <= 0) {
+        if (book.getBookQuantity() <= 0) {
             model.addAttribute("message", "Invalid quantity.");
             return "error";
         }
 
 
-        if (book.getBookQuantity() < quantity) {
+        if (book.getBookQuantity() < book.getBookQuantity()) {
             model.addAttribute("message", "Not enough stock available.");
             return "error";
         }
 
 
-        model.addAttribute("bookId", bookId);
-        model.addAttribute("quantity", quantity);
+        model.addAttribute("bookId", book.getBookId());
+        model.addAttribute("quantity", book.getBookQuantity());
         model.addAttribute("bookTitle", book.getBookTitle());
-        model.addAttribute("totalPrice", book.getBookPrice() * quantity);
+        model.addAttribute("totalPrice", book.getBookPrice() * book.getBookQuantity());
         return "creditCardInfo";
     }
 
 
-    @PostMapping("/submitCreditCard")
-    public String submitCreditCard(@RequestParam("bookId") int bookId,
-                                   @RequestParam("quantity") int quantity,
-                                   @RequestParam("cardNumber") String cardNumber,
-                                   @RequestParam("expiryDate") String expiryDate,
-                                   @RequestParam("cvv") String cvv,
-                                   Model model) {
+    @PostMapping("/submitCreditCard/{bookId}")
+    public String submitCreditCard(@PathVariable int bookId, Model model) {
 
-
-        if (cardNumber.isEmpty() || expiryDate.isEmpty() || cvv.isEmpty()) {
-            model.addAttribute("message", "Credit card information is incomplete.");
-            return "error";
-        }
 
 
         Book book = bookService.getBookById(bookId);
@@ -155,14 +143,14 @@ public class PurchaseController {
         User buyer = book.getSellerId(); // Keeping original logic
 
 
-        purchaseService.createPurchase(buyer, book, quantity);
-        bookService.updateBookQuantity(book, quantity);
+        purchaseService.createPurchase(buyer, book, book.getBookQuantity());
+        bookService.updateBookQuantity(book, book.getBookQuantity());
 
 
         model.addAttribute("message", "Purchase successful!");
         model.addAttribute("bookTitle", book.getBookTitle());
-        model.addAttribute("quantity", quantity);
-        model.addAttribute("totalPrice", book.getBookPrice() * quantity);
+        model.addAttribute("quantity", book.getBookQuantity());
+        model.addAttribute("totalPrice", book.getBookPrice() * book.getBookQuantity());
         return "success";
     }
 

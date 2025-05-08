@@ -5,6 +5,7 @@
 
 package com.csc340.demo.Book;
 
+import com.csc340.demo.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -107,6 +108,7 @@ return "bookstore";
     public Object addNewBook(Book book, Model model) {
         System.out.println(book.toString());
         this.bookService.addNewBook(book);
+
         return "redirect:/books/all";
     }
 
