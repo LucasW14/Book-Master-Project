@@ -128,9 +128,9 @@ public class UserController {
 
 
     // Handle deletion
-    @GetMapping("/delete")
-    public String deleteUser2(@RequestParam int id) {
-        userService.deleteUser(id);
+    @GetMapping("/delete/{userId}")
+    public String deleteUser2(@PathVariable int userId) {
+        userService.deleteUser(userId);
         return "redirect:/users/list";
     }
 
