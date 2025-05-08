@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Master - Homepage</title>
-<#include "fragments/navbar.ftlh">
+    <#include "fragments/navbar.ftlh">
     <style>
         body {
-            background-color: white; /* red background for the homepage */
-            color: black; /* Yellow text for all pages */
+            background-color: white;
+            color: black;
             font-family: 'Roboto', sans-serif;
-            text-align: center; /* Centers the text */
+            text-align: center;
         }
         .navbar {
             background-color: red;
@@ -42,26 +42,33 @@
             margin-right: auto;
             line-height: 1.6;
         }
+        /* Adjusted image size to be 25% */
+        .book-image {
+            max-width: 25%; /* Image now takes up 25% of the available width */
+            height: auto;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
+<!-- Main Content -->
+<div class="book-section">
+    <h1 class="book-title">Bestselling Book</h1>
+    <img src="https://m.media-amazon.com/images/I/71uYOLTT5HL.jpg" alt="Descriptive text" class="book-image">
+    <h2 class="book-title">${bookTitle}</h2>
+    <p class="book-author">By: ${bookAuthor}</p>
+    <p class="book-genre">${bookGenre}</p>
+</div>
 
-    <!-- Main Content -->
-    <div class="book-section">
-        <h1 class="book-title">Bestselling Book</h1>
-        <img src="/images/lion.jpg" alt="Descriptive text" style="max-width: 10%; height: auto;">
-        <h2 class="book-title">${bookTitle}</h2>
-        <p class="book-author">By: ${bookAuthor}</p>
-        <p class="book-genre">${bookGenre}</p>
-    </div>
+<div class="about-book">
+    <h3>About Book Master</h3>
+    <p>Book Master is an interactive application designed to make buying and selling books easier. Whether you're looking to browse books of your favorite genre, buy the latest bestsellers, or sell your own collection, we've got you covered. Our user-friendly platform lets you find books, sell books, and interact with other users in a safe, secure environment. Start your reading journey with Book Master today!</p>
+</div>
 
-    <div class="about-book">
-        <h3>About Book Master</h3>
-        <p>Book Master is an interactive application designed to make buying and selling books easier. Whether you're looking to browse books of your favorite genre, buy the latest bestsellers, or sell your own collection, we've got you covered. Our user-friendly platform lets you find books, sell books, and interact with other users in a safe, secure environment. Start your reading journey with Book Master today!</p>
-    </div>
 <footer>
-        © 2025 Book Master. All Rights Reserved.
-    </footer>
+    © 2025 Book Master. All Rights Reserved.
+</footer>
+
 </body>
 </html>
