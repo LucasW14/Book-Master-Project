@@ -31,8 +31,8 @@
                 <td class="td2">${user.email}</td>
                 <td class="td2">${user.setType}</td>
                 <td class="td2">
-                    <a href="/users/update/${user.userId}"><button class="button2">Edit</button></a>
-                    <a href="/users/delete/${user.userId}"><button class="button2">Delete</button></a>
+                    <a href="/users/update/${user.userId?c}"><button class="button2">Edit</button></a>
+                    <a href="/users/delete/${user.userId?c}"><button class="button2">Delete</button></a>
                 </td>
             </tr>
         </#list>
