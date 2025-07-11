@@ -3,4 +3,4 @@ Relevant files and folders: BookMaster.pdf, Book-Master-Scenarios.pdf, Backend f
 
 
 1. Use SpringBoot to start project
-2. 
+2. Bootstrap application with https://start.spring.io 
